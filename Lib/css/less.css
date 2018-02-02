@@ -1,0 +1,302 @@
+@import "bootstrap-social.css";
+
+.bg{
+	background-image: url('../imgs/slide3.jpg') ;
+	width: 98.9vw; /*for full width background*/
+	height: 100vh; 
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+/*NAVBAR*/
+/* Navbar Transparency*/
+nav{
+	overflow: auto;
+}
+.navbar{
+	width: 100%;
+	margin-bottom: 0px;
+	border-radius: 0%;
+}
+.transparent{
+	opacity: 0.75;
+	filter: alpha(opacity=50);
+}
+.navbar-logo{
+	margin-top:5%;
+	max-width:20%;
+	max-height:100%;
+}
+.navbar-logo:hover{
+	filter: hue-rotate(180deg);
+	-webkit-filter: hue-rotate(180deg);
+	/*background-color:#ffffff;*/
+	margin-top:5%;
+	max-width:20%;
+	max-height:100%;
+}
+/*END OF NAVBAR*/
+
+/*CAROUSEL*/
+html, 
+body, 
+.carousel, 
+.carousel-inner, 
+.carousel-inner .item {
+    height: 90%;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;;
+}
+
+
+.item:nth-child(1) {
+    background: #ff3322;
+}
+
+.item:nth-child(2) {
+    background: #44c7f4;
+}
+
+.item:nth-child(3) {
+    background: #6e2585;
+}
+
+.item:nth-child(4) {
+    background: #ffcd00;
+}
+
+/* Changes position of caption */
+.carousel-caption {
+    top: 40%;
+    bottom: auto;
+}
+/*END OF CAROUSEL*/
+
+/*CONTENT*/
+.fit{
+	display:block;
+	max-width:100%;
+	max-height:auto; 
+}
+.blue-text-content{
+	color: #2196f3;
+}
+.introduction-custom{
+	margin-bottom: 4%;
+}
+.content1-custom{
+	background-color: #910039; /*maroon*/
+	color: #ffffff;
+	/*background: linear-gradient(to right, #b71c1c, #4a148c);*/ /* gradient */
+}
+.content2-custom{
+	color: #ffffff;
+	background-color: #2196f3; /*blue*/
+	/*background: linear-gradient(to right, #b71c1c, #4a148c);*/ /* gradient */
+}
+.content3-custom{
+	color: #ffffff;
+	background-color: #910039; /*maroon*/
+	/*background: linear-gradient(to right, #b71c1c, #4a148c);*/ /* gradient */
+	margin-bottom: 3%;
+}
+/*END OF CONTENT*/
+
+/*HEADERS*/
+.header-blueP{
+	color:#e3f2fd ;
+	opacity:0.85;
+	filter: alpha(opacity=50);
+	background: linear-gradient(to right, #0d47a1, #2196f3);
+}
+/*END OF HEADERS*/
+
+/*BODIES*/
+.body-maroonP{
+    color:#e3f2fd ;
+    opacity:0.85;
+    filter: alpha(opacity=50);
+    background: linear-gradient(to right, #910039, #2196f3);
+}
+/*END OF BODIES*/
+
+/*ABOUT*/
+.img-circle{
+	max-height:50%; 
+	max-width:50%;
+	border-radius: 50%;	
+}
+.about-custom{
+	color: #2196f3; /*blue*/
+	position: center;
+	margin-bottom: 3%;
+	padding: 3%;
+}
+/*END OF ABOUT*/
+
+/*FOOTER*/
+.foot-custom{
+	color: #d3d3d3;
+	background-color: #222222; /*blue-#2196f3*/
+	position: relative;
+	padding: 3%;
+}
+.divider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: black;
+  text-align: center;
+}
+/*END OF FOOTER*/
+
+/*RESULT STYLE*/
+
+
+
+/*END OF RESULT STYLE*/
+
+
+/*PARALAX*/
+
+/*.parallax { 
+
+    background-image: url("../imgs/slide3.jpg");
+
+
+    height: 500px; 
+
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+/*END OF PARALAX*/
+
+/*To be organized*/ 
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.m-middle{
+	margin: 0 auto;
+}
+#white{
+    color: white;
+}
+.header{
+    background-color: #008b8b;
+    color: white;
+    text-align: center;
+    top:0px;
+    width: 100%;
+    padding: 5px;
+}
+.form-maroon{
+    color: #ffffff;
+    background-color: #910039;
+    background: linear-gradient(to right, #b71c1c, #880e4f );
+    width: 100%; /*important, changing the default width of forms be careful*/
+    padding: 30px;
+    border: 1px solid #910039;
+    margin: 5px auto;
+}
+
+form{
+    color: #ffffff;
+    background-color: #910039;
+    /*background: linear-gradient(to right, #b71c1c, #880e4f );*/
+    width: 100%; /*important, changing the default width of forms be careful*/
+    padding: 30px;
+/*    border: 1px solid #910039;*/
+    margin: 5px auto;
+}
+.textField{
+    margin-top: 2px;
+    height: 28px;
+    border: 1px solid blue;
+    font-size: 16px;
+    padding: 1px;
+    width: 100%;
+}
+#error_msg{
+    width: 50%;
+    margin: 5px auto;
+    height: 30px;
+    border: 1px solid darkred;
+    background: red;
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 10px;
+}
+/*To be organized*/	
+
+/* The quiz responses 1/24/2017 */
+.Rcontainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.Rcontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+   	position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.Rcontainer:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.Rcontainer:checked input ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.Rcontainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.Rcontainer .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #2196F3;
+}
+
+/*End of quiz responses*/
