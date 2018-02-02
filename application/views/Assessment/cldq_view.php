@@ -9,16 +9,20 @@
 	       	</div>
 	    </div>
 	    <div class="quiz-container">
-			<div class = "<?php echo $btn?>">
+			<div class = " ">
 			    <?php if ($index<30): ?>
 			    	<form method="post" action="<?php echo base_url('index.php/cldq/show_cldq') ?>" class="container">
 			    <?php else: ?>
-			    	<form method="post" action="<?php echo base_url('index.php/cldq/cldq_save') ?>" class="container">
+			    	<form method="post" action="<?php echo base_url('index.php/cldq/cldq_result') ?>" class="container">
 			    <?php endif ?>
 						<table class="table table-inverse" id = "white">
 							<thead align="center">
 								<tr>	
-									<th class="col-md-9">Questions</th>
+									<?php if ($index!=30): ?>
+										<th class="col-md-9"><?php echo "Question #".$index." of 29"; ?> </th>
+									<?php else: ?>
+										<th class="col-md-9">Thank you for Answering</th>
+									<?php endif ?>
 								</tr>
 							</thead>
 							<tbody>

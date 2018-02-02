@@ -18,8 +18,13 @@
 				<form method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" class="container">
 						<table class="table table-inverse" id = "white">
 							<thead align="center">
-								<tr>	
-									<th class="col-md-9">Questions</th>
+								<tr>
+									<?php if ($index!=37): ?>
+										<th class="col-md-9"><?php echo "Question #".$index." of 36"; ?> </th>
+									<?php else: ?>
+										<th class="col-md-9">Thank you for Answering</th>
+									<?php endif ?>
+									
 								</tr>
 							</thead>
 							<tbody>

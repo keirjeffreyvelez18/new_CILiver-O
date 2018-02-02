@@ -1,46 +1,18 @@
 <?php include_once('Lib/layout/header.php');?>
 	
 	<div class = "container">
-
 		<!-- Progress Indicator -->
-		<div class = "container">
-			<div class="row">
-	       		<div class = "col-lg-12">
-	       			<center><h3>Your Progress</h3></center>
-		        	<ul class="progress-indicator">
-			            <li class="completed">
-			                <span class="bubble"></span>
-			                BMI Test. <br><small>(complete)</small>
-			            </li>
-			            <li class="active">
-			                <span class="bubble"></span>
-			                General Health Assessment. <br><small>(active)</small>
-			            </li>
-			            <li >
-			                <span class="bubble"></span>
-			                Brief Liver Assessment. 
-			            </li>
-			            <li >
-			                <span class="bubble"></span>
-			                Persistence. 
-			            </li>
-			            <li>
-			                <span class="bubble"></span>
-			                Chronic Liver Disease Questionnare.
-			            </li>
-			            <li>
-			                <span class="bubble"></span>
-			                Assessment Result.
-			            </li>
-		        	</ul>
-		        </div>
-	       	</div>
-	    </div>
+			
+			<div class = "container">
+			
+	       		<?php include_once('Lib/layout/progress.php');?>
+
+	    	</div>
 
 		<!-- End of Progress Indicator -->
 	
 		<!-- Results -->
-
+	
 		<div class = "container m-middle content1-custom">
 	       	<div class = "row">
 	       		<div class = "col-lg-12 content2-custom">
@@ -59,7 +31,17 @@
 	       		<div class = "col-lg-8">
 	       			<div class = "container-fluid m-middle">
 	       				<center><h3>Results Go Here!</h3></center><!-- result goes here -->
-	       				<img class = "fit" src = "<?php echo BASE_URL('Lib/imgs/slide3.jpg')?>" alt="example">
+	       					<table>
+	       						<tr>
+	       							<h3>CLDQ: <?php echo $sf36; ?></h3>
+	       						</tr>
+	       						<tr>
+	       							<h3>BLQ: <?php echo $blq; ?></h3>
+	       						</tr>
+	       						<tr>
+	       							<h3>CLDQ: <?php echo $cldq; ?></h3>
+	       						</tr>
+	       					</table>
 	       				<br>
 	       			</div>
 	       		</div>
@@ -74,20 +56,6 @@
 	       			</div>
 	       		</div>
 	       	</div>
-
-		<!-- Progress Trackers -->
-	       	<div class = "row">
-	       		<div class = "col-lg-12">
-	       			<div class="progress">
-					  <div class="progress-bar" role="progressbar" aria-valuenow="70"
-					  aria-valuemin="0" aria-valuemax="100" style="width:100%">
-					    100%
-					  </div>
-					</div>
-	       		</div>
-	       	</div>
-		<!-- Progress Trackers -->	
-
 	    </div>
 
     <!--End of Result Form-->

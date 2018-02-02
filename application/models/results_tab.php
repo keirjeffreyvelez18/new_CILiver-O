@@ -1,17 +1,17 @@
 <?php
-	class assessments_tab extends CI_Model {
+	class results_tab extends CI_Model {
 
     	function __construct(){
         	parent::__construct();
     	}
 
-    	// function result($rIndex = 0){
-     //        $this->db->select('*');
-     //        $this->db->from('result');
-     //        $this->db->where('rIndex', $rIndex);
-     //        $query = $this->db->get();
-     //        return $query->result();
-     //    }
+    	function getResult(){
+            $this->db->select('qresults');
+            $this->db->from('assessment');
+            $this->db->where('userid', $this->session->userdata('userid'));
+            $query = $this->db->get();
+            return $query->result_array();
+        }
 
     }
 

@@ -59,8 +59,11 @@ class Cldq extends CI_Controller {
 		$r = json_decode($this->assessments_tab->getResult()[0]['qresults'],true);
 
 		$data = $this->getAllData();
-		$data['qTaken']['sf36']=1;
-		$data['qTaken']['blq']=0.5;
+
+		$data['cldq'] = $r['ave'];
+
+		exit();
+		$data['qTaken']['cldq']=1;
 
 		$this->assessments_tab->updateTaken($data);
 

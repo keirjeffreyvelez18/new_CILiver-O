@@ -20,13 +20,24 @@ class Result extends CI_Controller {
 
 	function __construct(){
        	parent::__construct();
+       	$this->load->model('results_tab');
+       	$this->load->model('assessments_tab');
        	$this->load->helper(array('form', 'url'));
 
    	}
 
 	public function index()
 	{
-		$this->load->view('Result/result_view');
+		$r = $this->results_tab->getResult();
+		$data['title'] = "Results | CLiver-O";
+		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
+		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
+		$data['sf36'] = json_decode($r[0]['qresults'], TRUE)['ave'];
+		$data['blq'] = $r[1]['qresults'];
+		$data['cldq'] = json_decode($r[2]['qresults'], TRUE)['ave'];
+
+		$this->load->view('Result/result_view', $data);
+
 	}
 
 

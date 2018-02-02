@@ -9,7 +9,7 @@
 	       	</div>
 	    </div>
 	    <div class="quiz-container">
-			<div class = "<?php echo $btn ?>">
+			<div class = " ">
 			    <?php if ($index<18): ?>
 			    	<form method="post" action="<?php echo base_url('index.php/blq/show_blq');?>" class="container">
 			    <?php else: ?>
@@ -18,7 +18,11 @@
 						<table class="table table-inverse" id = "white">
 							<thead align="center">
 								<tr>	
-									<th class="col-md-9">Questions</th>
+									<?php if ($index!=18): ?>
+										<th class="col-md-9"><?php echo "Question #".$index." of 18"; ?> </th>
+									<?php else: ?>
+										<th class="col-md-9">Thank you for Answering</th>
+									<?php endif ?>
 								</tr>
 							</thead>
 							<tbody>

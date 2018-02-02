@@ -151,7 +151,7 @@ class Assessment extends CI_Controller {
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
 		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		$data['qTaken']['sf36']=1;
-		if ($data['qTaken']['blq']==0.5) {
+		if ($data['qTaken']['blq']==0) {
 			$data['qTaken']['blq']=0.5;
 		}
 		$this->assessments_tab->updateTaken($data);

@@ -44,16 +44,16 @@
 							<h2>Legend</h2>
 							<!-- Scales -->
 						       	<div class="progress">
-								  <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
+								  <div class="progress-bar" role="progressbar" style="width:25%; background:#12e5d6; color: black;">
 								    UnderWeight
 								  </div>
-								  <div class="progress-bar progress-bar-success" role="progressbar" style="width:25%">
+								  <div class="progress-bar" role="progressbar" style="width:25% ; background:#12e551;color: black;">
 								    Normal
 								  </div>
-								  <div class="progress-bar progress-bar-warning" role="progressbar" style="width:25%">
+								  <div class="progress-bar" role="progressbar" style="width:25% ; background:#e0dd3c;color: black;">
 								    Overweight
 								  </div>
-								  <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
+								  <div class="progress-bar" role="progressbar" style="width:25% ; background:#f71616;color: black;">
 								    Obese
 								  </div>
 								</div>

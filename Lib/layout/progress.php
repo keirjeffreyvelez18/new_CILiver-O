@@ -107,9 +107,20 @@
 			            </li>
 			            <!-- end CLDQ -->
 			            <!-- start Asssessment -->
-			            <li>
-			                <span class="bubble"></span>
-			                Assessment Result.
+
+			            <li class="<?php if($qTaken['cldq']==1){echo'completed';} ?>">
+			            	<a href="<?php echo base_url('index.php/result');?>"
+			            		onclick="return <?php if($qTaken['cldq']==0){echo'false';} ?>;" >
+			                	<span class="bubble">
+				                </span>
+				            </a>
+			                <a href="<?php echo base_url('index.php/result'); ?>">
+			                	<button class="btn" style="background-color:transparent;" 
+			                	<?php if($qTaken['cldq']==0){echo'disabled';} ?> >
+			                		Assessment Result.
+			                	</button>
+			                </a>
+			                
 			            </li>
 			            <!-- end Assessement -->
 		        	</ul>

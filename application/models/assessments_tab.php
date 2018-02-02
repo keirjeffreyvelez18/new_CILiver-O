@@ -11,7 +11,7 @@
             $query = $this->db->update('users');
             return $query;
         }
-        
+
         function ins_assessment($category=""){
             $qAns = array(
                 0 => 0
@@ -30,6 +30,14 @@
             );
             return $this->db->insert('Assessment',$assess);
 
+        }
+
+        function getResult(){
+            $this->db->select('*');
+            $this->db->from('assessment');
+            $this->db->where('userid', $this->session->userdata('userid'));
+            $query = $this->db->get();
+            return $query->result_array();
         }
 
         function upd_assessment($qAns="", $refNo="",$dtFinal="", $qresults=""){
