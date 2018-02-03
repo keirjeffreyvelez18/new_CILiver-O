@@ -23,39 +23,37 @@
     		return $query;
     	}
 
-        function update_username($dataupdate = array()){
+        function update_email($dataupdate = array()){
                 $this->db->set('email', $dataupdate['email']);
-                $this->db->where('userid', $dataupdate['userid']);
+                $this->db->where('userid', $this->session->userdata('userid'));
                 $query = $this->db->update('users');
                 return $query;
         }
 
         function update_password($dataupdate = array()){
-            if ($dataupdate['password']==$dataupdate['password2']) {
                 $this->db->set('password', $dataupdate['password']);
-                $this->db->set('password2', $dataupdate['password2']);
-                $this->db->where('userid', $dataupdate['userid']);
+                $this->db->where('userid', $this->session->userdata('userid'));
                 $query = $this->db->update('users');
-                return $query;            }
+                return $query;            
         }
 
-        function update_name($dataupdate = array()){
-            $this->db->set('username', $dataupdate['name']);
-            $this->db->where('userid', $dataupdate['userid']);
+        function update_username($dataupdate = array()){
+            $this->db->set('username', $dataupdate['username']);
+            $this->db->where('userid', $this->session->userdata('userid'));
             $query = $this->db->update('users');
             return $query;
         }
 
         function update_dob($dataupdate = array()){
             $this->db->set('birthday', $dataupdate['birthday']);
-            $this->db->where('userid', $dataupdate['userid']);
+            $this->db->where('userid', $this->session->userdata('userid'));
             $query = $this->db->update('users');
             return $query;
         }
 
         function update_gender($dataupdate = array()){
             $this->db->set('gender', $dataupdate['gender']);
-            $this->db->where('userid', $dataupdate['userid']);
+            $this->db->where('userid', $this->session->userdata('userid'));
             $query = $this->db->update('users');
             return $query;
         }
@@ -66,7 +64,7 @@
             $this->db->from('users');
             $this->db->where('email like binary', $email);
             $this->db->where('password like binary', $password);
-            $query = $this->db->get('');
+            $query = $this->db->get();
 
             if($query->num_rows()==1){
                 $row= $query->row();

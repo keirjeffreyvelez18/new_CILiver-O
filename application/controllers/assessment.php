@@ -123,12 +123,14 @@ class Assessment extends CI_Controller {
 
 		$data['result'] = $this->get_score();
 
+
+
 		$this->load->view('Assessment/sf36_view', $data);
 	}
 
 	public function sf36_result(){
 		$r = json_decode($this->assessments_tab->getResult()[0]['qresults'],true);
-
+		$data['sf36_eval'] = $this->evaluate($r);
 		if ($r['ave']>=75) {
 			$this->load->view('Assessment/assessment_view', $data);
 		}else{
@@ -262,7 +264,7 @@ class Assessment extends CI_Controller {
 		return $percentage;		
 	}
 
-	function evaluate($score_mean=""){
+	public function evaluate($score_mean=""){
 
 		$eval = array(
 			'pf' => "",
@@ -347,7 +349,10 @@ class Assessment extends CI_Controller {
 			$eval['ave']=("Average Health is Healthy");
 			
 		}
+
+		return $eval;
 	}
+
 
 	
 }

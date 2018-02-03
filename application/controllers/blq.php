@@ -100,9 +100,9 @@ class Blq extends CI_Controller {
 		$r = json_decode($this->assessments_tab->getResult()[0]['qresults'],true);
 
 		$data = $this->getAllData();
-		$data['qTaken']['blq']=1;
-		$data['qTaken']['prs']=0.5;
-		$this->assessments_tab->updateTaken($data);
+		$save['qTaken']['blq']=1;
+		$save['qTaken']['prs']=0.5;
+		$this->assessments_tab->updateTaken($save);
 
 		if ($r['ave']>=75) {
 			$this->load->view('Assessment/blq', $this->getAllData());

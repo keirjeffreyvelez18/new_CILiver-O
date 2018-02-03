@@ -37,7 +37,7 @@
                     </td>
 
                     <?php if ($edit_name==TRUE): ?>
-                      <form method="post" action="<?php echo base_url('index.php/home/update_name');?>">
+                      <form method="post" action="<?php echo base_url('index.php/home/update_username');?>">
                     <?php else: ?>
                       <form method="post" action="<?php echo base_url('index.php/home/update');?>">
                     <?php endif ?>
@@ -63,7 +63,7 @@
 
                             <div class="inner-addon left-addon">
                               <i  class="glyphicon glyphicon-edit"></i>
-                              <input type="hidden" name="edit" value="name">
+                              <input type="hidden" name="edit" value="username">
                               <input type="submit" name="btn_edit" value="EDIT" style="background-color:transparent; font-size:16px" class = "btn btn-sm form-control">
                             </div>
 
@@ -91,6 +91,7 @@
                           <i  class="glyphicon glyphicon-lock"></i>
                             <div class="input-group ">
                                 <input type="password" name="password" class = "form-control"  id="pass" placeholder="Password" value = ""  <?php if(!$edit_pass){echo "readonly";} ?> required><br>
+                                <input type="hidden" name="pass" value="pass">
                                  <div class="input-group-addon">
                                     <div>
                                         <input type="checkbox" name="" title="Show Password" onclick="passw()" >
@@ -113,7 +114,7 @@
 
                               <div class="inner-addon left-addon">
                                 <i  class="glyphicon glyphicon-edit"></i>
-                                <input type="hidden" name="edit" value="pass">
+                                <input type="hidden" name="edit" value="password">
                                 <input type="submit" name="btn_edit" value="EDIT" style="background-color:transparent; font-size:16px" class = "btn btn-sm form-control">
                               </div>
 

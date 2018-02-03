@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('Lib/css/bootstrap.css')?>" >
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('Lib/css/less.css')?>" >
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('Lib/css/animate.css')?>" >
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('Lib/css/design.css')?>" >
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('Lib/css-progress-wizard-master/css/progress-wizard.min.css')?>" >
     
     <!-- For social media -->
@@ -171,9 +172,11 @@
           <h4 class="modal-title">Login</h4>
         </div>
         <div class="modal-body">
-            <center>
-        <form method="post" action="<?php echo base_url('index.php/home/login');?>">
-            <div class="text-success" style="text-align: "><?php echo $this->session->flashdata('success')?></div>
+        <center>
+        <div class="text-success" style="text-align: "><?php echo $this->session->flashdata('success')?></div>
+            
+        <form method="post" class="login" action="<?php echo base_url('index.php/home/login');?>">
+            
             <div class="col-sm-9 input-group">
                 <input class="form-control" placeholder="Email" name="email" type="email" value= "<?php echo set_value('email'); ?>"><br>
                 <sup>Email serves as username</sup><br><br>
@@ -226,66 +229,33 @@
           <h4 class="modal-title">Register</h4>
         </div>
         <div class="modal-body">
-            <form method="post" action="<?php  echo base_url('index.php/home/register')?>">
-                <table>
-                    <tr>
-                        <td class="col-sm-2">
-                            <label for="Name" class="col-sm-2 form-control-label ">Name: </label>
-                        </td>
-                        <td class="col-md-10">
-                            <input type="text" name="name" class = "form-control" placeholder="Name" value = "<?php echo set_value('name'); ?>" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-2">
-                            <label for="email" class="col-sm-2 form-control-label">Email:</label>
-                        </td>
-                        <td class="col-md-10">
-                            <input class="form-control" placeholder="Email" name="email" type="email" value= "<?php echo set_value('email'); ?>">
-                            <center><small>Email serves as username</small></center>    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-2">
-                            <label for="password" class="col-sm-2 form-control-label">Password: </label>
-                        </td>
-                        <td class="col-md-11">
-                            <div class="input-group">
-                                <input type="password" name="password" class = "form-control"  id="pass" placeholder="Password" value = "<?php echo set_value('password'); ?>" required><br>
-                                 <div class="input-group-addon">
-                                    <input type="checkbox" name="" title="Show Password" onclick="passw()" >
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-2">
-                            <label for="birthday" class="col-sm-2 form-control-label" >Birthday: </label>
-                        </td>
-                        <td class="col-md-11">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="glyphicon glyphicon-calendar"></i>
-                                </div>
-                                <input type="date" name="birthday" class = "form-control " value = "<?php echo set_value('birthday'); ?>" required >
-                                
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-2">
-                            <label for="gender" class="col-sm-2 form-control-label">Gender: </label>
-                        </td>
-                        <td class="col-md-11">
-                            <div >
-                                <select name='gender' class = "form-control">
-                                    <option value="Male" <?php echo set_select("gender",'Male'); ?>>Male</option>
-                                    <option value="Female" <?php echo set_select("gender",'Female'); ?>>Female</option>
-                                </select><br>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+            <form method="post" class="register" action="<?php  echo base_url('index.php/home/register')?>">       
+                <center>
+
+                <input type="text" name="username" class = "form-control" placeholder="Name" value = "<?php echo set_value('username'); ?>" required><br>
+
+                <input class="form-control" placeholder="Email" name="email" type="email" value= "<?php echo set_value('email'); ?>" required>
+                            <center><small>Email serves as username</small></center><br> 
+
+                <div class="input-group">
+                    <input type="password" name="password" class = "form-control"  id="password" placeholder="Password" value = "<?php echo set_value('password'); ?>" required><br>
+                    <div class="input-group-addon">
+                        <input type="checkbox" name="" title="Show Password" onclick="password()" >
+                    </div>
+                </div><br>            
+
+                <div class="input-group">
+                    <div class="input-group-addon">
+                         <i class="glyphicon glyphicon-calendar"></i>
+                    </div>
+                    <input type="date" name="birthday" class = "form-control" placeholder="Birthday" value = "<?php echo set_value('birthday'); ?>" required >
+                </div><br>
+
+                <select name='gender' class = "form-control">
+                    <option value="Male" <?php echo set_select("gender",'Male'); ?>>Male</option>
+                    <option value="Female" <?php echo set_select("gender",'Female'); ?>>Female</option>
+                </select><br>    
+
                 <input  type="submit" name="register_btn" value="Register" class = "btn btn-primary btn-block"> 
             </form>
 

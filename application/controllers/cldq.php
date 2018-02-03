@@ -62,7 +62,6 @@ class Cldq extends CI_Controller {
 
 		$data['cldq'] = $r['ave'];
 
-		exit();
 		$data['qTaken']['cldq']=1;
 
 		$this->assessments_tab->updateTaken($data);

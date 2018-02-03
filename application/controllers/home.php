@@ -35,7 +35,6 @@ class Home extends CI_Controller {
 
 	public function register()
 	{	
-		$title['title'] = 'Register|CILiver-O';
 
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
 		$this->form_validation->set_rules('email', 'E-mail', 'is_unique[users.email]');
@@ -45,9 +44,12 @@ class Home extends CI_Controller {
 		// $dec = $this->encrypt->decode($enc);
 		// print_r($enc);
 		// print_r($dec);exit();
+		
+
 
 		if ($this->form_validation->run()) {
-				$data['username'] = $this->input->post('name');
+				$data['username'] = $this->input->post('username');
+				print_r($data['username']);
 				$data['email']= $this->input->post('email');
 				$data['password' ]= $this->input->post('password');
 				$data['birthday'] = $this->input->post('birthday');
@@ -77,7 +79,7 @@ class Home extends CI_Controller {
 					$this->load->view('User/welcome_page',$title);
 				}
 		}else{
-			$this->load->view('User/welcome_page',$title);
+			redirect('home/',$title);
 		}
 
 
@@ -105,9 +107,8 @@ class Home extends CI_Controller {
 
 
 	public function login(){
-		$data['title']='Login|CILiver-O';
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
-		
+		$data['title'] = "Login | Liver-0";
 
 		if($this->form_validation->run()){
 			$email=$this->input->post('email');
@@ -122,7 +123,7 @@ class Home extends CI_Controller {
 					'password'=>$password,
 					'birthday'=>$result['birthday'],
 					'gender'=>$result['gender'],
-					'isLoggedIn'=> TRUE
+					'isLoggedIn'=> TRUE,
 					);
 				$this->session->set_userdata($session_data);
 				redirect('/home/home_page');
@@ -132,7 +133,7 @@ class Home extends CI_Controller {
 				redirect('/home');
 			}
 		}else{
-			$this->load->view('User/welcome_page',$data);
+			redirect('home/',$data);
 		}
 
 	}
@@ -155,23 +156,61 @@ class Home extends CI_Controller {
 		}
 	}
 
+	function update(){
+		$btn = $this->input->post('btn_edit');
+		$edit = $this->input->post('edit');
+		if ($edit=="username") {
+			$data = array(
+				'edit_name' => TRUE,
+				'edit_pass' => FALSE,
+				'edit_dob' => FALSE,
+				'edit_gender' => FALSE
+			);
+		}elseif ($edit=="password") {
+			$data = array(
+				'edit_name' => FALSE,
+				'edit_pass' => TRUE,
+				'edit_dob' => FALSE,
+				'edit_gender' => FALSE
+			);
+		}elseif ($edit=="dob") {
+			$data = array(
+				'edit_name' => FALSE,
+				'edit_pass' => FALSE,
+				'edit_dob' => TRUE,
+				'edit_gender' => FALSE
+			);
+		}elseif ($edit=="gender") {
+			$data = array(
+				'edit_name' => FALSE,
+				'edit_pass' => FALSE,
+				'edit_dob' => FALSE,
+				'edit_gender' => TRUE
+			);
+		}
+		
+		$this->load->view('User/profile_2',$data);
+	}
 
 	public function profile(){
 		if ($this->session->userdata('isLoggedIn')) {
 			$data['title']='Profile|CILiver-O';
-			$this->load->view('User/profile',$data);	
+			$data = array(
+				'edit_name' => FALSE,
+				'edit_pass' => FALSE,
+				'edit_dob' => FALSE,
+				'edit_gender' => FALSE
+			);
+			$this->load->view('User/profile_2',$data);	
 		}else{
 			redirect('home/');
 		}
 	}
 
-	public function update_name(){
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[15]');
-		$this->form_validation->set_rules('username', 'Username', 'is_unique[users.username]');
+	public function update_username(){
 
 		$data['username']=$this->input->post('username');
-		$data['userid']=$this->input->post('userid');
-		if ($this->form_validation->run()) {
+		print_r("expression");
 			$result=$this->userstab->update_username($data);
 			if ($result) {
 				$msg="Successfully Updated";
@@ -183,11 +222,7 @@ class Home extends CI_Controller {
 				$this->session->set_flashdata('error',$msg);	
 				redirect ('/home/Profile');
 			}
-		}else{
-			$msg="Error! Invalid username";
-			$this->session->set_flashdata('error',$msg);	
-			redirect ('/home/Profile');
-		}
+		
 	}
 
 	public function update_pass(){
@@ -197,6 +232,7 @@ class Home extends CI_Controller {
 
 		
 			$result=$this->userstab->update_password($data);
+
 			if ($result) {
 				$msg="Successfully Updated";
 				$this->session->set_flashdata('update',$msg);	
