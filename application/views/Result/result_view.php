@@ -51,13 +51,13 @@
 									<?php include_once('Lib/layout/chart_results.php');?> 
 
 									<div id="sf36" style="width: 100%; height: 170px;" 
-									class="<?php if($sf36_col==0){echo 'collapse';} ?>"></div>
+									class=""></div>
 
 									<div id="blq" style="width: 100%; height: 170px;" 
-									class="<?php if ($blq_col==0){echo 'collapse';}?>"></div>
+									class=""></div>
 
 									<div id="cldq" style="width: 100%; height: 170px;" 
-									class="<?php if($cldq_col==0){echo 'collapse';}?>"></div>
+									class=""></div>
 
 								</div>
 							</div>

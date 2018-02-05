@@ -48,28 +48,43 @@ class Result extends CI_Controller {
 		return $data_result;
 	}
 
+	public function showResultSF36(){
+		$this->load->view('Result/result_view', $data_result);
+	}
+
 	public function show_result(){
 		$qCat = $this->input->post('qCat');
 		$data_result = $this->getAllData();
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
+
 		
+
 		if ($qCat=="SF36") {
-			$data_result['sf36_eval'] = $this->evaluate_sf36($data_result['sf36']);
-			$data_result['sf36_col'] = 1;
-			$data_result['blq_col'] = 0;
-			$data_result['cldq_col'] = 0;
+
+			// print_r("SF36");
+			// $data_result['sf36_eval'] = $this->evaluate_sf36($data_result['sf36'])['ave'];
+			// $data_result['sf36_col'] = 1;
+			// $data_result['blq_col'] = 0;
+			// $data_result['cldq_col'] = 0;
+
 		}elseif ($qCat=="BLQ") {
+
+			print_r("BLQ");
 			$data_result['blq_eval'] = $this->evaluate_blq($data_result['blq']);
 			$data_result['sf36_col'] = 0;
 			$data_result['blq_col'] = 1;
 			$data_result['cldq_col'] = 0;
+
 		}elseif ($qCat=="CLDQ") {
+
+			print_r("CLDQ");
 			$data_result['sf36_col'] = 0;
 			$data_result['blq_col'] = 0;
 			$data_result['cldq_col'] = 1;
+			
 		}
 
-		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
+		$data_result['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		$this->load->view('Result/result_view', $data_result);
 	}
 
@@ -81,7 +96,7 @@ class Result extends CI_Controller {
 		}
 	}
 
-	public function evaluate_sf36($score_mean=""){
+	function evaluate_sf36($score_mean=""){
 
 		$eval = array(
 			'pf' => "",

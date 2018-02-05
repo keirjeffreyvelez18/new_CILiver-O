@@ -31,7 +31,7 @@ window.onload = function () {
 				color: "blue",
 				dataPoints: [
 					{ label: "Healthy", x: 1, y: 75 },
-					{ label: "Your <?php echo $sf36_eval['ave'] ?>", x: 2,   y:<?php echo $sf36 ?> }
+					{ label: "Your <?php echo $sf36_eval; ?>", x: 2,   y:<?php echo $sf36 ?> }
 				]
 			}
 				]
