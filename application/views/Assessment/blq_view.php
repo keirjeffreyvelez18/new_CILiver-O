@@ -27,7 +27,7 @@
 								</tr>
 
 								<tr>
-									<td class="<?php if($index==37){echo 'collapse';} ?>">
+									<td class="<?php if($index==18){echo 'collapse';} ?>">
 										<!-- Progress Trackers -->
 									       	<div class = "row">
 									       		<div class = "col-lg-12">

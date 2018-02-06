@@ -25,8 +25,9 @@
 										<th class="col-md-9">Thank you for Answering</th>
 									<?php endif ?>
 								</tr>
+
 								<tr>
-									<td class="<?php if($index==37){echo 'collapse';} ?>">
+									<td class="<?php if($index==30){echo 'collapse';} ?>">
 										<!-- Progress Trackers -->
 									       	<div class = "row">
 									       		<div class = "col-lg-12">
@@ -41,6 +42,7 @@
 										<!-- Progress Trackers -->	
 									</td>
 								</tr>
+
 							</thead>
 							<tbody>
 								<?php foreach($questiontab as $row): ?>
@@ -80,9 +82,9 @@
 							</tbody>
 							<tfoot>
 								<tr>
-									<td>
+									<td >
 										<input type="submit" name="submit" class="btn btn-primary" value="Back" 
-											<?php if($index==1){echo "disabled";} ?>
+											<?php if($index==1){echo "disabled";} ?> 
 										>
 										<?php if ($index==30): ?>
 											<input type="submit" name="submit" class="btn btn-primary" value="Save">
