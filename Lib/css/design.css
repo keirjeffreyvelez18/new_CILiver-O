@@ -1,0 +1,45 @@
+div .login{
+	background-color: #9b1b22;
+}
+
+div .register{
+	background-color: #648c58;
+}
+
+div .bmi-container{
+	background-color: #e74c3c; /*friendly red*/
+	color: #ffffff;
+}
+
+div .quiz-container{
+	background-color: #e74c3c; /*friendly red*/
+	color: #ffffff;
+	width: 80%;
+}
+
+div .profile{
+	background-color: #e74c3c; /*friendly red*/
+	color: #ffffff;
+}
+
+/*=====================FORM ICON PLACEMENT============================*/
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+/*=====================FORM ICON PLACEMENT============================*/
