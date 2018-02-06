@@ -33,10 +33,23 @@
 						
 						<div class="col-lg-7 form-group">
 							<form class="bmiForm" method="post" action="<?php echo base_url('index.php/Assessment/post_bmi'); ?>">
-								<h3>Forms Go Here!</h3>
-								<input class="form-control" type="number" min="0" name="weight" placeholder="How much do you weigh? (in kilograms) " value="<?php echo $weight ?>"><!-- values must like be in docu -->
+								<h3>Forms Goes Here!</h3>
+								<dir class="row">
+									<input class="form-control" type="number" min="0" name="weight" placeholder="How much do you weigh? " value="<?php echo $weight ?>"><!-- values must like be in docu -->
+									<select class="form-control scaleWeight">
+	 							    <option value="Kilograms">Kilogram</option>
+	                                <option value="Pounds">Pound</option>
+	  								</select>
+  								</dir>
 								<br>
-								<input class="form-control"  type="number" min="0" name="height" placeholder="How Tall are you? (in centimeter) " value="<?php echo $height ?>"><!-- values must be like in docu --><br>
+								<dir class="row">
+								<input class="form-control"  type="number" min="0" name="height" placeholder="How Tall are you? " value="<?php echo $height ?>"><!-- values must be like in docu -->
+								<select class="form-control scaleWeightH">
+	 							    <option value="Centimeter">Centimeter</option>
+	                                <option value="Foot">Foot</option>
+	  								</select>
+								</dir>
+								<br>
 								
 								<input type="Submit" name="calculate" value="Calculate" class="btn btn-md btn-success form-control ">
 	       					</form>

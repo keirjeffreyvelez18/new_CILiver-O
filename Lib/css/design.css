@@ -5,3 +5,13 @@ div .login{
 div .register{
 	background-color: #648c58;
 }
+
+div .scaleWeight{
+	width: 20%;
+}
+div .scaleWeightH{
+	width: 25%;
+}
+div .calculate{
+	float: 10%;
+}
