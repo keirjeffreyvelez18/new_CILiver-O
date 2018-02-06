@@ -42,6 +42,20 @@ class Assessment extends CI_Controller {
 		$data['weight'] = $data['bmi']['weight'];
 		$data['height'] = $data['bmi']['height'];
 
+
+		if ($this->input->post('weightType')=="lb") {
+			$data['weight'] = ($data['weight']/2.2);
+		}
+
+		print_r($data['weight']);
+		print_r("<br>");
+
+		if ($this->input->post('heightType')=="ft") {
+			$data['height'] = ($data['height']/30.48);
+		}
+
+		print_r($data['height']);
+
 		$data['result_bmi'] = $data['weight']/(pow(($data['height']/100), 2)); /*Formula for BMI*/
 
 		$data['bmi_eval'] = $this->bmiEvaluation($data['result_bmi']);
@@ -71,9 +85,21 @@ class Assessment extends CI_Controller {
 		if ($data['qTaken']['bmi']==0.5) {
 			$data['qTaken']['bmi']=1;
 			$data['qTaken']['sf36']=0.5;
-		}else{
-			
 		}
+
+
+		if ($this->input->post('weightType')=="lb") {
+			$data['weight'] = round(($data['weight']*0.45359237),2);
+		}
+
+		print_r($data['weight']);
+		print_r("<br>");
+
+		if ($this->input->post('heightType')=="ft") {
+			$data['height'] = round(($data['height']*30.48),2);
+		}
+
+		print_r($data['height']);
 		
 		$data['result_bmi'] = $data['weight']/(pow(($data['height']/100), 2)); /*Formula for BMI*/
 

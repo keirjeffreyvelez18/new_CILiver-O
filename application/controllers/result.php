@@ -28,68 +28,23 @@ class Result extends CI_Controller {
 
 	public function index()
 	{
-		$data_result = $this->getAllData();
-		$data_result['sf36_col'] = 1;
-		$data_result['blq_col'] = 1;
-		$data_result['cldq_col'] = 1;
-		$data_result['sf36_eval'] = $this->evaluate_sf36($data_result['sf36']);
-		$this->load->view('Result/result_view', $data_result);
-
-	}
-
-	function getAllData(){
 		$r = $this->results_tab->getResult();
 		$data_result['title'] = "Results | CLiver-O";
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
 		$data_result['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
-		$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE)['ave'];
+		$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
 		$data_result['blq'] = $r[1]['qresults'];
-		$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE)['ave'];
-		return $data_result;
-	}
-
-	public function showResultSF36(){
+		$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
+		$data_result['sf36_eval'] = $this->evaluate_sf36($data_result['sf36']);
+		$data_result['blq_eval'] = $this->evaluate_blq($data_result['blq']);
+		$data_result['cldq_eval'] = $this->evaluate_cldq($data_result['cldq']);
 		$this->load->view('Result/result_view', $data_result);
 	}
 
-	public function show_result(){
-		$qCat = $this->input->post('qCat');
-		$data_result = $this->getAllData();
-		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
-
-		
-
-		if ($qCat=="SF36") {
-
-			// print_r("SF36");
-			// $data_result['sf36_eval'] = $this->evaluate_sf36($data_result['sf36'])['ave'];
-			// $data_result['sf36_col'] = 1;
-			// $data_result['blq_col'] = 0;
-			// $data_result['cldq_col'] = 0;
-
-		}elseif ($qCat=="BLQ") {
-
-			print_r("BLQ");
-			$data_result['blq_eval'] = $this->evaluate_blq($data_result['blq']);
-			$data_result['sf36_col'] = 0;
-			$data_result['blq_col'] = 1;
-			$data_result['cldq_col'] = 0;
-
-		}elseif ($qCat=="CLDQ") {
-
-			print_r("CLDQ");
-			$data_result['sf36_col'] = 0;
-			$data_result['blq_col'] = 0;
-			$data_result['cldq_col'] = 1;
-			
-		}
-
-		$data_result['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
-		$this->load->view('Result/result_view', $data_result);
-	}
+	
 
 	function evaluate_blq($score=0){
-		if ($score<=50) {
+		if ($score<=17) {
 			return "high chance";
 		}else{
 			return "low chance";
@@ -185,6 +140,26 @@ class Result extends CI_Controller {
 		return $eval;
 	}
 
+	function evaluate_cldq($score_mean=""){
+		$eval = array(
+			'as' => "",
+			'f' => "",
+			'ss' => "",
+			'a' => "",
+			'emf' => "",
+			'w' => "",
+			'ave' =>"" 
+		);
+
+		if ($score_mean['ave']>=50) {
+			$eval['ave']=("Average Health is Unhealthy");
+		}else{
+			$eval['ave']=("Average Health is Healthy");
+		}
+
+
+		return $eval;
+	}
 
 }
 
