@@ -66,18 +66,14 @@
 						</script>
 
 						<div id="chartContainer" style="width: 100%; height: 100%;"></div>
+					<br>
 				</div>
+
 			</div>
 			<!-- ================================END of Chart================================ -->
+			<br>
+		</div>	
 
-		</div>		
-
-	</body>
-
-	<!-- STATIC FILES -->
-		<script type="text/javascript" src="<?php echo base_url('Lib/js/bootstrap.min.js')?>" ></script>
-	    <script type="text/javascript" src="<?php echo base_url('Lib/js/jquery.min.js')?>" ></script>
-		<script type="text/javascript" src="<?php echo base_url('Lib/js/canvasjs.min.js')?>" ></script>
-    <!-- LOAD STATIC FILES -->
-
-</html>
+<!-- ====================================FOOTER HERE=================================================== -->
+	<?php include_once('Lib/layout/footer.php');?>
+<!-- ====================================FOOTER HERE=================================================== -->

@@ -2,7 +2,7 @@
 
 <?php echo(validation_errors())?> 
  <!--HEADER-->   
-<div class="bg">
+<div class="bg content">
 
 <!-- Welcome Message -->   
     <div class = "container-fluid header-blueP">
@@ -30,5 +30,10 @@
 <!-- Contents and News -->
 
 </div>
+
+<footer>
+    <?php include_once('Lib/layout/footer.php');?>
+</footer>
+
 </body>
 </html>

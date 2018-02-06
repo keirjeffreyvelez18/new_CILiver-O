@@ -47,9 +47,7 @@ class Assessment extends CI_Controller {
 			$data['weight'] = ($data['weight']/2.2);
 		}
 
-		print_r($data['weight']);
-		print_r("<br>");
-
+		
 		if ($this->input->post('heightType')=="ft") {
 			$data['height'] = ($data['height']/30.48);
 		}

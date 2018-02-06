@@ -11,7 +11,7 @@
 			                <a href="<?php echo base_url('index.php/Assessment/bmi'); ?>">
 			                	<button class="btn" style="background-color:transparent;" 
 			                	<?php if($qTaken['bmi']==0){echo'disabled';} ?> >
-			                		BMI Test.
+			                		Body Mass Index Assessment
 			                	</button>
 			                </a>
 			                <br>
@@ -32,7 +32,7 @@
 			                <a href="<?php echo base_url('index.php/Assessment/sf36'); ?>">
 			                	<button class="btn" style="background-color:transparent;" 
 			                	<?php if($qTaken['sf36']==0){echo'disabled';} ?> >
-			                		General Health Assessment.
+			                		General Health Assessment
 			                	</button>
 			                </a>
 			                <br>
@@ -53,7 +53,7 @@
 			                <a href="<?php echo base_url('index.php/blq'); ?>">
 			                	<button class="btn" style="background-color:transparent;" 
 			                	<?php if($qTaken['blq']==0){echo'disabled';} ?> >
-			                		Brief Liver Assessment.
+			                		Brief Liver Assessment
 			                	</button>
 			                </a>
 			                <br>
@@ -95,7 +95,7 @@
 			                <a href="<?php echo base_url('index.php/cldq'); ?>">
 			                	<button class="btn" style="background-color:transparent;" 
 			                	<?php if($qTaken['cldq']==0){echo'disabled';} ?> >
-			                		Chronic Liver Disease Questionnare.
+			                		Chronic Liver Disease Questionnare
 			                	</button>
 			                </a>
 			                <br>
@@ -117,7 +117,7 @@
 			                <a href="<?php echo base_url('index.php/result'); ?>">
 			                	<button class="btn" style="background-color:transparent;" 
 			                	<?php if($qTaken['cldq']==0){echo'disabled';} ?> >
-			                		Assessment Result.
+			                		Assessment Result
 			                	</button>
 			                </a>
 			                
