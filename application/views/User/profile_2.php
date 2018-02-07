@@ -23,7 +23,7 @@
           <strong><h3 id = "black" style="text-align: center">Profile</h3></strong>
         </div>
 
-        <div class="row container quiz-container profile">
+        <div class="row container bmi-container profile">
               <table>
                   <tr class="row">
                     <td>

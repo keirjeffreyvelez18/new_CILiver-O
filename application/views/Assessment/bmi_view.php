@@ -36,14 +36,14 @@
 								<h3>Forms Goes Here!</h3>
 								<dir class="row">
 									<input class="form-control" type="number" min="0" name="weight" placeholder="How much do you weigh? " value="<?php echo $weight ?>"><!-- values must like be in docu -->
-									<select name="weightType" step="any" class="form-control scaleWeight">
+									<select name="weightType" step="0.01" class="form-control scaleWeight">
 		 							    <option value="kg">(kg) Kilogram</option>
 		                                <option value="lb">(lb) Pound</option>
 	  								</select>
   								</dir>
 								<br>
 								<dir class="row">
-								<input class="form-control" step="any"  type="number" min="0" name="height" placeholder="How Tall are you? " value="<?php echo $height ?>"><!-- values must be like in docu -->
+								<input class="form-control" step="0.01"  type="number" min="0" name="height" placeholder="How Tall are you? " value="<?php echo $height ?>"><!-- values must be like in docu -->
 									<select name="heightType" class="form-control scaleWeight">
 		 							    <option value="cm">(cm) Centimeter</option>
 		                                <option value="ft">(ft) Feet</option>
