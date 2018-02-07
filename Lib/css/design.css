@@ -20,9 +20,12 @@ div .quiz-container{
 div .profile{
 	background-color: #e74c3c; /*friendly red*/
 	color: #ffffff;
+	text-align: center;
 }
-div .content{
-	
+div .calculate{
+	text-align: center;
+	color: black;
+	width: 50%;
 }
 
 /*=====================FORM ICON PLACEMENT============================*/

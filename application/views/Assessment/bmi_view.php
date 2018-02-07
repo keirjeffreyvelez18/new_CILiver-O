@@ -50,7 +50,7 @@
 		  							</select>
 								</dir>
 								<br>
-								<div class="row">
+								<div class="row calculate">
 									<input type="Submit" name="calculate" value="Calculate" class="btn btn-md btn-success form-control calculate">
 								</div>
 	       					</form>

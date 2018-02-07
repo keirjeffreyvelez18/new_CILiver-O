@@ -15,7 +15,7 @@
 					<h1>Water Tracker</h1>
 					  <h2>Select Amount</h2>
 					  <p>The .dropdown-header class is used to add headers inside the dropdown menu:</p>
-
+					   <progress value="22" max="100"></progress> 
 					  <!-- Sleep Progress Go Here -->
 					  <div class = "col-lg-12">
 					  	<img class = "center-block" src="<?php echo base_url('Lib/imgs/WaterIntakeReminder.png')?>" alt="Water Tracker Image">

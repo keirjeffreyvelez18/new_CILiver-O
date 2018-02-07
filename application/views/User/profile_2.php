@@ -1,16 +1,7 @@
 <?php include_once('Lib/layout/header.php');?>
 
 <!--End of Nav Bar-->
-<script>
-    function passw() {
-    var x = document.getElementById("pass");
-    if (x.type === "text") {
-        x.type = "password";
-    } else {
-        x.type = "text";
-    }
-} 
-</script>
+
 
     <strong><h2><?php echo(validation_errors())?></h2></strong>
     
@@ -23,7 +14,7 @@
           <strong><h3 id = "black" style="text-align: center">Profile</h3></strong>
         </div>
 
-        <div class="row container bmi-container profile">
+        <div class="row container profile">
               <table>
                   <tr class="row">
                     <td>
@@ -94,14 +85,25 @@
                         <form method="post" action="<?php echo base_url('index.php/home/update');?>">
                       <?php endif ?>
                       <td>  
-                        <div class="inner-addon left-addon">
-                          <i  class="glyphicon glyphicon-lock"></i>
-                            <div class="input-group ">
-                                <input type="password" name="password" class = "form-control"  id="pass" placeholder="Password" value = ""  <?php if(!$edit_pass){echo "readonly";} ?> required><br>
-                                <input type="hidden" name="pass" value="pass">
-                                 <div class="input-group-addon">
+                        <div class="inner-addon right-addon">
+                          <script type="text/javascript">
+                            function pass() {
+                                var x = document.getElementById("password");
+                                    if (x.type === "text") {
+                                        x.type = "password";
+                                        var visibile = document.getElementById("passpro").className+='glyphicon glyphicon-eye-open';                    
+                                    } else {
+                                        x.type = "text";
+                                        var visibile = document.getElementById("passpro").className+='glyphicon glyphicon-eye-close';
+                                    }
+                            } 
+                        </script>
+                            <div class="input-group">
+                                <input type="password" name="password" class = "form-control"  id="password" placeholder="Password" value = ""  <?php if(!$edit_pass){echo "readonly";} ?> required><br>
+                                <div class="input-group-addon">
                                     <div>
-                                        <input type="checkbox" name="" title="Show Password" onclick="passw()" >
+                                        <span id = "passpro" class="glyphicon glyphicon-eye-open" title = "Show Password" onclick="pass()"></span>
+                                        <!-- <input type="checkbox" name="" title="Show Password" onclick="passw()" > -->
                                     </div>
                                 </div>
                             </div>

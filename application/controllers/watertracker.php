@@ -23,8 +23,9 @@ class Watertracker extends CI_Controller {
    	}
 
 	public function index()
-	{
-		$this->load->view('Recommendations/watertracker_view');
+	{	
+		$data['title'] = "Water Tracker | Liver-O";
+ 		$this->load->view('Recommendations/watertracker_view', $data);
 	}
 }
 

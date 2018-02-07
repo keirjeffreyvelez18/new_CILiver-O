@@ -25,16 +25,16 @@
             $('#myModal').modal('show');
         });
 
-        function passw() {
-            var x = document.getElementById("pass");
-                if (x.type === "text") {
-                    x.type = "password";
-                    var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-open';                    
-                } else {
-                    x.type = "text";
-                    var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-close';
-                }
-        } 
+        // function passw() {
+        //     var x = document.getElementById("pass");
+        //         if (x.type === "text") {
+        //             x.type = "password";
+        //             var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-open';                    
+        //         } else {
+        //             x.type = "text";
+        //             var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-close';
+        //         }
+        // } 
         // function password() {
         //     var x = document.getElementById("password");
         //         if (x.type === "text") {
@@ -188,6 +188,18 @@
             <span class="text-danger"><?php echo form_error('email'); ?></span>
 
             <div class="col-sm-9 input-group">
+                <script type="text/javascript">
+                    function passw() {
+                        var x = document.getElementById("pass");
+                            if (x.type === "text") {
+                                x.type = "password";
+                                var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-open';                    
+                            } else {
+                                x.type = "text";
+                                var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-close';
+                            }
+                    } 
+                </script>
                 <input type="password" name="password" class = "form-control"  id="pass" placeholder="Password" value = "<?php echo set_value('password'); ?>" required><br>
                  <div class="input-group-addon">
                     <div>
@@ -258,12 +270,26 @@
                         <td class="col-sm-2">
                             <label for="password" class="col-sm-2 form-control-label">Password: </label>
                         </td>
+
+                        <script type="text/javascript">
+                            function passw() {
+                                var x = document.getElementById("password");
+                                    if (x.type === "text") {
+                                        x.type = "password";
+                                        var visibile = document.getElementById("passreg").className+='glyphicon glyphicon-eye-open';                    
+                                    } else {
+                                        x.type = "text";
+                                        var visibile = document.getElementById("passreg").className+='glyphicon glyphicon-eye-close';
+                                    }
+                            } 
+                        </script>
+
                         <td class="col-md-11">
                             <div class="input-group">
-                                <input type="password" name="password" class = "form-control"  id="password" placeholder="Password" value = "<?php echo set_value('password'); ?>" required><br>
+                                <input type="password" name="password" class = "form-control"  id="passpro" placeholder="Password" value = "<?php echo set_value('password'); ?>" required><br>
                                  <div class="input-group-addon">
                                     <div>
-                                        <span id = "VPassword" class="glyphicon glyphicon-eye-open" title = "Show Password" onclick="passw()"></span>
+                                        <span id = "passreg" class="glyphicon glyphicon-eye-open" title = "Show Password" onclick="passw()"></span>
                                         <!-- <input type="checkbox" name="" title="Show Password" onclick="passw()" > -->
                                     </div>
                                 </div>
