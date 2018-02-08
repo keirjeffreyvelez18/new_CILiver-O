@@ -80,7 +80,10 @@
 													content: "{name}: {y}"      
 												},
 												axisY:{
-											       maximum: 50 //comment this to show numeric values
+											       	maximum: 50,
+											       	crosshair: {
+														enabled: true
+													} //comment this to show numeric values
 											    },
 											    axisX:{
 											       title: " ",
