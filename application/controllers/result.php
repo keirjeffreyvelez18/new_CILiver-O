@@ -44,10 +44,24 @@ class Result extends CI_Controller {
 	
 
 	function evaluate_blq($score=0){
-		if ($score<=17) {
-			return "high chance";
-		}else{
-			return "low chance";
+		if ($score>=29.69) {
+			return "Highest chance to have a liver disease";
+		}elseif ($score>=25.46 && $score<=29.68){
+			return "Higher chance to have a liver disease";
+		}elseif ($score>=21.23 && $score<=25.45){
+			return "High chance to have a liver disease";
+		}elseif ($score>=17.00 && $score<=21.22){
+			return "Reasonable chance to have a liver disease";
+		}elseif ($score>=12.77 && $score<=16.99){
+			return "Marginal chance to have a liver disease";
+		}elseif ($score>=9.57 && $score<=12.76){
+			return "Reasonable chance not to have a liver disease";
+		}elseif ($score>=5.31 && $score<=9.56){
+			return "High chance not to have a liver disease";
+		}elseif ($score>=1.18 && $score<=5.31){
+			return "Higher chance not to have a liver disease";
+		}elseif ($score>=0 && $score<=1.17){
+			return "Highest chance not to have a liver disease";
 		}
 	}
 

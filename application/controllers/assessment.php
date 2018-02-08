@@ -192,18 +192,24 @@ class Assessment extends CI_Controller {
 		$btn = $this->input->post('prs_button');
 
 
-		$data['qTaken']['prs']=1;
-		if ($data['qTaken']['cldq']==0) {
-			$data['qTaken']['cldq']=0.5;
-		}
+		
+		
 
 		if ($btn == "Yes") {
-			$this->load->view('Assessment/cldq_view',$data);
+			print_r("expression");
+			$data['qTaken']['prs']=1;
+			if ($data['qTaken']['cldq']==0) {
+				$data['qTaken']['cldq']=0.5;
+			}
+			$this->assessments_tab->updateTaken($data);
+			$this->index();
 		} else if ($btn == "No"){
 			$this->load->view('Result/result_view',$data);
+		}else{
+			$this->load->view('Assessment/persistence_view',$data);	
 		}
 
-		$this->load->view('Assessment/persistence_view',$data);	
+		
 
 	}
 
