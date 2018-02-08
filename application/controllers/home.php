@@ -226,11 +226,13 @@ class Home extends CI_Controller {
 	}
 
 	public function update_pass(){
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
 
 		$data['password']=$this->input->post('password');
 		$data['userid']=$this->input->post('userid');
 
-		
+		if ($this->form_validation->run()) {
+			
 			$result=$this->userstab->update_password($data);
 
 			if ($result) {
@@ -243,6 +245,11 @@ class Home extends CI_Controller {
 				$this->session->set_flashdata('error',$msg);	
 				redirect ('/home/Profile');
 			}
+		}else{
+			$msg="Error! Invalid Password";
+			$this->session->set_flashdata('error',$msg);	
+			redirect ('/home/Profile');
+		}
 	}
 
 	// public function update_email(){
