@@ -125,11 +125,11 @@ class Assessment extends CI_Controller {
 		if ($btn=="Next") {
 			$data['index']+=$a;
 			$this->get_score();
-			$data['btn'] = "animated fadeInRight";
+			// $data['btn'] = "animated fadeInRight";
 		} elseif ($btn=="Back") {
 			$data['index']=$a-1;
 			$this->get_score();
-			$data['btn'] = "animated fadeInLeft";
+			// $data['btn'] = "animated fadeInLeft";
 		}
 
 		$this->session->set_userdata('cur_uAns',$this->checkContent($qcategory));	
@@ -187,8 +187,23 @@ class Assessment extends CI_Controller {
 	public function prs(){
 		// ============================================================================================================(important)
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
+		$data['title']='Assessment | CLiver-O';
 		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
-		$this->load->view('Assessment/persistence_view',$data);
+		$btn = $this->input->post('prs_button');
+
+
+		$data['qTaken']['prs']=1;
+		if ($data['qTaken']['cldq']==0) {
+			$data['qTaken']['cldq']=0.5;
+		}
+
+		if ($btn == "Yes") {
+			$this->load->view('Assessment/cldq_view',$data);
+		} else if ($btn == "No"){
+			$this->load->view('Result/result_view',$data);
+		}
+
+		$this->load->view('Assessment/persistence_view',$data);	
 
 	}
 
