@@ -185,7 +185,11 @@ class Assessment extends CI_Controller {
 	}
 
 	public function prs(){
-		print_r("Persistence");
+		// ============================================================================================================(important)
+		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
+		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
+		$this->load->view('Assessment/persistence_view',$data);
+
 	}
 
 	public function get_score($domain="", $ansScore="" ){

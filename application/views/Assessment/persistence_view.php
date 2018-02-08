@@ -11,11 +11,11 @@
 	    </div>
 
 		<!-- End of Progress Indicator -->
-		<div class="container quiz-container">
+		<div class="content container quiz-container">
 			<div class="row">
 				<div class="col-lg-12 content1-custom form-group">
 					
-					<div class="row content2-custom"><!-- This div is for the header -->
+					<div class="row header-blueP"><!-- This div is for the header -->
 						<div class="col-lg-12">
 								<h3 class = "glyphicon glyphicon-question-sign">Are the symptoms appearing for the last six months? </h3>
 								
@@ -43,5 +43,7 @@
 
 			</div>
 		</div>
-	</body>
-</html>
+
+<!-- ====================================FOOTER HERE=================================================== -->
+	<?php include_once('Lib/layout/footer.php');?>
+<!-- ====================================FOOTER HERE=================================================== -->
