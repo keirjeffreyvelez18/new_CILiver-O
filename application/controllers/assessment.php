@@ -52,7 +52,7 @@ class Assessment extends CI_Controller {
 			$data['height'] = ($data['height']/30.48);
 		}
 
-		print_r($data['height']);
+		// print_r($data['height']);
 
 		$data['result_bmi'] = $data['weight']/(pow(($data['height']/100), 2)); /*Formula for BMI*/
 
