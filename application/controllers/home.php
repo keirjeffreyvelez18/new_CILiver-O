@@ -28,9 +28,9 @@ class Home extends CI_Controller {
    	}
 	public function index()
 	{
-		$title['title']='CILiver-O';
+		$data['title']='CILiver-O';
 		$data['welcome'] = TRUE;
-		$this->load->view('User/welcome_page', $title, $data);
+		$this->load->view('User/welcome_page', $data);
 	}
 
 	public function register()

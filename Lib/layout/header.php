@@ -89,7 +89,7 @@
                         <li class="<?php if ($this->uri->segment(2)=='home_page'){echo 'active';}?>">
                             <a href="<?php echo site_url('home/home_page') ?>">Home</a>
                         </li>
-                        <li class="<?php if($this->uri->segment(2)=='questions_view' || $this->uri->segment(2)=='assessment_view'){echo 'active';}?>"> 
+                        <li class="<?php if($this->uri->segment(2)=='questions_view' || $this->uri->segment(1)=='Assessment'){echo 'active';}?>"> 
                             <a href="<?php
                                         if($this->session->userdata('username')=='Administrator'){
                                             echo site_url('quiz/questions_view');
