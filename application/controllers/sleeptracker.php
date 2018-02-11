@@ -19,13 +19,29 @@ class Sleeptracker extends CI_Controller {
 	 */
 	function __construct(){
        	parent::__construct();
+       	$this->load->model('sleeptrackertab');
        	$this->load->helper(array('form', 'url'));
    	}
 
 	public function index()
 	{
 		$data['title'] = "Sleep Tracker | Liver-O";
+		$data['sleepTrackerData'] = $this->sleeptrackertab->getSleepingRecords();
+		print_r(explode(":",$data['sleepTrackerData'][0]['timeStart']));
+
+		
 		$this->load->view('Recommendations/sleeptracker_view', $data);
+	}
+	public function saveSleepTracker(){
+		$data['dateOfSleep'] = $this->input->post('dateOfSleep');
+		$data['timeStart'] = $this->input->post('sleeptime');
+		$data['timeEnd'] = $this->input->post('wakeuptime');
+		$data['userid'] = $this->session->userdata('userid');
+
+		$result = $this->sleeptrackertab->insertSleepTracker($data);
+		if ($result) {
+			redirect('Sleeptracker', 'refresh');
+		}
 	}
 }
 

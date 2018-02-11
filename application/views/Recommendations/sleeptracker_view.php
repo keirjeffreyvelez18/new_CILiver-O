@@ -15,13 +15,16 @@
 						<!-- InputForm -->
 						<div class = "container">
 							<div class="row">
-								<form class="">
+								<form method="POST" action="<?php echo base_url('index.php/sleeptracker/saveSleepTracker');?>">
 									<div class="col-md-12">
-										<input class="form-control" type="text" placeholder="Sleep Time..."></input><br>
-										<input class="form-control" type="text" placeholder="Wake Up Time..."></input><br>
-										<input type="submit" name="" value="Save" class="btn btn-success">
+										<label for="dos">Date Of Sleep</label>
+										<input id="dos" class="form-control" type="date" name="dateOfSleep" value="<?php echo date('Y-m-d'); ?>"></input><br>
+										<input class="form-control" name="sleeptime" type="time" placeholder="Sleep Time..." value="00:00"></input><br>
+										<input class="form-control" name="wakeuptime" type="time" placeholder="Wake Up Time..." value="00:00"></input><br>
+										<input type="submit" name="" value="Save" class="form-control btn btn-success">
 									</div>
-								</form>
+								</form><br>
+								<hr>
 							</div>	
 						</div>
 						<!-- InputForm -->
@@ -31,36 +34,80 @@
 
 							var chart = new CanvasJS.Chart("chartContainer", {
 								animationEnabled: true,
-								exportEnabled: true,
+								theme: "light2",
 								title:{
 									text: "Sleeping Pattern"
 								},
+								axisX:{
+									valueFormatString: "DD MMM",
+									crosshair: {
+										enabled: true,
+										snapToDataPoint: true
+									},
+									ValueFormatString: "DD MMM, YYYY",
+								},
 								axisY: {
-									includeZero:false,
 									title: "Hours",
-									suffix: " Hr"
+									crosshair: {
+										enabled: true
+									},
+									ValueFormatString: "HH:mm",
 								},
-								axisX: {
-									valueFormatString: "DD MMMM YYYY"
+								toolTip:{
+									shared:true
+								},  
+								legend:{
+									cursor:"pointer",
+									verticalAlign: "bottom",
+									horizontalAlign: "left",
+									dockInsidePlotArea: true,
+									itemclick: toogleDataSeries
 								},
-								data: [
-								{
-									type: "rangeArea",
-									xValueFormatString: "DD MMMM", 
-									yValueFormatString: "##",
-									toolTipContent: " <span style=\"color:#4F81BC\">{x}</span><br><b>Start:</b> {y[0]}<br><b>End:</b> {y[1]}",
+								data: [{
+									type: "line",
+									showInLegend: true,
+									name: "Fall Asleep",
+									markerType: "square",
+									color: "#F08080",
 									dataPoints: [
-										{ x: new Date(2017,06,01), y:[08, 04] },
-										{ x: new Date(2017,06,02), y:[12, 03] },
-										{ x: new Date(2017,06,03), y:[10, 06] },
-										{ x: new Date(2017,06,04), y:[08, 04] },
+										{ x: new Date(2017, 0, 3), y: new Date(21, 0, 1) },
+										{ x: new Date(2017, 0, 4), y: 22 },
+										{ x: new Date(2017, 0, 5), y: 23 },
+										{ x: new Date(2017, 0, 6), y: 20 },
+										{ x: new Date(2017, 0, 7), y: 22 },
+										{ x: new Date(2017, 0, 8), y: 22 },
+
+									]
+								},
+								{
+									type: "line",
+									showInLegend: true,
+									name: "Wake Up",
+									lineDashType: "dash",
+									dataPoints: [
+										{ x: new Date(2017, 0, 3), y: new Date(21, 0, 1) },
+										{ x: new Date(2017, 0, 4), y: 03 },
+										{ x: new Date(2017, 0, 5), y: 05 },
+										{ x: new Date(2017, 0, 6), y: 05 },
+										{ x: new Date(2017, 0, 7), y: 07 },
+										{ x: new Date(2017, 0, 8), y: 04 },
 									]
 								}]
 							});
 							chart.render();
 
+						function toogleDataSeries(e){
+							if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+								e.dataSeries.visible = false;
+							} else{
+								e.dataSeries.visible = true;
+							}
+							chart.render();
+						}
+
 						}
 					  </script>
+					  <br>
 					  <div class = "col-lg-12">
 					  	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 					  </div>
@@ -71,7 +118,7 @@
 				<br>
 			</div>		
 		</div>		
-
+		<br>
 <!-- ====================================FOOTER HERE=================================================== -->
 	<?php include_once('Lib/layout/footer.php');?>
 <!-- ====================================FOOTER HERE=================================================== -->
