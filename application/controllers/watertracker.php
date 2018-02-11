@@ -19,14 +19,30 @@ class Watertracker extends CI_Controller {
 	 */
 	function __construct(){
        	parent::__construct();
+       	$this->load->model('waterintaketab');
        	$this->load->helper(array('form', 'url'));
    	}
 
 	public function index()
 	{	
 		$data['title'] = "Water Tracker | Liver-O";
+		$data['waterintakeData'] = $this->waterintaketab->getwaterintake();
  		$this->load->view('Recommendations/watertracker_view', $data);
 	}
+
+	public function saveWaterIntake(){
+		$data['dateOfIntake'] = $this->input->post('dOfIntake');
+		$data['numberOfWaterIntake'] = $this->input->post('numOfIntake');
+		$data['userid'] = $this->session->userdata('userid');
+
+
+		$result = $this->waterintaketab->insertWaterIntake($data);
+		if ($result) {
+			redirect('Watertracker', 'refresh');
+		}
+	}
+
+
 }
 
 /* End of file welcome.php */

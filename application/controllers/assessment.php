@@ -90,14 +90,11 @@ class Assessment extends CI_Controller {
 			$data['weight'] = round(($data['weight']*0.45359237),2);
 		}
 
-		print_r($data['weight']);
-		print_r("<br>");
 
 		if ($this->input->post('heightType')=="ft") {
 			$data['height'] = round(($data['height']*30.48),2);
 		}
 
-		print_r($data['height']);
 		
 		$data['result_bmi'] = $data['weight']/(pow(($data['height']/100), 2)); /*Formula for BMI*/
 
