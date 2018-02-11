@@ -15,7 +15,7 @@
 	
 		<div class = "container m-middle content1-custom">
 	       	<div class = "row">
-	       		<div class = "col-lg-12 content2-custom">
+	       		<div class = "col-lg-12 header-blueP">
 	       			<h1>
 	       				<span class = "glyphicon glyphicon-plus"></span>
 	       				General Health Assessment Result
@@ -40,7 +40,7 @@
 
 										var chart = new CanvasJS.Chart("sf36", {
 											height:175,
-											hidth:500,
+											width:500,
 											theme: "light1", // "light2", "dark1", "dark2"
 											animationEnabled: true, // change to true		
 											title:{
@@ -67,7 +67,7 @@
 
 										var chart = new CanvasJS.Chart("blq", {
 											height:175,
-											hidth:500,
+											width:500,
 											theme: "light1", // "light2", "dark1", "dark2"
 											animationEnabled: true, // change to true		
 											title:{
@@ -94,7 +94,7 @@
 
 										var chart = new CanvasJS.Chart("cldq", {
 											height:175,
-											hidth:500,
+											width:500,
 											theme: "light1", // "light2", "dark1", "dark2"
 											animationEnabled: true, // change to true		
 											title:{

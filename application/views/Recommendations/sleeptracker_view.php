@@ -4,7 +4,7 @@
 </head>
 	<body>
 		<br>
-		<div class="container">
+		<div class="container content">
 			<div class="row header-blueP">
 				<div class="col-lg-12">
 					<h1>Sleep Tracker</h1>

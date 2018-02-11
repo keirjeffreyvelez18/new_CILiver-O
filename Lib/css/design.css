@@ -90,6 +90,24 @@ div .range{
 	width: 50%;
 }
 
+/*=====================END OF FORM ICON PLACEMENT============================*/
 
-
-/*=====================FORM ICON PLACEMENT============================*/
+/*=====================NAV TABS============================*/
+.custom-nav-tabs{
+  background-color:#161616;
+}
+.custom-tab-content{
+    background-color:#303136;
+    color:#fff;
+    padding:5px
+}
+.custom-nav-tabs > li > a{
+  border: medium none;
+}
+.custom-nav-tabs > li > a:hover{
+  background-color: #303136 !important;
+    border: medium none;
+    border-radius: 0;
+    color:#fff;
+}
+/*=====================END OF NAV TABS============================*/

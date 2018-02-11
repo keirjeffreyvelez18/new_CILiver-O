@@ -19,7 +19,7 @@
 					<div class="row header-blueP"><!-- This div is for the header -->
 						<div class="col-lg-12">
 							<h1>
-								<span class = "glyphicon glyphicon-dashboard"></span>
+								<span class = "glyphicon glyphicon-scale"></span>
 								Welcome to the Body Mass Index Calculator
 								<button class = "btn btn-md btn-success" type = "button" href = "#" style="float:right">
 		       				 	Proceed
