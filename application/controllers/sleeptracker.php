@@ -24,7 +24,8 @@ class Sleeptracker extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('Recommendations/sleeptracker_view');
+		$data['title'] = "Sleep Tracker | Liver-O";
+		$this->load->view('Recommendations/sleeptracker_view', $data);
 	}
 }
 

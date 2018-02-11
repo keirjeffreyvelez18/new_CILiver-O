@@ -18,7 +18,7 @@
 	       		<div class = "col-lg-12 content2-custom">
 	       			<h1>
 	       				<span class = "glyphicon glyphicon-plus"></span>
-	       				General Health Assessment
+	       				General Health Assessment Result
 	       				<button style = "float: right" class = "btn btn-md btn-success" type = "button" href = "#">
 	       				 	Proceed
 	       				 	<span class = "glyphicon glyphicon-chevron-right"></span>
@@ -159,8 +159,6 @@
 	       	</div>
 	    </div>
     <!--End of Result Form-->
-    <script type="text/javascript" src="<?php echo base_url('Lib/js/bootstrap.min.js')?>" ></script>
-    <script type="text/javascript" src="<?php echo base_url('Lib/js/jquery.min.js')?>" ></script>
 	</div>
 	</div><br>
 

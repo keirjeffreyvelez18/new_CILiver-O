@@ -27,12 +27,12 @@
 								</tr>
 
 								<tr>
-									<td class="<?php if($index==30){echo 'collapse';} ?>">
+									<td class="<?php if($index==30){echo 'collapse';} ?> ">
 										<!-- Progress Trackers -->
 									       	<div class = "row">
-									       		<div class = "col-lg-12">
-									       			<div class="progress">
-													 	<div class="progress-bar" role="progressbar" aria-valuenow="70"
+									       		<div class = "">
+									       			<div class="progress ">
+													 	<div class="progress-bar " role="progressbar" aria-valuenow="70"
 													 	aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $progress ?>%;">
 													  	<?php echo round($progress) ?>%
 													 	</div>
