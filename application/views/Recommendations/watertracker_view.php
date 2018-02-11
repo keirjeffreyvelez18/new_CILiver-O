@@ -26,6 +26,7 @@
 
 							var chart = new CanvasJS.Chart("chartContainer", {
 								animationEnabled: true,  
+								exportEnabled: true,
 								title:{
 									text: "Water Intake"
 								},
