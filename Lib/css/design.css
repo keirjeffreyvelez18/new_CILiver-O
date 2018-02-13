@@ -94,20 +94,24 @@ div .range{
 
 /*=====================NAV TABS============================*/
 .custom-nav-tabs{
-  background-color:#161616;
+  /*background-color:#161616;*/
+}
+.custom-nav-tabs a{
+  background-color:#0d47a1;
 }
 .custom-tab-content{
-    background-color:#303136;
+    /*background-color:#222222;*/ /*#303136*/
     color:#fff;
     padding:5px
 }
 .custom-nav-tabs > li > a{
+  color: #e3f2fd;
   border: medium none;
 }
 .custom-nav-tabs > li > a:hover{
-  background-color: #303136 !important;
+  	background: linear-gradient(to right, #0d47a1, #2196f3); !important;
+    color:#e3f2fd;
     border: medium none;
-    border-radius: 0;
-    color:#fff;
+    border-radius: none;  
 }
 /*=====================END OF NAV TABS============================*/

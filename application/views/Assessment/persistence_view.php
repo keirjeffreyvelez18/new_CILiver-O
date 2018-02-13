@@ -17,22 +17,10 @@
 					
 					<div class="row header-blueP"><!-- This div is for the header -->
 						<div class="col-lg-12">
-							<h2 class = "glyphicon glyphicon-question-sign"> Persistence 								
-								<!-- <a href="<?php echo base_url('index.php/Assessment/cldq');?>" style="color: white">
-									<button class = "btn btn-md btn-success " type = "button" style="float:right">
-			       				 			Yes
-			       				 		<span class = "glyphicon glyphicon-chevron-right"></span>
-			       					</button>
-			       				</a>
-
-			       				<a href="<?php echo base_url('index.php/Result/');?>" style="color: white">
-									<button class = "btn btn-md btn-success " type = "button" style="float:right">
-			       				 			No
-			       				 		<span class = "glyphicon glyphicon-chevron-left"></span>
-			       				</button>
-			       				</a>
-			       				<br> -->
-		       				</h2>	
+							<h1>  								
+								<span class = "glyphicon glyphicon-question-sign"></span>
+								Persistence
+		       				</h1>	
 	       				</div>
 	       			</div>
 

@@ -28,7 +28,7 @@
 					<p><strong>DISCLAIMER:</strong> Remind the user that this recommendations cannot replace a real doctor's advice and prescription</p>
 					<!-- ^======Insert disclaimer here: this must change according to the recommendation ======^ -->
 
-					<ul class="nav nav tabs nav-tabs custom-nav-tabs">
+					<ul class="nav nav-tabs custom-nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#Wmenu1">Concerns</a></li>
 					    <li><a data-toggle="tab" href="#Wmenu2">Hints and Suggestion</a></li>
 					    <li><a data-toggle="tab" href="#Wmenu3">Additional Information</a></li>
@@ -66,7 +66,7 @@
 					<p><strong>DISCLAIMER:</strong> Remind the user that this recommendations cannot replace a real doctor's advice and prescription</p>
 					<!-- ^======Insert disclaimer here: this must change according to the recommendation ======^ -->
 
-					<ul class="nav nav-tabs">
+					<ul class="nav nav-tabs custom-nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#Smenu1">Concerns</a></li>
 					    <li><a data-toggle="tab" href="#Smenu2">Hints and Suggestion</a></li>
 					    <li><a data-toggle="tab" href="#Smenu3">Additional Information</a></li>
@@ -104,7 +104,7 @@
 					<p><strong>DISCLAIMER:</strong> Remind the user that this recommendations cannot replace a real doctor's advice and prescription</p>
 					<!-- ^======Insert disclaimer here: this must change according to the recommendation ======^ -->
 
-					<ul class="nav nav-tabs">
+					<ul class="nav nav-tabs custom-nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#Fmenu1">Concerns</a></li>
 					    <li><a data-toggle="tab" href="#Fmenu2">Hints and Suggestion</a></li>
 					    <li><a data-toggle="tab" href="#Fmenu3">Additional Information</a></li>
