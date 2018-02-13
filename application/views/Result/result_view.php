@@ -39,8 +39,8 @@
 										window.onload = function () {
 
 										var chart = new CanvasJS.Chart("sf36", {
-											height:175,
-											width:500,
+											height:200,
+											width:720,
 											theme: "light1", // "light2", "dark1", "dark2"
 											animationEnabled: true, // change to true		
 											title:{
@@ -66,8 +66,8 @@
 										chart.render();
 
 										var chart = new CanvasJS.Chart("blq", {
-											height:175,
-											width:500,
+											height:200,
+											width:720,
 											theme: "light1", // "light2", "dark1", "dark2"
 											animationEnabled: true, // change to true		
 											title:{
@@ -93,8 +93,8 @@
 										chart.render();
 
 										var chart = new CanvasJS.Chart("cldq", {
-											height:175,
-											width:500,
+											height:200,
+											width:720,
 											theme: "light1", // "light2", "dark1", "dark2"
 											animationEnabled: true, // change to true		
 											title:{
@@ -123,22 +123,25 @@
 										}
 										</script>
 
-	       							<a href="#sf36" class="btn btn-info" data-toggle="collapse">SF36 Result</a>
-	       							<a href="#blq" class="btn btn-info" data-toggle="collapse">BLQ Result</a>
-	       							<a href="#cldq" class="btn btn-info" data-toggle="collapse">CLDQ Result</a>
+									<ul class="nav nav-tabs custom-nav-tabs">
+	       								<li class="active"><a href="#sf36" class="btn btn-info" data-toggle="tab">SF36 Result</a></li>
+	       								<li><a href="#blq" class="btn btn-info" data-toggle="tab">BLQ Result</a></li>
+	       								<li><a href="#cldq" class="btn btn-info" data-toggle="tab">CLDQ Result</a></li>
+	       							</ul>
+	       							<div class="tab-content">
+										<div id="sf36" class="tab-pane fade in active">
+											<div id="sf36"></div>
+										</div>
 
+										<div id="blq" class="tab-pane fade in">
+											<div id="blq"></div>
+										</div>
 
-									<div id="sf36" class="collapse">
-										<div id="sf36"></div>
+										<div id="cldq" class="tab-pane fade in">
+										    <div id="cldq"></div>
+										</div>
 									</div>
 
-									<div id="blq" class="collapse">2
-										<div id="blq"></div>
-									</div>
-
-									<div id="cldq" class="collapse">
-									    <div id="cldq"></div>
-									</div>
 								</div>
 
 							</div>
@@ -161,6 +164,9 @@
     <!--End of Result Form-->
 	</div>
 	</div><br>
+
+	<script type="text/javascript" src="<?php echo base_url('Lib/js/bootstrap.min.js')?>" ></script>
+    <script type="text/javascript" src="<?php echo base_url('Lib/js/jquery.min.js')?>" ></script>
 
 <!-- ====================================FOOTER HERE=================================================== -->
 	<?php include_once('Lib/layout/footer.php');?>
