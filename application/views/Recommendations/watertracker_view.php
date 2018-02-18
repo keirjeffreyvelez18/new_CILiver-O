@@ -7,10 +7,13 @@
 		<div class="container content">
 			<div class="row header-blueP">
 				<div class="col-lg-12">
-					<h1>Water Tracker</h1>
+					<h1>
+						<span class="glyphicon glyphicon-tint"></span>
+						Water Tracker
+					</h1>
 				</div>
 			</div>
-			<div class="row body-maroonP">
+			<div class="row recom-container">
 				<div class="col-lg-12">
 				<center>
 					<div class="slidecontainer range">

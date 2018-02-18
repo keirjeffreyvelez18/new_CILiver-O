@@ -214,9 +214,9 @@
         <div class="modal-footer">
 
             <div class="text-center">
-              <a data-toggle="modal" data-target="#register" data-dismiss="modal" >Register</a>
+              <a href = "#" data-toggle="modal" data-target="#register" data-dismiss="modal" >Register</a>
               <span>  |  </span>
-              <a class="d-block small">Forgot Password?</a>
+              <a href = "#"  class="d-block small">Forgot Password?</a>
             </div>
 
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -324,9 +324,9 @@
         </div>
         <div class="modal-footer">
             <div class="text-center">
-              <a data-toggle="modal" data-target="#login" data-dismiss="modal" >Login</a>
+              <a href = "#" data-toggle="modal" data-target="#login" data-dismiss="modal" >Login</a>
               <span>  |  </span>
-              <a class="d-block small">Forgot Password?</a>
+              <a href = "#" class="d-block small">Forgot Password?</a>
             </div>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>

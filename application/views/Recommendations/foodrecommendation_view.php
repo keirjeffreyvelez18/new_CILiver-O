@@ -8,13 +8,16 @@
 			<!-- ================================Header 1================================ -->
 			<div class="row header-blueP">
 				<div class="col-lg-12">
-					<h1>Food Recommendation</h1>
+					<h1>
+						<span class="glyphicon glyphicon-cutlery"></span>
+						Food Recommendation
+					</h1>
 				</div>
 			</div>
 			<!-- ================================End of Header 1================================ -->
 
 			<!-- ================================FORM 1================================ -->
-			<div class="row body-maroonP">
+			<div class="row recom-container">
 				<div class="col-lg-12">
 					<h1>Food Recommendation</h1>
 					  <h2>Select Amount</h2>

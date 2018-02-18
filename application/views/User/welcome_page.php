@@ -88,7 +88,7 @@
 <!--Content2-->
   <div class="container-fluid content2-custom">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6" style="text-align: right;">
         <h1>Corrected Meal Plans</h1>
         <h3>A well balanced meal is indeed a big deal</h3>
       </div>

@@ -7,10 +7,13 @@
 		<div class="container content">
 			<div class="row header-blueP">
 				<div class="col-lg-12">
-					<h1>Sleep Tracker</h1>
+					<h1>
+						<span class="glyphicon glyphicon-bed"></span>
+						Sleep Tracker
+					</h1>
 				</div>
 			</div>
-			<div class="row body-maroonP">
+			<div class="row recom-container">
 				<div class="col-lg-12">
 						<!-- InputForm -->
 						<div class = "container">
@@ -24,7 +27,7 @@
 										<input type="submit" name="" value="Save" class="form-control btn btn-success">
 									</div>
 								</form><br>
-								<hr>
+								<!-- <hr> -->
 							</div>	
 						</div>
 						<!-- InputForm -->
@@ -110,6 +113,7 @@
 					  <br>
 					  <div class = "col-lg-12">
 					  	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+					  	<br>
 					  </div>
 					  <!-- Sleep Progress Go Here -->
 

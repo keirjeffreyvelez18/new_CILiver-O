@@ -17,6 +17,11 @@ div .quiz-container{
 	width: 80%;
 }
 
+div .recom-container{
+  background-color: #e74c3c; /*friendly red*/
+  color: #ffffff;
+}
+
 div .profile{
 	background-color: #e74c3c; /*friendly red*/
 	color: #ffffff;
