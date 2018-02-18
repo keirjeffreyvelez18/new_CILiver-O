@@ -116,11 +116,11 @@
 										});
 										chart.render();
 										}
-<<<<<<< HEAD
+
 									</script>
-=======
+
 										</script>
->>>>>>> b557c4266fe368673d48b28e39c46538164ba3e7
+
 
 									<ul class="nav nav-tabs custom-nav-tabs">
 	       								<li class="active"><a href="#sf36" class="btn btn-info" data-toggle="tab">SF36 Result</a></li>
