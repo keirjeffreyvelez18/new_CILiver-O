@@ -38,20 +38,13 @@ class Home extends CI_Controller {
 
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
 		$this->form_validation->set_rules('email', 'E-mail', 'is_unique[users.email]');
-
-		// $pass = "mypasss" ; ENCRYPT TEST
-		// $enc = $this->encrypt->encode($pass);
-		// $dec = $this->encrypt->decode($enc);
-		// print_r($enc);
-		// print_r($dec);exit();
 		
 
 
 		if ($this->form_validation->run()) {
 				$data['username'] = $this->input->post('username');
-				print_r($data['username']);
 				$data['email']= $this->input->post('email');
-				$data['password' ]= $this->input->post('password');
+				$data['password' ]= $this->encrypt->encode($this->input->post('password'));
 				$data['birthday'] = $this->input->post('birthday');
 				$data['gender'] = $this->input->post('gender');
 				$taken = array(
