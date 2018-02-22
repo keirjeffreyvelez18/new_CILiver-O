@@ -3,6 +3,8 @@
 
     	function __construct(){
         	parent::__construct();
+            $this->load->library('encrypt');
+
     	}
 
     	function users(){
@@ -63,20 +65,21 @@
             $this->db->select('*');
             $this->db->from('users');
             $this->db->where('email like binary', $email);
-            $this->db->where('password like binary', $password);
             $query = $this->db->get();
 
             if($query->num_rows()==1){
                 $row= $query->row();
-                $data=array(
-                    'userid'=>$row->userid,
-                    'username'=>$row->username,
-                    'email'=> $row->email,
-                    'password'=>$row->password,
-                    'birthday'=>$row->birthday,
-                    'gender'=>$row->gender,
-                );
-                return $data;
+                if ($this->encrypt->decode($row->password)==$password) {
+                    $data=array(
+                        'userid'=>$row->userid,
+                        'username'=>$row->username,
+                        'email'=> $row->email,
+                        'password'=>$row->password,
+                        'birthday'=>$row->birthday,
+                        'gender'=>$row->gender,
+                    );
+                    return $data;
+                }
             }
         }
     }

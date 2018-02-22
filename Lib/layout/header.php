@@ -239,7 +239,7 @@
                             <label for="Name" class="col-sm-2 form-control-label ">Name: </label>
                         </td>
                         <td class="col-md-10">
-                            <input type="text" name="name" class = "form-control" placeholder="Name" value = "<?php echo set_value('name'); ?>" required>
+                            <input type="text" name="username" class = "form-control" placeholder="Name" value = "<?php echo set_value('username'); ?>" required>
                         </td>
                     </tr>
                     <tr>
