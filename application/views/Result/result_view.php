@@ -1,4 +1,4 @@
-<?php include_once('Lib/layout/header.php');?>
+	<?php include_once('Lib/layout/header.php');?>
 	
 	<div class = "container">
 		<!-- Progress Indicator -->
@@ -150,11 +150,13 @@
 	       		</div>
 	       		<div class = "col-lg-4 content1-custom">
 	       			<div class = "container-fluid m-middle">
-		       			<h3>Avatar, Relevant Image or Icon Corresponding to the curent assessment</h3>
+		       				<h3>Avatar, Relevant Image or Icon Corresponding to the curent assessment</h3>
 		       			<br>
-		       			<p>lorem ipsum, condition of the patient</p><!-- Mention the current condition of the user-->
+		       				<p>lorem ipsum, condition of the patient</p><!-- Mention the current condition of the user-->
 		       			<br>
-		       			<img class = "fit" src = "<?php echo BASE_URL('Lib/imgs/slide3.jpg')?>" alt="example">
+		       				<div class="form">
+		       					<img class = "fit" src = "<?php echo BASE_URL('Lib/imgs/slide3.jpg')?>" alt="example">
+		       				</div>
 		       			<br>	
 	       			</div>
 	       		</div>
