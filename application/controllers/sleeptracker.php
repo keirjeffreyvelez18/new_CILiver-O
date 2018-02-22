@@ -27,9 +27,17 @@ class Sleeptracker extends CI_Controller {
 	{
 		$data['title'] = "Sleep Tracker | Liver-O";
 		$data['sleepTrackerData'] = $this->sleeptrackertab->getSleepingRecords();
-		print_r(explode(":",$data['sleepTrackerData'][0]['timeStart']));
+		foreach ($data['sleepTrackerData'] as $key => $value) {
+			$tStart[ $key ] = explode(":",$data['sleepTrackerData'][ $key ]['timeStart']);
+			$tEnd[ $key ] = explode(":",$data['sleepTrackerData'][ $key ]['timeEnd']);
+			$dos [$key] = explode("-",$data['sleepTrackerData'][ $key ]['dateofSleep']);
+			
+		}
 
-		
+		$data['tStart'] = $tStart;
+		$data['tEnd'] = $tEnd;
+		$data['dos'] = $dos;
+
 		$this->load->view('Recommendations/sleeptracker_view', $data);
 	}
 	public function saveSleepTracker(){

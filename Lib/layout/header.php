@@ -19,6 +19,8 @@
     <script type="text/javascript" src="<?php echo base_url('Lib/js/jquery.min.js')?>" ></script>
     <script type="text/javascript" src="<?php echo base_url('Lib/js/carousel.js')?>" ></script>
     <script type="text/javascript" src="<?php echo base_url('Lib/js/canvasjs.min.js')?>" ></script>
+    <script type="text/javascript" src="<?php echo base_url('Lib/js/manual.js')?>" ></script>
+   
     
     <script type="text/javascript">
         $(document).ready(function() {
@@ -35,16 +37,6 @@
                     var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-close';
                 }
         } 
-        // function password() {
-        //     var x = document.getElementById("password");
-        //         if (x.type === "text") {
-        //             x.type = "password";
-        //             var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-open';  
-        //         } else {
-        //             x.type = "text";
-        //             var visibile = document.getElementById("VPassword").className+='glyphicon glyphicon-eye-open';  
-        //         }
-        // }
     </script>
 
     

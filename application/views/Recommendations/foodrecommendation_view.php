@@ -2,7 +2,7 @@
 
 
 </head>
-	<body>
+	<body class="base-background">
 		<br>
 		<div class="container">
 			<!-- ================================Header 1================================ -->

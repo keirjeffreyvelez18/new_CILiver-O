@@ -37,7 +37,6 @@
 
 	       							<script type="text/javascript">
 										window.onload = function () {
-
 										var chart = new CanvasJS.Chart("sf36", {
 											height:200,
 											width:720,
@@ -64,7 +63,6 @@
 											]
 										});
 										chart.render();
-
 										var chart = new CanvasJS.Chart("blq", {
 											height:200,
 											width:720,
@@ -91,7 +89,6 @@
 											]
 										});
 										chart.render();
-
 										var chart = new CanvasJS.Chart("cldq", {
 											height:200,
 											width:720,
@@ -118,10 +115,12 @@
 											]
 										});
 										chart.render();
-
-
 										}
+
+									</script>
+
 										</script>
+
 
 									<ul class="nav nav-tabs custom-nav-tabs">
 	       								<li class="active"><a href="#sf36" class="btn btn-info" data-toggle="tab">SF36 Result</a></li>
