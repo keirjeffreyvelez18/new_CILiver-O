@@ -1,9 +1,16 @@
+div .base-background{
+    background-color: #e6e6e6;
+}
 div .login{
 	background-color: #9b1b22;
 }
 
 div .register{
 	background-color: #648c58;
+}
+
+div .inner-contianer{
+    box-shadow: 5px 10px 8px #888888;
 }
 
 div .bmi-container{
@@ -15,6 +22,11 @@ div .quiz-container{
 	background-color: #e74c3c; /*friendly red*/
 	color: #ffffff;
 	width: 80%;
+}
+
+div .recom-container{
+  background-color: #e74c3c; /*friendly red*/
+  color: #ffffff;
 }
 
 div .profile{
@@ -116,7 +128,7 @@ div .range{
 }
 
 
-.accordion {
+/*.accordion {
     background-color: #eee;
     color: #444;
     cursor: pointer;
@@ -138,5 +150,5 @@ div .range{
     display: none;
     background-color: white;
     overflow: hidden;
-}
+}*/
 /*=====================END OF NAV TABS============================*/

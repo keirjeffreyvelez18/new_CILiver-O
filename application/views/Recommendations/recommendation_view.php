@@ -2,9 +2,9 @@
 
 
 </head>
-	<body>
+	<body class="base-background">
 		<br>
-		<div class="container quiz-container content">
+		<div class="container quiz-container inner-container content">
 			<div class="row header-blueP">
 				<div class="col-lg-12">
 					<h1>
