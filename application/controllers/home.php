@@ -187,7 +187,7 @@ class Home extends CI_Controller {
 
 	public function profile(){
 		if ($this->session->userdata('isLoggedIn')) {
-			$data['title']='Profile|CILiver-O';
+			$data['title']="Profile|CILiver-O";
 			$data = array(
 				'edit_name' => FALSE,
 				'edit_pass' => FALSE,

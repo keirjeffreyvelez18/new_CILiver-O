@@ -26,22 +26,20 @@ class Result extends CI_Controller {
 
    	}
 
-	public function index()
-	{
+	public function index(){
 		$r = $this->results_tab->getResult();
 		$data_result['title'] = "Results | CLiver-O";
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
 		$data_result['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		if ($r) {
 			$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
-			$data_result['blq'] = $r[1]['qresults'];
+			$data_result['blq'] = ($r[1]['qresults']/32)*100;
 			$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
 			$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
 			$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
 			$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
 
 		}
-		
 		
 		$this->load->view('Result/result_view', $data_result);
 	}
