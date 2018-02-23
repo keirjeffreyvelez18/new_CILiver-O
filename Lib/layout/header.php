@@ -104,7 +104,7 @@
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
                         <li class="<?php echo site_url('foodrecommendation')?>">
-                            <a href = "<?php echo site_url('foodrecommendation')?>">Food Recommendation</a>
+                            <a href = "<?php echo site_url('foodrecommendation')?>">Calorie Recommendation</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
                         <li class="<?php echo site_url('recommendation')?>">
