@@ -18,7 +18,12 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+	if ($_SERVER['SERVER_NAME'] == 'local_server_name') {
+    define('ENVIRONMENT', 'development');
+	} else {
+	    define('ENVIRONMENT', 'production');
+	}
+	// define('ENVIRONMENT', 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -28,23 +33,38 @@
  * By default development will show errors but testing and live will hide them.
  */
 
-if (defined('ENVIRONMENT'))
-{
-	switch (ENVIRONMENT)
-	{
-		case 'development':
-			error_reporting(E_ALL);
-		break;
-
-		case 'testing':
-		case 'production':
-			error_reporting(0);
-		break;
-
-		default:
-			exit('The application environment is not set correctly.');
-	}
+if (defined('ENVIRONMENT')) {
+    switch (ENVIRONMENT) {
+        case 'development':
+            error_reporting(E_ALL);
+            break;
+        case 'testing':
+        case 'production':
+            error_reporting(0);
+            ini_set('display_errors', 0);  
+            break;
+        default:
+            exit('The application environment is not set correctly.');
+    }
 }
+
+// if (defined('ENVIRONMENT'))
+// {
+// 	switch (ENVIRONMENT)
+// 	{
+// 		case 'development':
+// 			error_reporting(E_ALL);
+// 		break;
+
+// 		case 'testing':
+// 		case 'production':
+// 			error_reporting(0);
+// 		break;
+
+// 		default:
+// 			exit('The application environment is not set correctly.');
+// 	}
+// }
 
 /*
  *---------------------------------------------------------------

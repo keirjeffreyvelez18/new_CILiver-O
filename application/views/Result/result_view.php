@@ -1,3 +1,4 @@
+<?php echo 'Current PHP version: ' . phpversion();?>
 <?php include_once('Lib/layout/header.php');?>
 	
 	<div class = "container">
