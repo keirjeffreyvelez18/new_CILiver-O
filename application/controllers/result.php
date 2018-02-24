@@ -169,9 +169,9 @@ class Result extends CI_Controller {
 		);
 
 		if ($score_mean['ave']>=50) {
-			$eval['ave']=("Average Health is Unhealthy");
+			$eval['ave']=("High Probability to have chronic Liver Disease");
 		}else{
-			$eval['ave']=("Average Health is Healthy");
+			$eval['ave']=("Low Probability to have chronic Liver Disease");
 		}
 
 

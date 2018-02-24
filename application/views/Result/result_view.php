@@ -50,6 +50,7 @@
 												lineColor: "#4F81BC",
 												labelFontColor: "#4F81BC",
 												tickColor: "#4F81BC",
+												suffix: "%",
 												maximum: 100
 											},
 											axisY2: {
@@ -74,9 +75,9 @@
 												legendText: "Your Results ",
 												showInLegend: true, 
 												dataPoints:[
-													{ label: "SF36", y: <?php echo $sf36['ave'] ?> },
-													{ label: "BLQ", y: <?php echo $blq ?>  },
-													{ label: "CLDQ", y: <?php echo $cldq['ave'] ?>  },
+													{ label: "SF36", y: <?php echo $sf36['ave'] ?>,indexLabel: "<?php echo $sf36_eval['ave']; ?>"},
+													{ label: "BLQ", y: <?php echo $blq ?> ,indexLabel: "<?php echo $blq_eval; ?>" },
+													{ label: "CLDQ", y: <?php echo $cldq['ave'] ?>,indexLabel: "<?php echo $cldq_eval['ave']; ?>"  },
 												]
 											},
 											{
@@ -188,7 +189,7 @@
 
 									</script>
 
-									<div id="chartContainer" style="height: 300px; width: 100%;">ddsads</div>
+									<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 									
 
 								</div>

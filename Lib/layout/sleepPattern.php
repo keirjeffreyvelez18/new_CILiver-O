@@ -1,4 +1,74 @@
-					<script type="text/javascript">
+<script type="text/javascript">
+					  		window.onload = function () {
+
+								var chart = new CanvasJS.Chart("chartContainer", {
+									animationEnabled: true,
+									theme: "light2",
+									title: {
+										text: "Sleep Tracker"
+									},
+									axisX: {
+										
+									},
+									axisY: {
+									},
+									toolTip: {
+										shared: true
+									},
+									legend: {
+										cursor: "pointer",
+										itemclick: toggleDataSeries
+									},
+									data: [
+									{
+										type: "rangeColumn",
+										name: "Hours of Sleep",
+										showInLegend: true,
+										dataPoints: [
+											<?php foreach ($tStart as $key => $value): ?>
+											{ x: new Date(<?php echo $dos[$key][0].",".($dos[$key][1]-1).",".$dos[$key][2].",".$tStart[$key][0].",".$tStart[$key][1] ?>), y: [<?php echo $tStart[$key][0] ?>, <?php echo $tEnd[$key][0] ?>] },
+											<?php endforeach ?>
+										]
+									}, 
+									{
+										type: "spline",
+										name: "Sleeping Time",
+										showInLegend: true,
+										dataPoints: [
+											<?php foreach ($tStart as $key => $value): ?>
+											{ x: new Date(<?php echo $dos[$key][0].",".($dos[$key][1]-1).",".$dos[$key][2].",".$tStart[$key][0].",".$tStart[$key][1] ?>), y: <?php echo $tStart[$key][0] ?>,  },
+											<?php endforeach ?>
+										]
+									},
+									{
+										type: "spline",
+										name: "Wake Up Time",
+										markerBorderColor: "white",
+										markerBorderThickness: 2,
+										showInLegend: true,
+										dataPoints: [
+											<?php foreach ($tEnd as $key => $value): ?>
+												{ x: new Date(<?php echo $dos[$key][0].",".($dos[$key][1]-1).",".$dos[$key][2].",".$tEnd[$key][0].",".$tEnd[$key][1] ?>), y: <?php echo $tEnd[$key][0] ?> },
+											<?php endforeach ?>
+										]
+									}]
+								});
+								chart.render();
+
+								
+								function toggleDataSeries(e) {
+									if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+										e.dataSeries.visible = false;
+									} else {
+										e.dataSeries.visible = true;
+									}
+									e.chart.render();
+								}
+
+							}
+					  	</script>
+					  	<div id="chartContainer" style="height: 370px; width: 100%;">
+<!-- 					<script type="text/javascript">
 					  	window.onload = function () {
 
 							var chart = new CanvasJS.Chart("chartContainer", {
@@ -77,4 +147,4 @@
 					  <div class = "col-lg-12">
 					  	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 					  	<br>
-					  </div>
+					  </div> -->

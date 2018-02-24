@@ -38,7 +38,8 @@
 					  <!-- ================== Sleep Progress Go Here ===================== -->
 					  <br>
 					  <div class = "col-lg-12">
-					  	<?php include_once('Lib/layout/sleepPattern.php');?>
+					  	
+					  	<?php include_once('Lib/layout/sleepPattern.php');?> 
 					  	<br>
 					  </div>
 					  <!-- ================== End of Sleep Progress ======================-->
