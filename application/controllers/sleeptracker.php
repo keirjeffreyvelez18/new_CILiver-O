@@ -38,6 +38,9 @@ class Sleeptracker extends CI_Controller {
 		$data['tEnd'] = $tEnd;
 		$data['dos'] = $dos;
 
+
+		
+
 		$this->load->view('Recommendations/sleeptracker_view', $data);
 	}
 	public function saveSleepTracker(){
