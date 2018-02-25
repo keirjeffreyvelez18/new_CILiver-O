@@ -1,4 +1,4 @@
-<script type="text/javascript">
+						<script type="text/javascript">
 					  		window.onload = function () {
 
 								var chart = new CanvasJS.Chart("chartContainer", {
@@ -21,12 +21,12 @@
 									},
 									data: [
 									{
-										type: "rangeColumn",
+										type: "error",
 										name: "Hours of Sleep",
 										showInLegend: true,
 										dataPoints: [
 											<?php foreach ($tStart as $key => $value): ?>
-											{ x: new Date(<?php echo $dos[$key][0].",".($dos[$key][1]-1).",".$dos[$key][2].",".$tStart[$key][0].",".$tStart[$key][1] ?>), y: [<?php echo $tStart[$key][0] ?>, <?php echo $tEnd[$key][0] ?>] },
+											{ x: new Date(<?php echo $dos[$key][0].",".($dos[$key][1]-1).",".$dos[$key][2].",".$tStart[$key][0].",".$tStart[$key][1] ?>), y: [<?php echo $tStart[$key][0] ?>, <?php echo $tEnd[$key][0] ?>], indexLabel:"<?php echo ((24-$tStart[$key][0])+ $tEnd[$key][0]); ?> hr of Sleep" },
 											<?php endforeach ?>
 										]
 									}, 
@@ -48,7 +48,7 @@
 										showInLegend: true,
 										dataPoints: [
 											<?php foreach ($tEnd as $key => $value): ?>
-												{ x: new Date(<?php echo $dos[$key][0].",".($dos[$key][1]-1).",".$dos[$key][2].",".$tEnd[$key][0].",".$tEnd[$key][1] ?>), y: <?php echo $tEnd[$key][0] ?> },
+												{ x: new Date(<?php echo $dos[$key][0].",".($dos[$key][1]-1).",".($dos[$key][2]+1).",".$tEnd[$key][0].",".$tEnd[$key][1] ?>), y: <?php echo $tEnd[$key][0] ?> },
 											<?php endforeach ?>
 										]
 									}]
