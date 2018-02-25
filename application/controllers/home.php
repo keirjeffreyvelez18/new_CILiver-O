@@ -20,7 +20,7 @@ class Home extends CI_Controller {
 
 	function __construct(){
        	parent::__construct();
-       	$this->load->library('encrypt');
+        $this->load->library('encrypt');
        	$this->load->library('form_validation');
        	$this->load->model('userstab');
        	$this->load->helper(array('form', 'url'));

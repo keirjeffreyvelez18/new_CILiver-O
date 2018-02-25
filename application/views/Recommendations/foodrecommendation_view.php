@@ -4,13 +4,13 @@
 </head>
 	<body class="base-background">
 		<br>
-		<div class="container">
+		<div class="container content">
 			<!-- ================================Header 1================================ -->
 			<div class="row header-blueP">
 				<div class="col-lg-12">
 					<h1>
 						<span class="glyphicon glyphicon-cutlery"></span>
-						Food Recommendation
+						Calorie Recommendation
 					</h1>
 				</div>
 			</div>
@@ -29,6 +29,7 @@
 					</div>
 					
 					<?php include_once('Lib/layout/calorieTracker.php');?>
+					<br>
 				</div>
 			</div>
 			<br>
