@@ -91,29 +91,29 @@
                                      ?>">Questionnaire</a>
                         </li>
                        
-                        <li class="<?php echo site_url('result')?>">
+                        <li class="<?php if($this->uri->segment(2)=='result_view'|| $this->uri->segment(1)=='result'){echo 'active';}?>">
                             <a href = "<?php echo site_url('result')?>">Result</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-                        <li class="<?php echo site_url('watertracker')?>">
+                        <li class="<?php if($this->uri->segment(2)=='watertracker_view'|| $this->uri->segment(1)=='watertracker'){echo 'active';}?>">
                             <a href = "<?php echo site_url('watertracker')?>">Water Tracker</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-                        <li class="<?php echo site_url('sleeptracker')?>">
+                        <li class="<?php if($this->uri->segment(2)=='sleeptracker_view'|| $this->uri->segment(1)=='sleeptracker'){echo 'active';}?>">
                             <a href = "<?php echo site_url('sleeptracker')?>">Sleep Tracker</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-                        <li class="<?php echo site_url('foodrecommendation')?>">
-                            <a href = "<?php echo site_url('foodrecommendation')?>">Food Recommendation</a>
+                        <li class="<?php if($this->uri->segment(2)=='foodrecommendation_view'|| $this->uri->segment(1)=='foodrecommendation'){echo 'active';}?>">
+                            <a href = "<?php echo site_url('foodrecommendation')?>">Calorie Recommendation</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-                        <li class="<?php echo site_url('recommendation')?>">
+                        <li class="<?php if($this->uri->segment(2)=='recommendation_view'|| $this->uri->segment(1)=='recommendation'){echo 'active';}?>">
                             <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
-                        
-                        
+
 
                     </ul>
+
                 <?php endif; ?>
             <ul class="nav navbar-nav navbar-right">
                 <li class="<?php if($this->uri->segment(2)=='profile'){echo 'active';} ?>">

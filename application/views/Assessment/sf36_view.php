@@ -53,7 +53,7 @@
 										<?php if ($row->qCat==$qcategory): ?>
 										<?php $MyQuestion = json_decode($row->qAndA); ?>
 											<td class="<?php if($index!=$row->qIndex){echo 'collapse';} ?>"><h2><?php echo $row->qIndex.". ".$MyQuestion->question;?></h2>
-												<br>
+												<br>												
 												<input name="qIndex" type="hidden" value="<?php echo $row->qIndex; ?>">
 												<input type="hidden" name="i"  value="<?php echo $index; ?>">
 												<div class="btn-group" data-toggle="buttons">

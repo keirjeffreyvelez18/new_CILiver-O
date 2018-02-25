@@ -32,8 +32,6 @@ class Assessment extends CI_Controller {
 		$this->load->view('Assessment/assessment_view', $data);
 	}
 
-
-
 	public function bmi(){
 		$data['title']='Assessment | CLiver-O';
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
@@ -189,9 +187,6 @@ class Assessment extends CI_Controller {
 		$btn = $this->input->post('prs_button');
 
 
-		
-		
-
 		if ($btn == "Yes") {
 			print_r("expression");
 			$data['qTaken']['prs']=1;
@@ -205,9 +200,6 @@ class Assessment extends CI_Controller {
 		}else{
 			$this->load->view('Assessment/persistence_view',$data);	
 		}
-
-		
-
 	}
 
 	public function get_score($domain="", $ansScore="" ){

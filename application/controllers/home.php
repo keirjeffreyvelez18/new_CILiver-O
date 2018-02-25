@@ -187,7 +187,7 @@ class Home extends CI_Controller {
 
 	public function profile(){
 		if ($this->session->userdata('isLoggedIn')) {
-			$data['title']='Profile|CILiver-O';
+			$data['title']="Profile|CILiver-O";
 			$data = array(
 				'edit_name' => FALSE,
 				'edit_pass' => FALSE,
@@ -221,7 +221,8 @@ class Home extends CI_Controller {
 	public function update_pass(){
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
 
-		$data['password']=$this->input->post('password');
+		
+		$data['password' ]= $this->encrypt->encode($this->input->post('password'));
 		$data['userid']=$this->input->post('userid');
 
 		if ($this->form_validation->run()) {

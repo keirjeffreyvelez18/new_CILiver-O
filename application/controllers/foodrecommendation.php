@@ -19,13 +19,30 @@ class Foodrecommendation extends CI_Controller {
 	 */
 	function __construct(){
        	parent::__construct();
+       	$this->load->model('calorietrackertab');
        	$this->load->helper(array('form', 'url'));
    	}
 
 	public function index()
-	{
-		$this->load->view('Recommendations/foodrecommendation_view');
+	{	
+		$data['title'] = "Calorie Tracker | Liver-O";
+		$data['calorieintakeData'] = $this->calorietrackertab->getCalorieIntake();
+ 		$this->load->view('Recommendations/foodrecommendation_view', $data);
 	}
+
+	public function saveCalorieIntake(){
+		$data['dateOfIntake'] = $this->input->post('dOfIntake');
+		$data['numOfCalorie'] = $this->input->post('numOfIntake');
+		$data['userid'] = $this->session->userdata('userid');
+
+
+		$result = $this->calorietrackertab->insertCalorieIntake($data);
+		if ($result) {
+			redirect('Foodrecommendation', 'refresh');
+		}
+	}
+
+
 }
 
 /* End of file welcome.php */
