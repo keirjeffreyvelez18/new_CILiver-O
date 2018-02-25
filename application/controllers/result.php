@@ -33,18 +33,39 @@ class Result extends CI_Controller {
 		$data_result['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		if ($r) {
 			$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
-			$data_result['blq'] = ($r[1]['qresults']/32)*100;
-			$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
-			$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
-			$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
-			$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
+			if ($data_result['sf36']['ave']>=75) {
+				$data_result['blq'] = 53.125;
+				$data_result['cldq']['ave'] = 50;
+				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
+				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
+				$data_result['blq_eval']="You are Healthy";
+				$data_result['cldq_eval']['ave']="You are Healthy";
+			}else{
+				$data_result['blq'] = ($r[1]['qresults']/32)*100;
+				$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
+				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
+				$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
+				$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
+			}
+			
 
 		}
 		
 		$this->load->view('Result/result_view', $data_result);
 	}
 
-	
+	function sf36_recom($score_mean=""){
+		if ($score_mean['ave']<=75) {
+			$recom=("Average Health is Unhealthy");
+		} else {
+			if ($this->session->userdata('gender')=='Male') {
+				$recom=("15 - 16 glasseses [125 ounces]");
+			}else{
+				$recom=("11 - 12 glasses[92 ounces] ");
+			}
+		}
+		return $recom;
+	}
 
 	function evaluate_blq($score=0){
 		if ($score>=29.69) {

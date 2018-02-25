@@ -38,75 +38,75 @@
 
 	       							<script type="text/javascript">
 	       								
-									window.onload = function () {
+										window.onload = function () {
 
-										var chart = new CanvasJS.Chart("chartContainer", {
-											animationEnabled: true,
-											title:{
-												text: "Results"
-											},	
-											axisY: {
-												title: "Yours Results",
-												titleFontColor: "#4F81BC",
-												lineColor: "#4F81BC",
-												labelFontColor: "#4F81BC",
-												tickColor: "#4F81BC",
-												suffix: "%",
-												maximum: 100
-											},
-											axisY2: {
-												title: "Healthy Results",
-												titleFontColor: "#C0504E",
-												lineColor: "#C0504E",
-												labelFontColor: "#C0504E",
-												tickColor: "#C0504E",
-												maximum: 100
-											},	
-												toolTip: {
-													shared: true,
-
+											var chart = new CanvasJS.Chart("chartContainer", {
+												animationEnabled: true,
+												title:{
+													text: "Results"
+												},	
+												axisY: {
+													title: "Yours Results",
+													titleFontColor: "#4F81BC",
+													lineColor: "#4F81BC",
+													labelFontColor: "#4F81BC",
+													tickColor: "#4F81BC",
+													suffix: "%",
+													maximum: 100
 												},
-											legend: {
-												cursor:"pointer",
-												itemclick: toggleDataSeries
-											},
-											data: [{
-												type: "column",
-												name: "Your Results",
-												legendText: "Your Results ",
-												showInLegend: true, 
-												dataPoints:[
-													{ label: "SF36", y: <?php echo $sf36['ave'] ?>,indexLabel: "<?php echo $sf36_eval['ave']; ?>"},
-													{ label: "BLQ", y: <?php echo $blq ?> ,indexLabel: "<?php echo $blq_eval; ?>" },
-													{ label: "CLDQ", y: <?php echo $cldq['ave'] ?>,indexLabel: "<?php echo $cldq_eval['ave']; ?>"  },
-												]
-											},
-											{
-												type: "column",	
-												name: "Healthy",
-												legendText: "Healthy",
-												axisYType: "secondary",
-												showInLegend: true,
-												dataPoints:[
-													{ label: "SF36", y: 75 },
-													{ label: "BLQ", y: 53.125 },
-													{ label: "CLDQ", y: 50 },
-												]
-											}]
-										});
-										chart.render();
+												axisY2: {
+													title: "Healthy Results",
+													titleFontColor: "#C0504E",
+													lineColor: "#C0504E",
+													labelFontColor: "#C0504E",
+													tickColor: "#C0504E",
+													maximum: 100
+												},	
+													toolTip: {
+														shared: true,
 
-										function toggleDataSeries(e) {
-											if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-												e.dataSeries.visible = false;
-											}
-											else {
-												e.dataSeries.visible = true;
-											}
+													},
+												legend: {
+													cursor:"pointer",
+													itemclick: toggleDataSeries
+												},
+												data: [{
+													type: "column",
+													name: "Your Results",
+													legendText: "Your Results ",
+													showInLegend: true, 
+													dataPoints:[
+														{ label: "SF36", y: <?php echo $sf36['ave'] ?>,indexLabel: "<?php echo $sf36_eval['ave']; ?>"},
+														{ label: "BLQ", y: <?php echo $blq ?> ,indexLabel: "<?php echo $blq_eval; ?>" },
+														{ label: "CLDQ", y: <?php echo $cldq['ave'] ?>,indexLabel: "<?php echo $cldq_eval['ave']; ?>"  },
+													]
+												},
+												{
+													type: "column",	
+													name: "Healthy",
+													legendText: "Healthy",
+													axisYType: "secondary",
+													showInLegend: true,
+													dataPoints:[
+														{ label: "SF36", y: 75 },
+														{ label: "BLQ", y: 53.125 },
+														{ label: "CLDQ", y: 50 },
+													]
+												}]
+											});
 											chart.render();
-										}
 
-									}
+											function toggleDataSeries(e) {
+												if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+													e.dataSeries.visible = false;
+												}
+												else {
+													e.dataSeries.visible = true;
+												}
+												chart.render();
+											}
+
+										}
 										// window.onload = function () {
 										// 	var chart = new CanvasJS.Chart("sf36", {
 										// 		height:200,
@@ -204,15 +204,12 @@
 	       			<div class = "container-fluid m-middle">
 		       				
 		       			<br>
-		       				<p>lorem ipsum, condition of the patient</p><!-- Mention the current condition of the user-->
+		       				<p>Condition of the patient</p><!-- Mention the current condition of the user-->
 		       			<br>
 		       				<div>
-		       					<?php foreach ($sf36_eval as $row): ?>
-		       						<ul>
-		       							<li><?php echo $row."<br>"; ?></li>
-		       						</ul>
-		       						
-		       					<?php endforeach ?>
+
+			       					<?php echo $sf36_recom; ?>
+
 		       				</div>
 		       			<br>	
 	       			</div>
