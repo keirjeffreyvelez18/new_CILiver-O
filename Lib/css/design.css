@@ -1,6 +1,6 @@
-div .base-background{
+/*div .base-background{
     background-color: #e6e6e6;
-}
+}*/
 div .login{
 	background-color: #9b1b22;
 }
@@ -9,9 +9,9 @@ div .register{
 	background-color: #648c58;
 }
 
-div .inner-contianer{
+/*div .inner-contianer{
     box-shadow: 5px 10px 8px #888888;
-}
+}*/
 
 div .bmi-container{
 	background-color: #e74c3c; /*friendly red*/

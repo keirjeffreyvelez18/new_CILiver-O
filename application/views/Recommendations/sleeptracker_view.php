@@ -2,9 +2,10 @@
 
 
 </head>
-	<body class="base-background">
+	<body>
 		<br>
-		<div class="container inner-container content">
+		<div class="container content">
+			
 			<div class="row header-blueP">
 				<div class="col-lg-12">
 					<h1>
@@ -13,10 +14,11 @@
 					</h1>
 				</div>
 			</div>
+
 			<div class="row recom-container" >
 				<div class="col-lg-12">
 						<!-- ================== InputForm ================== -->
-						<div class = "container">
+						<div class = "container-fluid">
 							<div class="row">
 								<form method="POST" action="<?php echo base_url('index.php/sleeptracker/saveSleepTracker');?>">
 									<div class="col-md-12">
@@ -51,5 +53,5 @@
 		</div>		
 		<br>
 <!-- ====================================FOOTER HERE=================================================== -->
-	<?php include_once('Lib/layout/footer.php');?>
+<?php include_once('Lib/layout/footer.php');?>
 <!-- ====================================FOOTER HERE=================================================== -->

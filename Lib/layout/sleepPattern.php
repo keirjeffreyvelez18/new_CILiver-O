@@ -3,6 +3,7 @@
 
 								var chart = new CanvasJS.Chart("chartContainer", {
 									animationEnabled: true,
+									exportEnabled: true,
 									theme: "light2",
 									title: {
 										text: "Sleep Tracker"
@@ -67,7 +68,10 @@
 
 							}
 					  	</script>
-					  	<div id="chartContainer" style="height: 370px; width: 100%;">
+
+					  	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+
 <!-- 					<script type="text/javascript">
 					  	window.onload = function () {
 
