@@ -46,6 +46,7 @@ class Result extends CI_Controller {
 				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
 				$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
 				$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
+				$data_result['cldq_recom']=$this->cldq_recom($data_result['cldq']);
 			}
 			
 
@@ -55,14 +56,28 @@ class Result extends CI_Controller {
 	}
 
 	function sf36_recom($score_mean=""){
-		if ($score_mean['ave']<=75) {
-			$recom=("Average Health is Unhealthy");
+		if ($score_mean['ave']<75) {
+			$recom[1]=("Average Health is Unhealthy");
+			$recom[2]="";
 		} else {
 			if ($this->session->userdata('gender')=='Male') {
-				$recom=("15 - 16 glasseses [125 ounces]");
+				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
+				$recom[2]=("7-9 hours of sleep per day");
 			}else{
-				$recom=("11 - 12 glasses[92 ounces] ");
+				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
+				$recom[2]=("7-9 hours of sleep per day");
 			}
+		}
+		return $recom;
+	}
+
+	function cldq_recom($score_mean=""){
+		if ($score_mean['ave']<50) {
+			$recom[1]=("6 - 7 glasses [51 ounces] per day");
+			$recom[2]="7-9 hours of sleep per day";
+		} else {
+			$recom[1]=("1 liter or 4 glasses [51 ounces] per day");
+			$recom[2]="≥ 8 hours of sleep per day";
 		}
 		return $recom;
 	}

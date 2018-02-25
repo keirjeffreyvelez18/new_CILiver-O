@@ -191,7 +191,6 @@
 									</script>
 
 									<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-									
 
 								</div>
 
@@ -208,7 +207,12 @@
 		       			<br>
 		       				<div>
 
-			       					<?php echo $sf36_recom; ?>
+			       					<?php echo $sf36_recom[1]; ?>
+			       					<br>
+			       					<?php echo $sf36_recom[2]; ?>
+			       					<?php echo $cldq_recom[1]; ?>
+			       					<br>
+			       					<?php echo $cldq_recom[2]; ?>
 
 		       				</div>
 		       			<br>	
