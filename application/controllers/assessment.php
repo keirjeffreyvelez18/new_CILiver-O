@@ -59,6 +59,20 @@ class Assessment extends CI_Controller {
 		$this->load->view('Assessment/bmi_view', $data);
 	}
 
+	public function nextAssessment(){
+		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
+		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
+		if ($data['qTaken']['sf36']==0.5) {
+			$this->sf36();
+		}elseif ($data['qTaken']['blq']==0.5) {
+			redirect("blq", 'refresh');
+		}elseif ($data['qTaken']['prs']==0.5) {
+			$this->prs();
+		}elseif ($data['qTaken']['cldq']==0.5) {
+			redirect("cldq", 'refresh');
+		}
+	}
+
 	public function bmiEvaluation($result=0){
 		if ($result<18.5) {
 			return array("#12e5d6","Below normal Body Mass Index");

@@ -111,7 +111,6 @@
                             <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-
                     </ul>
 
                 <?php endif; ?>

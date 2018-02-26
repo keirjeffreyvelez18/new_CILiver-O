@@ -60,7 +60,7 @@ class Home extends CI_Controller {
 					if($this->userstab->insert_user($data)){
 						$msg="Successfully Register, Please Log-in";
 						$this->session->set_flashdata('success',$msg);
-						redirect('/home/login','refresh');
+						$this->login();
 					}else{
 						$msg="Error!";
 						$this->session->set_flashdata('error',$msg);
@@ -106,7 +106,6 @@ class Home extends CI_Controller {
 		if($this->form_validation->run()){
 			$email=$this->input->post('email');
 			$password=$this->input->post('password');
-
 			$result = $this->userstab->login_user($email,$password);
 			if ($result!=null) {
 				$session_data=array(

@@ -4,9 +4,7 @@
 </head>
 	<body>
 		<div class = "container">
-			<div class="row">
 	       		<?php include_once('Lib/layout/progress.php');?>
-	       	</div>
 	    </div>
 
 	    <div class="content">
@@ -25,10 +23,21 @@
 								<tr>
 									<?php if ($index!=37): ?>
 										<th class="col-md-9"><?php echo "Question #".$index." of 36"; ?> </th>
+
 									<?php else: ?>
 										<th class="col-md-9">Thank you for Answering</th>
 									<?php endif ?>
-								</tr>
+									<th>
+										<input type="submit" name="submit" class="btn btn-primary" value="Back" 
+											<?php if($index==1){echo "disabled";} ?>
+										>
+										<?php if ($index==37): ?>
+											<input type="submit" name="submit" class="btn btn-primary" value="Save">
+										<?php else: ?>
+											<input type="submit" name="submit" class="btn btn-primary" value="Next">
+										<?php endif ?>
+									</th>
+								</tr>	
 								<tr>
 									<td class="<?php if($index==37){echo 'collapse';} ?>">
 										<!-- Progress Trackers -->
