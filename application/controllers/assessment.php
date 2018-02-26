@@ -70,6 +70,8 @@ class Assessment extends CI_Controller {
 			$this->prs();
 		}elseif ($data['qTaken']['cldq']==0.5) {
 			redirect("cldq", 'refresh');
+		}else{
+			redirect("result", 'refresh');
 		}
 	}
 

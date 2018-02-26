@@ -32,7 +32,7 @@
 											<?php if($index==1){echo "disabled";} ?>
 										>
 										<?php if ($index==37): ?>
-											<input type="submit" name="submit" class="btn btn-primary" value="Save">
+											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
 										<?php else: ?>
 											<input type="submit" name="submit" class="btn btn-primary" value="Next">
 										<?php endif ?>
@@ -93,6 +93,9 @@
 										<h2>
 											Average Health: <?php echo round($result['ave']) ?> %
 										</h2>
+										<?php foreach ($variable as $key => $value) {
+											# code...
+										} ?>
 									</td>
 								</tr>
 							</tbody>
@@ -104,7 +107,7 @@
 											<?php if($index==1){echo "disabled";} ?>
 										>
 										<?php if ($index==37): ?>
-											<input type="submit" name="submit" class="btn btn-primary" value="Save">
+											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
 										<?php else: ?>
 											<input type="submit" name="submit" class="btn btn-primary" value="Next">
 										<?php endif ?>

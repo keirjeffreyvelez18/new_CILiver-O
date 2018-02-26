@@ -20,10 +20,10 @@
 	       			<h1>
 	       				<span class = "glyphicon glyphicon-plus"></span>
 	       				General Health Assessment Result
-	       				<button style = "float: right" class = "btn btn-md btn-success" type = "button" href = "#">
-	       				 	Proceed
-	       				 	<span class = "glyphicon glyphicon-chevron-right"></span>
-	       				</button>
+	       				<a href="">
+		       				<button style = "float: right" class = "btn btn-md btn-success" type = "button" href = "#">Proceed<span class = "glyphicon glyphicon-chevron-right"></span>
+		       				</button>
+	       				</a>
 	       			</h1><!-- Must be the name of the assessment taken by the user -->			
 	       		</div>
 	       	</div>
