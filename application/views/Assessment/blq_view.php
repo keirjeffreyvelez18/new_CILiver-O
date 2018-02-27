@@ -92,14 +92,16 @@
 							<tfoot>
 								<tr>
 									<td>
-										<input type="submit" name="submit" class="btn btn-primary" value="Back" 
-											<?php if($index==1){echo "disabled";} ?>
-										>
-										<?php if ($index==18): ?>
-											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
-										<?php else: ?>
-											<input type="submit" name="submit" class="btn btn-primary" value="Next">
-										<?php endif ?>
+										<div class="pull-right">
+											<input type="submit" name="submit" class="btn btn-primary" value="Back" 
+												<?php if($index==1){echo "disabled";} ?>
+											>
+											<?php if ($index==18): ?>
+												<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
+											<?php else: ?>
+												<input type="submit" name="submit" class="btn btn-primary" value="Next">
+											<?php endif ?>
+										</div>
 									</td>
 								</tr>	
 							</tfoot>

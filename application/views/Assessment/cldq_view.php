@@ -69,7 +69,7 @@
 																
 																<label class="Rcontainer radio-custom <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'active';}} ?>">
 															    	<input name="ans[<?php echo $row->qIndex ?>]" type="radio" value="<?php echo $MyQuestion->score[$a]; ?>" <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'checked="checked"';}} ?>>
-															    	<span class="checkmark"></span>
+															    	<span class="checkmark" ></span>
 															    	<?php echo "  ".$MyQuestion->answer[$a]."  "?>
 															    </label>
 
@@ -93,14 +93,16 @@
 							<tfoot>
 								<tr>
 									<td >
-										<input type="submit" name="submit" class="btn btn-primary" value="Back" 
-											<?php if($index==1){echo "disabled";} ?> 
-										>
-										<?php if ($index==30): ?>
-											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
-										<?php else: ?>
-											<input type="submit" name="submit" class="btn btn-primary" value="Next">
-										<?php endif ?>
+										<div class="pull-right">
+											<input type="submit" name="submit" class="btn btn-primary" value="Back" 
+												<?php if($index==1){echo "disabled";} ?> 
+											>
+											<?php if ($index==30): ?>
+												<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
+											<?php else: ?>
+												<input type="submit" name="submit" class="btn btn-primary" value="Next" autofocus="">
+											<?php endif ?>
+										</div>
 									</td>
 								</tr>
 							</tfoot>

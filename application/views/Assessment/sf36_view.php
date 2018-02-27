@@ -103,14 +103,32 @@
 							<tfoot>
 								<tr>
 									<td>
-										<input type="submit" name="submit" class="btn btn-primary" value="Back" 
-											<?php if($index==1){echo "disabled";} ?>
-										>
-										<?php if ($index==37): ?>
-											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
-										<?php else: ?>
-											<input type="submit" name="submit" class="btn btn-primary" value="Next">
-										<?php endif ?>
+										<div class = "pull-right">
+											<input type="submit" name="submit" class="btn btn-primary" value="Back" 
+												<?php if($index==1){echo "disabled";} ?> 
+											>
+											<?php if ($index==37): ?>
+												<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
+											<?php else: ?>
+												<input type="submit" name="submit" class="btn btn-primary" value="Next">
+											<?php endif ?>
+										</div>
+										<!-- <div class="container-fluid">
+											<div class="row">
+												<div class="col-md-6">
+													<input type="submit" name="submit" class="btn btn-primary btn-block" value="Back" 
+														<?php if($index==1){echo "disabled";} ?>
+													>
+												</div>		
+												<div class="col-md-6">
+													<?php if ($index==37): ?>
+														<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary btn-block" value="Save">
+													<?php else: ?>
+														<input type="submit" name="submit" class="btn btn-primary btn-block" value="Next">
+													<?php endif ?>		
+												</div>
+											</div>
+										</div> -->
 									</td>
 								</tr>
 							</tfoot>
