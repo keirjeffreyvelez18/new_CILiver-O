@@ -14,6 +14,7 @@
 		<div class="row bmi-container">
 			<div class="col-lg-12 form-group">
 				<h2>Liver Assessment</h2>
+				<a href="<?php echo site_url('Assessment/nextAssessment')?>"><button class="btn-primary" >Lets Gets Started</button></a>
 				<h3>Shall we begin with the assessment?</h3>
 				<p>Before we take the assessment, Would you kindly be: </p>
 				<ul>

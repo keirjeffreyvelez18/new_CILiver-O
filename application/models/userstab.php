@@ -25,6 +25,14 @@
     		return $query;
     	}
 
+        function update_login(){
+                $this->db->set('lastDateLogin', date('Y-m-d') );
+                $this->db->set('lastTimeLogin', now());
+                $this->db->where('userid', $this->session->userdata('userid'));
+                $query = $this->db->update('users');
+                return $query;
+        }
+
         function update_email($dataupdate = array()){
                 $this->db->set('email', $dataupdate['email']);
                 $this->db->where('userid', $this->session->userdata('userid'));

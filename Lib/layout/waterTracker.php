@@ -19,7 +19,7 @@
 								},
 								data: [{
 									yValueFormatString: "## Glasses",
-									type: "splineArea",
+									type: "spline",
 									dataPoints: [
 									<?php foreach ($waterintakeData as $row): ?>
 										<?php $d = explode('-', $row['dateOfIntake']); ?>

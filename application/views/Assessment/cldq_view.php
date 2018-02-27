@@ -24,6 +24,16 @@
 									<?php else: ?>
 										<th class="col-md-9">Thank you for Answering</th>
 									<?php endif ?>
+									<th>
+										<input type="submit" name="submit" class="btn btn-primary" value="Back" 
+											<?php if($index==1){echo "disabled";} ?> 
+										>
+										<?php if ($index==30): ?>
+											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
+										<?php else: ?>
+											<input type="submit" name="submit" class="btn btn-primary" value="Next">
+										<?php endif ?>
+									</th>
 								</tr>
 
 								<tr>
@@ -87,7 +97,7 @@
 											<?php if($index==1){echo "disabled";} ?> 
 										>
 										<?php if ($index==30): ?>
-											<input type="submit" name="submit" class="btn btn-primary" value="Save">
+											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
 										<?php else: ?>
 											<input type="submit" name="submit" class="btn btn-primary" value="Next">
 										<?php endif ?>

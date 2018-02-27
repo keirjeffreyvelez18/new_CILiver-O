@@ -39,14 +39,13 @@ class Home extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
 		$this->form_validation->set_rules('email', 'E-mail', 'is_unique[users.email]');
 		
-
-
 		if ($this->form_validation->run()) {
 				$data['username'] = $this->input->post('username');
 				$data['email']= $this->input->post('email');
 				$data['password' ]= $this->encrypt->encode($this->input->post('password'));
 				$data['birthday'] = $this->input->post('birthday');
 				$data['gender'] = $this->input->post('gender');
+				$data['dateJoin'] = date('Y-m-d');
 				$taken = array(
 					'bmi' => 0.5,
 					'sf36' => 0,
@@ -60,7 +59,7 @@ class Home extends CI_Controller {
 					if($this->userstab->insert_user($data)){
 						$msg="Successfully Register, Please Log-in";
 						$this->session->set_flashdata('success',$msg);
-						redirect('/home/login','refresh');
+						$this->login();
 					}else{
 						$msg="Error!";
 						$this->session->set_flashdata('error',$msg);
@@ -106,8 +105,8 @@ class Home extends CI_Controller {
 		if($this->form_validation->run()){
 			$email=$this->input->post('email');
 			$password=$this->input->post('password');
-
 			$result = $this->userstab->login_user($email,$password);
+
 			if ($result!=null) {
 				$session_data=array(
 					'userid'=>$result['userid'],
@@ -119,6 +118,7 @@ class Home extends CI_Controller {
 					'isLoggedIn'=> TRUE,
 					);
 				$this->session->set_userdata($session_data);
+				$this->userstab->update_login();
 				redirect('/home/home_page');
 			}else{
 				$msg="Incorrect username/password";

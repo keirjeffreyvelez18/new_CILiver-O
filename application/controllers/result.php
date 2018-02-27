@@ -33,18 +33,54 @@ class Result extends CI_Controller {
 		$data_result['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		if ($r) {
 			$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
-			$data_result['blq'] = ($r[1]['qresults']/32)*100;
-			$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
-			$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
-			$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
-			$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
+			if ($data_result['sf36']['ave']>=75) {
+				$data_result['blq'] = 53.125;
+				$data_result['cldq']['ave'] = 50;
+				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
+				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
+				$data_result['blq_eval']="You are Healthy";
+				$data_result['cldq_eval']['ave']="You are Healthy";
+			}else{
+				$data_result['blq'] = ($r[1]['qresults']/32)*100;
+				$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
+				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
+				$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
+				$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
+				$data_result['cldq_recom']=$this->cldq_recom($data_result['cldq']);
+			}
+			
 
 		}
 		
 		$this->load->view('Result/result_view', $data_result);
 	}
 
-	
+	function sf36_recom($score_mean=""){
+		if ($score_mean['ave']<75) {
+			$recom[1]=("Average Health is Unhealthy");
+			$recom[2]="";
+		} else {
+			if ($this->session->userdata('gender')=='Male') {
+				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
+				$recom[2]=("7-9 hours of sleep per day");
+			}else{
+				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
+				$recom[2]=("7-9 hours of sleep per day");
+			}
+		}
+		return $recom;
+	}
+
+	function cldq_recom($score_mean=""){
+		if ($score_mean['ave']<50) {
+			$recom[1]=("6 - 7 glasses [51 ounces] per day");
+			$recom[2]="7-9 hours of sleep per day";
+		} else {
+			$recom[1]=("1 liter or 4 glasses [51 ounces] per day");
+			$recom[2]="≥ 8 hours of sleep per day";
+		}
+		return $recom;
+	}
 
 	function evaluate_blq($score=0){
 		if ($score>=29.69) {

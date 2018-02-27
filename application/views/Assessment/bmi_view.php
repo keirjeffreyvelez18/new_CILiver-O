@@ -21,10 +21,11 @@
 							<h1>
 								<span class = "glyphicon glyphicon-scale"></span>
 								Welcome to the Body Mass Index Calculator
-								<button class = "btn btn-md btn-success" type = "button" href = "#" style="float:right">
-		       				 	Proceed
-		       				 	<span class = "glyphicon glyphicon-chevron-right"></span>
-		       				</button><br>
+								<a href="<?php echo site_url('Assessment') ?>">
+									<button class = "btn btn-md btn-success" type = "button" style="float:right">Proceed
+		       				 		<span class = "glyphicon glyphicon-chevron-right"></span>
+		       						</button>
+		       					</a><br>
 							</h1>	
 	       				</div>
 	       			</div>
@@ -51,7 +52,7 @@
 								</dir>
 								<br>
 								<div class="row calculate">
-									<input type="Submit" name="calculate" value="Calculate" class="btn btn-md btn-success form-control calculate">
+									<input onclick="alert('BMI Saved');"  type="Submit" name="calculate" value="Calculate" class="btn btn-md btn-success form-control calculate">
 								</div>
 	       					</form>
 						</div>
@@ -59,7 +60,7 @@
 						<div class="col-lg-7  bmi-container form-group"><!-- This div must be for the interpretations and result -->
 							<form class="bmiForm" method="post" action="<?php echo base_url('index.php/Assessment/post_bmi'); ?>">
 								<h3>Result</h3>
-								<input class="form-control" type="text" name="bmiScore" placeholder="Score" value="<?php echo round($result_bmi,2); ?>" readonly="">
+								<input class="form-control" type="text" name="bmiScore" placeholder="Score" value="<?php echo round($result_bmi,2); ?> Body Mass Index" readonly="">
 								<br>
 								<input class="form-control" type="text" name="bmiIpt" placeholder="Score Interpretation" value="<?php echo $bmi_eval[1] ?>" readonly="">
 								<br>
