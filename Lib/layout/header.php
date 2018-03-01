@@ -27,7 +27,7 @@
             $('#myModal').modal('show');
         });
 
-        function passw() {
+        function pass() {
             var x = document.getElementById("pass");
                 if (x.type === "text") {
                     x.type = "password";
@@ -187,7 +187,7 @@
                 <input type="password" name="password" class = "form-control"  id="pass" placeholder="Password" value = "<?php echo set_value('password'); ?>" required><br>
                  <div class="input-group-addon">
                     <div>
-                        <span id = "VPassword" class="glyphicon glyphicon-eye-open" title = "Show Password" onclick="passw()"></span>
+                        <span id = "VPassword" class="glyphicon glyphicon-eye-open" title = "Show Password" onclick="pass()"></span>
                         <!-- <input type="checkbox" name="" title="Show Password" onclick="passw()" > -->
                     </div>
                 </div>

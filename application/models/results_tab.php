@@ -13,6 +13,27 @@
             return $query->result_array();
         }
 
+        function getRecommendation($category="", $scoreRange=""){
+            $this->db->select('*');
+            $this->db->from('recommendation');
+            $this->db->where('scoreRange' , $scoreRange);
+            $this->db->where('category' , $category);
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+
+
+        function getDomainResults($category="", $domain="" ,$status=""){
+            $this->db->select('description');
+            $this->db->from('domains');
+            $this->db->where('category', $category);
+            $this->db->where('domain', $domain);
+            $this->db->where('status', $status);
+            $query = $this->db->get();
+
+            return $query->result_array()[0]['description'];
+        }
+
     }
 
 ?>

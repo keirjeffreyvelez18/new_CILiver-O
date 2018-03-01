@@ -27,7 +27,7 @@
 
         function update_login(){
                 $this->db->set('lastDateLogin', date('Y-m-d') );
-                $this->db->set('lastTimeLogin', now());
+                $this->db->set('lastTimeLogin', date('h:i:sa') );
                 $this->db->where('userid', $this->session->userdata('userid'));
                 $query = $this->db->update('users');
                 return $query;
@@ -85,6 +85,7 @@
                         'password'=>$row->password,
                         'birthday'=>$row->birthday,
                         'gender'=>$row->gender,
+                        'lastDateLogin' => $row->lastDateLogin
                     );
                     return $data;
                 }

@@ -20,10 +20,7 @@
 	       			<h1>
 	       				<span class = "glyphicon glyphicon-plus"></span>
 	       				General Health Assessment Result
-	       				<a href="">
-		       				<button style = "float: right" class = "btn btn-md btn-success" type = "button" href = "#">Proceed<span class = "glyphicon glyphicon-chevron-right"></span>
-		       				</button>
-	       				</a>
+	       				
 	       			</h1><!-- Must be the name of the assessment taken by the user -->			
 	       		</div>
 	       	</div>
@@ -206,13 +203,19 @@
 		       				<p>Condition of the patient</p><!-- Mention the current condition of the user-->
 		       			<br>
 		       				<div>
-
-			       					<?php echo $sf36_recom[1]; ?>
+		       					<ul>
+		       						<?php foreach ($sf36_eval as $row):?> 
+		       							<li>
+		       								<?php echo $row; ?>
+		       							</li>
+		       						<?php endforeach ?>
+		       					</ul>
+								<!--<?php echo $sf36_recom[1]; ?>
 			       					<br>
 			       					<?php echo $sf36_recom[2]; ?>
 			       					<?php echo $cldq_recom[1]; ?>
 			       					<br>
-			       					<?php echo $cldq_recom[2]; ?>
+			       					<?php echo $cldq_recom[2]; ?> -->
 
 		       				</div>
 		       			<br>	

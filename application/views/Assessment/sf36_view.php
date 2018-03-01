@@ -9,14 +9,14 @@
 
 	    <div class="content">
 			
-			<div class = "container quiz-container">
+			<div class = "container">
 			    <?php if ($index<37): ?>
-			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" class="container">
+			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" class="container quiz-container">
 			    <?php else: ?>
-			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36_save') ?>" class="container">
+			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36_save') ?>" class="container quiz-container">
 			    <?php endif ?>
 
-				<form method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" class="container">
+				<form method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" >
 						<table class="table table-inverse" id = "white">
 
 							<thead align="center">
@@ -39,7 +39,7 @@
 									</th>
 								</tr>	
 								<tr>
-									<td class="<?php if($index==37){echo 'collapse';} ?>">
+									<th class="<?php if($index==37){echo 'collapse';} ?>">
 										<!-- Progress Trackers -->
 									       	<div class = "row">
 									       		<div class = "col-lg-12">
@@ -52,7 +52,7 @@
 									       		</div>
 									      	 </div>
 										<!-- Progress Trackers -->	
-									</td>
+									</th>
 								</tr>
 							</thead>
 							
@@ -93,9 +93,23 @@
 										<h2>
 											Average Health: <?php echo round($result['ave']) ?> %
 										</h2>
-										<?php foreach ($variable as $key => $value) {
-											# code...
-										} ?>
+										<div class="row">
+											<div class="col-md-8">
+												<ul>
+						       						<?php foreach ($sf36_eval as $row):?> 
+						       							<li>
+						       								<?php echo $row; ?>
+						       							</li>
+						       						<?php endforeach ?>
+					       						</ul>
+					       					</div>
+					       					<div class="col-md-4">
+					       						You have a <?php echo " ". $sf36_inter['interpretation']; ?>
+					       						<br>
+					       						<?php echo " ". $sf36_inter['description']; ?>
+					       					</div>
+				       					</div>
+										
 									</td>
 								</tr>
 							</tbody>

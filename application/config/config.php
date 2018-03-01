@@ -23,7 +23,7 @@
 |
 */
 $config['base_url'] = 'http://localhost/CILiver-O'; //Important
-
+// date_default_timezone_set('Asia/Kolkata');
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -368,3 +368,9 @@ $config['proxy_ips'] = '';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
+
+
+$config['protocol'] = 'sendmail';
+$config['mailpath'] = '/usr/sbin/sendmail';
+$config['charset'] = 'iso-8859-1';
+$config['wordwrap'] = TRUE;
