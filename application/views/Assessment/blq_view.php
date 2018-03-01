@@ -20,7 +20,7 @@
 							<thead align="center">
 								<tr>	
 									<?php if ($index!=18): ?>
-										<th class="col-md-9"><?php echo "Question #".$index." of 18"; ?> </th>
+										<th class="col-md-9"><?php echo "Question #".$index." of 17"; ?> </th>
 									<?php else: ?>
 										<th class="col-md-9">Thank you for Answering</th>
 									<?php endif ?>
