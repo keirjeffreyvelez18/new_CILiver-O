@@ -85,7 +85,7 @@
 								<tr>
 									<td class="<?php if($index!=30){echo 'collapse';} ?>">
 										<h2>
-											Average Health: <?php echo round($result['ave']) ?> %
+											Severity Percentage: <?php echo round($result['ave']) ?> %
 										</h2>
 										<div class="col-md-8">
 												<ul>
