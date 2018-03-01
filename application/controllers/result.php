@@ -119,73 +119,73 @@ class Result extends CI_Controller {
 		);
 
 		if ($score_mean['pf']<=75) {
-			$eval['pf']=("Physical Functioning is Unhealthy");
-			
+			$eval['pf']=$this->results_tab->getDomainResults("sf36", "pf", "Unhealthy");
 		} else {
-			$eval['pf']=("Physical Functioning is Healthy");
-			
+			$eval['pf']=$this->results_tab->getDomainResults("sf36", "pf", "Healthy");
 		}
 
 		if ($score_mean['lph']<=75) {
-			$eval['lph']=("Limitation due Physical Health is Unhealthy");
+			$eval['lph']=$this->results_tab->getDomainResults("sf36", "lph", "Unhealthy");
 			
 		} else {
-			$eval['lph']=("Limitation due Physical Health is Healthy");
+			$eval['lph']=$this->results_tab->getDomainResults("sf36", "lph", "Healthy");
 			
 		}
 
 		if ($score_mean['leh']<=75) {
-			$eval['leh']=("Limitation due Emotional Health is Unhealthy");
+			$eval['leh']=$this->results_tab->getDomainResults("sf36", "leh", "Unhealthy");
 			
 		} else {
-			$eval['leh']=("Limitation due Emotional Health is Healthy");
+			$eval['leh']=$this->results_tab->getDomainResults("sf36", "leh", "Healthy");
 			
 		}
 		
 		if ($score_mean['ef']<=75) {
-			$eval['ef']=("Emotional/Fatigue is Unhealthy");
+			$eval['ef']=$this->results_tab->getDomainResults("sf36", "ef", "Unhealthy");
 			
 		} else {
-			$eval['ef']=("Emotional/Fatigue is Healthy");
+			$eval['ef']=$this->results_tab->getDomainResults("sf36", "ef", "Healthy");
 			
 		}
 
 		if ($score_mean['ewb']<=75) {
-			$eval['ewb']=("Emotional Well-being is Unhealthy");
+			$eval['ewb']=$this->results_tab->getDomainResults("sf36", "ewb", "Unhealthy");
 			
 		} else {
-			$eval['ewb']=("Emotional Well-being is Healthy");
+			$eval['ewb']=$this->results_tab->getDomainResults("sf36", "ewb", "Healthy");
 			
 		}
 
 		if ($score_mean['sf']<=75) {
-			$eval['sf']=("Social Functioning is Unhealthy");
+			$eval['sf']=$this->results_tab->getDomainResults("sf36", "sf", "Unhealthy");
 			
 		} else {
-			$eval['sf']=("Social Functioning is Healthy");
+			$eval['sf']=$this->results_tab->getDomainResults("sf36", "sf", "Healthy");
 			
 		}
 
 		if ($score_mean['p']<=75) {
-			$eval['p']=("Pain is Unhealthy");
+			$eval['p']=$this->results_tab->getDomainResults("sf36", "p", "Unhealthy");
 			
 		} else {
-			$eval['p']=("Pain is Healthy");
+			$eval['p']=$this->results_tab->getDomainResults("sf36", "p", "Healthy");
 			
 		}
 
 		if ($score_mean['gh']<=75) {
-			$eval['gh']=("General Health is Unhealthy");
+			$eval['gh']=$this->results_tab->getDomainResults("sf36", "gh", "Unhealthy");
 			
 		} else {
-			$eval['gh']=("General Health is Healthy");
+			$eval['gh']=$this->results_tab->getDomainResults("sf36", "gh", "Healthy");
 			
 		}
 
 		if ($score_mean['ave']<=75) {
+			
 			$eval['ave']=("Average Health is Unhealthy");
 			
 		} else {
+
 			$eval['ave']=("Average Health is Healthy");
 			
 		}
@@ -204,11 +204,48 @@ class Result extends CI_Controller {
 			'ave' =>"" 
 		);
 
+		if ($score_mean['as']>=50) {
+			$eval['as']=("is Unhealthy");
+		}else{
+			$eval['as']=("is Healthy");
+		}
+
+		if ($score_mean['f']>=50) {
+			$eval['f']=("is Unhealthy");
+		}else{
+			$eval['f']=("is Healthy");
+		}
+
+		if ($score_mean['ss']>=50) {
+			$eval['ss']=("is Unhealthy");
+		}else{
+			$eval['ss']=("is Healthy");
+		}
+
+		if ($score_mean['a']>=50) {
+			$eval['a']=("is Unhealthy");
+		}else{
+			$eval['a']=("is Healthy");
+		}
+
+		if ($score_mean['emf']>=50) {
+			$eval['emf']=("is Unhealthy");
+		}else{
+			$eval['emf']=("is Healthy");
+		}
+
+		if ($score_mean['w']>=50) {
+			$eval['w']=("is Unhealthy");
+		}else{
+			$eval['w']=("is Healthy");
+		}
+
 		if ($score_mean['ave']>=50) {
 			$eval['ave']=("High Probability to have chronic Liver Disease");
 		}else{
 			$eval['ave']=("Low Probability to have chronic Liver Disease");
 		}
+
 
 
 		return $eval;

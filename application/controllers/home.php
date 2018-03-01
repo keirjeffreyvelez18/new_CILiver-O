@@ -21,21 +21,19 @@ class Home extends CI_Controller {
 	function __construct(){
        	parent::__construct();
         $this->load->library('encrypt');
+        $this->load->library('email');
        	$this->load->library('form_validation');
        	$this->load->model('userstab');
-       	$this->load->helper(array('form', 'url'));
+       	$this->load->helper(array('form', 'url', 'date'));
 
    	}
-	public function index()
-	{
+	public function index(){
 		$data['title']='CILiver-O';
 		$data['welcome'] = TRUE;
 		$this->load->view('User/welcome_page', $data);
 	}
 
-	public function register()
-	{	
-
+	public function register(){	
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
 		$this->form_validation->set_rules('email', 'E-mail', 'is_unique[users.email]');
 		
@@ -46,6 +44,8 @@ class Home extends CI_Controller {
 				$data['birthday'] = $this->input->post('birthday');
 				$data['gender'] = $this->input->post('gender');
 				$data['dateJoin'] = date('Y-m-d');
+				$data['firstLogin'] = TRUE;
+				$data['confirmCode'] = "letmelogin";
 				$taken = array(
 					'bmi' => 0.5,
 					'sf36' => 0,
@@ -57,6 +57,7 @@ class Home extends CI_Controller {
 				
 				if ($this->isLegalAge()) {
 					if($this->userstab->insert_user($data)){
+						
 						$msg="Successfully Register, Please Log-in";
 						$this->session->set_flashdata('success',$msg);
 						$this->login();
@@ -73,9 +74,41 @@ class Home extends CI_Controller {
 		}else{
 			redirect('home/',$title);
 		}
-
-
 	}
+
+
+	function sendEmail($email=""){	
+
+		$config = array(
+			'useragent' => 'Liver-O',
+		    'protocol'  => 'quete',
+		    'smtp_host' => 'ssl://smtp.googlemail.com',
+		    'smtp_port' => 465,
+		    'smtp_user' => 'liveo2018@gmail.com',
+		    'smtp_pass' => 'Thesis2018',
+		    'mailtype'  => 'text',
+		    'charset'   => 'iso-8859-i',
+		    'wordwrap'  => TRUE
+		);
+
+		$this->email->initialize($config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('livero2018@gmail.com', 'Liver-0');
+		$this->email->to('keirjeffreyvelez18@gmail.com');
+
+		$this->email->subject('Email Test');
+		$this->email->message('Testing the email class.');
+
+		
+
+		if ($this->email->send()) {
+			print_r("SENT");
+		}else{
+			print_r($this->email->print_debugger());
+		}
+		
+	}
+
 
 	public function delete_user($userid = 0){
 		$result = $this->userstab->delete_user($userid);
@@ -87,8 +120,7 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function users()
-	{
+	public function users(){
 		// if ($this->session->userdata('isLoggedIn')) {
 			$data['usertab'] = $this->userstab->users();
 			$this->load->view('User/usertable', $data);
@@ -115,6 +147,7 @@ class Home extends CI_Controller {
 					'password'=>$password,
 					'birthday'=>$result['birthday'],
 					'gender'=>$result['gender'],
+					'lastLogin' => $result['lastDateLogin'],
 					'isLoggedIn'=> TRUE,
 					);
 				$this->session->set_userdata($session_data);
@@ -128,21 +161,22 @@ class Home extends CI_Controller {
 		}else{
 			redirect('home/',$data);
 		}
-
 	}
 
-	public function logout()
-	{
+	public function logout(){
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('logout','Successfully Logout');
 		redirect('/home/');
 	}
 	
-	public function home_page()
-	{
+	public function home_page(){
 	
 		if ($this->session->userdata('isLoggedIn')) {
 			$data['title']='Home|CILiver-O';
+			// UP8
+			//print_r(date('H:i:sa'));
+			//print_r($this->userdata->lastDateLogin());
+			//$this->sendEmail();
 			$this->load->view('User/home_page',$data);	
 		}else{
 			redirect('home/');
@@ -221,7 +255,6 @@ class Home extends CI_Controller {
 	public function update_pass(){
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[15]');
 
-		
 		$data['password' ]= $this->encrypt->encode($this->input->post('password'));
 		$data['userid']=$this->input->post('userid');
 
