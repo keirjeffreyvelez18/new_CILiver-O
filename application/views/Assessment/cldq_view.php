@@ -59,7 +59,7 @@
 									<tr>
 										<?php if ($row->qCat==$qcategory): ?>
 										<?php $MyQuestion = json_decode($row->qAndA); ?>
-											<td class="<?php if($index!=$row->qIndex){echo 'collapse';} ?>"><h2><?php echo $row->qIndex.". ".$MyQuestion->question;?></h2>
+											<td class="<?php if($index!=$row->qIndex){echo 'collapse';} ?>"><h3><?php echo $row->qIndex.". ".$MyQuestion->question;?></h3>
 												<br>
 												<input name="qIndex" type="hidden" value="<?php echo $row->qIndex; ?>">
 												<input type="hidden" name="i"  value="<?php echo $index; ?>">
@@ -90,7 +90,7 @@
 									</td>
 								</tr>
 							</tbody>
-							<tfoot>
+							<tfoot >
 								<tr>
 									<td >
 										<div class="pull-right">
@@ -100,13 +100,16 @@
 											<?php if ($index==30): ?>
 												<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
 											<?php else: ?>
-												<input type="submit" name="submit" class="btn btn-primary" value="Next" autofocus="">
+												<input type="submit" name="submit" class="btn btn-primary" value="Next" >
 											<?php endif ?>
 										</div>
 									</td>
 								</tr>
 							</tfoot>
 						</table>
+						<div class="invi">
+							<input type="hidden" autofocus="">
+						</div>
 				</form>
 			</div>
 		</div>

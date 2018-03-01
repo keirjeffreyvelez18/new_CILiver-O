@@ -3,6 +3,7 @@
 
 </head>
 	<body>
+		<div class="quiz-background">
 		<!-- Progress Indicator -->
 		<div class = "container">
 			<div class="row">
@@ -142,7 +143,7 @@
 			</div>
 		</div>
 		<!-- ================================END of Container================================ -->
-
+		</div>
 <!-- ====================================FOOTER HERE=================================================== -->
 	<?php include_once('Lib/layout/footer.php');?>
 <!-- ====================================FOOTER HERE=================================================== -->
