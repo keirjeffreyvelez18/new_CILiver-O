@@ -119,4 +119,13 @@ div .range{
     border: medium none;
     border-radius: none;  
 }
+/*==================END OF NAV TABS======================*/
 
+/*===========================HOME CONTENTS===============================*/
+.custom-cont-area{
+    background: linear-gradient(to right, #0d47a1, #2196f3); !important;
+    color:#e3f2fd;
+    border: medium none;
+    border-radius: none;
+}
+/*===========================END OF HOME CONTENTS===============================*/

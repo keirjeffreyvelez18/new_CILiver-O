@@ -119,9 +119,7 @@
 								</tr>
 							</tfoot>
 						</table>
-						<div class="invi">
-							<input type="hidden" autofocus="">
-						</div>
+						
 				</form>
 			</div>
 		</div>
