@@ -21,6 +21,7 @@ class Blq extends CI_Controller {
 	function __construct(){
        	parent::__construct();
        	$this->load->model('assessments_tab');
+       	$this->load->model('results_tab');
        	$this->load->helper(array('form', 'url'));
 
    	}
@@ -69,9 +70,17 @@ class Blq extends CI_Controller {
 			$data['btn'] = "animated fadeInLeft";
 		}
 
+
 		$this->session->set_userdata('cur_uAns_blq',$this->checkContent($qcategory));	
 		$ans=$this->session->userdata('cur_uAns_blq');
 		$data['curAns'] = json_decode($ans['answers']);
+
+		if (json_decode($ans['answers'],TRUE)[$a]=="") {
+			$msg="Please select one.";
+			$this->session->set_flashdata('error',$msg);
+			$data['index']=$a;
+		}
+		
 		$data['progress'] =1;
 		if ($a=="") {
 			$data['index']=1;
@@ -80,7 +89,8 @@ class Blq extends CI_Controller {
 			$data['progress'] = ($data['index']/$this->input->post('qIndex'))*100;
 		}	
 
-		$data['result'] = $this->get_score();
+		$data['result'] = ($this->get_score()/34)*100;
+		$data['evaluate'] = $this->evaluate($this->get_score());
 
 		//print_r($data['result']);
 
@@ -134,12 +144,31 @@ class Blq extends CI_Controller {
 		}
 	}
 
-	function computeScore($score){
+	function computeScore($score=0){
 		//print_r($score);
 	}
 
 	function evaluate($score_mean=""){
-		
+		$score = ($score_mean/34)*100;
+		if ($score_mean>=29.69) {
+			return $this->results_tab->getRecommendation('blq', '29.69 – 34.00');
+		}elseif ($score_mean>=25.46 && $score_mean<=29.68){
+			return "Higher chance to have a liver disease";
+		}elseif ($score_mean>=21.23 && $score_mean<=25.45){
+			return "High chance to have a liver disease";
+		}elseif ($score_mean>=17.00 && $score_mean<=21.22){
+			return "Reasonable chance to have a liver disease";
+		}elseif ($score_mean>=12.77 && $score_mean<=16.99){
+			return "Marginal chance to have a liver disease";
+		}elseif ($score_mean>=9.57 && $score_mean<=12.76){
+			return "Reasonable chance not to have a liver disease";
+		}elseif ($score_mean>=5.31 && $score_mean<=9.56){
+			return $this->results_tab->getRecommendation('blq', '5.31 – 9.56');
+		}elseif ($score_mean>=1.18 && $score_mean<=5.31){
+			return $this->results_tab->getRecommendation('blq', '1.18 – 5.31');
+		}elseif ($score_mean>=0 && $score_mean<=1.17){
+			return "Highest chance not to have a liver disease";
+		}
 	}
 
 

@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-
+$route['email'] = 'Email_Controller';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

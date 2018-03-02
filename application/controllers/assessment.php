@@ -63,7 +63,9 @@ class Assessment extends CI_Controller {
 	public function nextAssessment(){
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
 		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
-		if ($data['qTaken']['sf36']==0.5) {
+		if ($data['qTaken']['bmi']==0.5) {
+			$this->bmi();
+		}elseif ($data['qTaken']['sf36']==0.5) {
 			$this->sf36();
 		}elseif ($data['qTaken']['blq']==0.5) {
 			redirect("blq", 'refresh');
@@ -148,6 +150,12 @@ class Assessment extends CI_Controller {
 		$ans=$this->session->userdata('cur_uAns');
 		$data['curAns'] = json_decode($ans['answers']);
 
+		if (json_decode($ans['answers'],TRUE)[$a]=="") {
+			$msg="Please select one.";
+			$this->session->set_flashdata('error',$msg);
+			$data['index']=$a;
+		}
+		
 		$data['progress'] =1;
 		if ($a=="") {
 			$data['index']=1;
@@ -320,6 +328,7 @@ class Assessment extends CI_Controller {
 
 	public function evaluate($score_mean=""){
 		$eval = array(
+			'ave' =>"",
 			'pf' => "",
 			'lph' => "",
 			'leh' => "",
@@ -327,8 +336,8 @@ class Assessment extends CI_Controller {
 			'ewb' => "",
 			'sf' => "",
 			'p' => "",
-			'gh' => "",
-			'ave' =>"" 
+			'gh' => ""
+			 
 		);
 
 		if ($score_mean['pf']<=75) {
@@ -395,11 +404,11 @@ class Assessment extends CI_Controller {
 
 		if ($score_mean['ave']<=75) {
 			
-			$eval['ave']=("Average Health is Unhealthy");
+			$eval['ave']=("Average Health is <span style='font-weight: bold'>Unhealthy</span");
 			
 		} else {
 
-			$eval['ave']=("Average Health is Healthy");
+			$eval['ave']=("Average Health is <span style='font-weight: bold'>Healthy</span>");
 			
 		}
 
@@ -410,6 +419,12 @@ class Assessment extends CI_Controller {
 
 		if ($score<=50) {
 			$recom = $this->results_tab->getRecommendation('sf36', '50 - 0')[0];
+		}elseif($score>=51 && $score<=74){
+			$recom = $this->results_tab->getRecommendation('sf36', '51 - 74')[0];
+		}elseif($score>=75 && $score<=80){
+			$recom = $this->results_tab->getRecommendation('sf36', '75 - 80')[0];
+		}elseif($score>=81){
+			$recom = $this->results_tab->getRecommendation('sf36', '81 - 100')[0];
 		}
 
 		return $recom;

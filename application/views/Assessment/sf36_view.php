@@ -15,15 +15,15 @@
 			    <?php else: ?>
 			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36_save') ?>" class="container quiz-container">
 			    <?php endif ?>
-
-				<form method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" >
+						<h2 style="text-align: center">Short Form 36 Questions</h2>
+						<h4 class="alert-danger" style="text-align: center"> <?php echo $this->session->flashdata('error'); ?></h4>
+						<br>
 						<table class="table table-inverse" id = "white">
 
 							<thead align="center">
 								<tr>
 									<?php if ($index!=37): ?>
 										<th class="col-md-9"><?php echo "Question #".$index." of 36"; ?> </th>
-
 									<?php else: ?>
 										<th class="col-md-9">Thank you for Answering</th>
 									<?php endif ?>
@@ -104,9 +104,9 @@
 					       						</ul>
 					       					</div>
 					       					<div class="col-md-4">
-					       						You have a <?php echo " ". $sf36_inter['interpretation']; ?>
+					       						<li>You have a <?php echo " ". $sf36_inter['interpretation']; ?></li>
 					       						<br>
-					       						<?php echo " ". $sf36_inter['description']; ?>
+					       						<li><?php echo $sf36_inter['description']; ?></li>
 					       					</div>
 				       					</div>
 										

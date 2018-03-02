@@ -10,12 +10,15 @@
 	    </div>
 
 	    <div class="content">
-			<div class = "container quiz-container">
+			<div class = "container">
 			    <?php if ($index<18): ?>
-			    	<form method="post" action="<?php echo base_url('index.php/blq/show_blq');?>" class="container">
+			    	<form method="post" action="<?php echo base_url('index.php/blq/show_blq');?>" class="container quiz-container">
 			    <?php else: ?>
-			    	<form method="post" action="<?php echo base_url('index.php/blq/show_result') ?>" class="container form-maroon">
+			    	<form method="post" action="<?php echo base_url('index.php/blq/show_result') ?>" class="container quiz-container">
 			    <?php endif ?>
+			    		<h2 style="text-align: center">Basic Liver Questions</h2>
+						<h4 class="alert-danger" style="text-align: center"> <?php echo $this->session->flashdata('error'); ?></h4>
+						<br>
 						<table class="table table-inverse" id = "white">
 							<thead align="center">
 								<tr>	
@@ -84,8 +87,18 @@
 								<tr>
 									<td class="<?php if($index!=18){echo 'collapse';} ?>">
 										<h2>
-											Average Health: <?php echo round($result) ?> %
+											Probability to have liver disease: <?php echo round($result) ?> %
 										</h2>
+											<br>
+											<ul>
+												<li>
+													<?php echo $evaluate[0]['interpretation']; ?>
+												</li>
+												<li>
+													<?php echo $evaluate[0]['description']; ?>
+												</li>
+											</ul>
+										
 									</td>
 								</tr>
 							</tbody>
