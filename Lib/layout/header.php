@@ -50,6 +50,7 @@
 <body>
 	
 <!--Nav Bar-->
+<?php if($this->uri->segment(2)!='home_page'): ?>
 
     <nav class="navbar navbar-inverse <?php if($this->uri->uri_string()=='home'){echo('navbar-fixed-top transparent');} ?>">
         <div class="container-fluid">
@@ -111,6 +112,15 @@
                             <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">Start Learning</a></li>
+                            <li><a href="#">View All Courses</a></li>
+                            <li><a href="#">Chat with a CodeGuide</a></li>
+                          </ul>
+                        </li>   
+
                     </ul>
 
                 <?php endif; ?>
@@ -132,6 +142,7 @@
         </div>
     </nav>
 
+<?php endif ?>
 
 <?php if ($this->session->flashdata('error')): ?>
 
