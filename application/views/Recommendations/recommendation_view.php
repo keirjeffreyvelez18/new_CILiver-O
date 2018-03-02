@@ -19,7 +19,7 @@
 						<span class="glyphicon glyphicon-tint"></span>
 						Water Recommendation
 					</h3>
-					<p>Hey, you should know that your abdominial symptom severity score is: </p>
+					<p>Hey, you should know that your abdominial symptom severity score is: <?php echo $cldq['a']; ?> </p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
 					<center><h3><?php echo $cldq_eval['a'] ?></h3></center>
@@ -38,9 +38,9 @@
 					    <div id="Wmenu1" class="tab-pane fade in active">
 					      <h3>Concerns</h3>
 					      <?php if ($sf36['ave']>75): ?>
-					      	<h3>You are healthy, please keep it that way and regulate your water intake.</h3>
+					      	<h4>You are healthy, please keep it that way and regulate your water intake.</h4>
 					      <?php else: ?>
-					      	<?php if ($cldq<50): ?>
+					      	<?php if ($cldq['a']<50): ?>
 					      		<h4>You should keep watch over your water intake because your body might accumulate fluid that may worsen your abdominal symptoms</h4>
 					      	<?php else: ?>
 					      		<h4>You are at risk of the effects of severe ascites, please consult your doctor and get fluid restriction instructions from your doctor.</h4>
@@ -74,10 +74,10 @@
 						<span class="glyphicon glyphicon-bed"></span>
 						Sleep Recommendation
 					</h3>
-					<p>Hey tou should be aware of these following domains: </p>
+					<p>Hey tou should be aware of these following domains: <?php echo $sf36['ef']; ?></p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
-					<center><h3>[Show Systemic/Emotional/Fatigue Score and Severity]</h3></center>
+					<center><h3><?php echo $sf36_eval['ef']; ?></h3></center>
 					<!-- ====================THE CHART OF CORRESPONDING RECOMMENDATION======================== -->
 
 					<p><strong>DISCLAIMER:</strong> Remind the user that this recommendations cannot replace a real doctor's advice and prescription</p>
@@ -93,9 +93,16 @@
 					    <div id="Smenu1" class="tab-pane fade in active">
 					      <h3>Concerns</h3>
 					      <!-- <p>If the result is high severity Systemic/Emotional/Fatigue place it here.</p> -->
-					      <p>[this is the result if the result in SF36 is HEALTHY ] You are healthy, please keep it that way and regulate your sleeping pattern to avoid complications.</p>
-					      <p>[this is the result if the result in CLDQ is MILD ] You should keep watch over your sleeping pattern because your body might suffer more serious complications involving sleep related liver complications. Keep track of your sleeping pattern before it's to late. </p>
-					      <p>[this is the result if the result in CLDQ is SEVERE ] You are at risk of the effects of severe hepatic encephalopathy, please consult your doctor and monitor your sleeping patterns. </p>
+					      <?php if ($sf36['ef']>75): ?>
+					      	<p> You are healthy, please keep it that way and regulate your sleeping pattern to avoid complications.</p>
+					      <?php else: ?>
+					      	<?php if ($cldq['f']<50): ?>
+					      		<p>You should keep watch over your sleeping pattern because your body might suffer more serious complications involving sleep related liver complications. Keep track of your sleeping pattern before it's to late. </p>
+					      	<?php else: ?>
+					      		<p>You are at risk of the effects of severe hepatic encephalopathy, please consult your doctor and monitor your sleeping patterns. </p>
+					      	<?php endif ?>
+					      <?php endif ?>
+					      
 					    </div>
 					    <div id="Smenu2" class="tab-pane fade">
 					      <h3>Hints and Suggestions</h3>
