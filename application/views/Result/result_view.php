@@ -202,21 +202,41 @@
 		       			<br>
 		       				<p>Condition of the patient</p><!-- Mention the current condition of the user-->
 		       			<br>
+		       				
+		       				<ul class="nav nav-tabs custom-nav-tabs">
+							    <li class="active"><a data-toggle="tab" href="#Rmenu1">Interpretation</a></li>
+							    <li><a data-toggle="tab" href="#Rmenu2">Recommendation</a></li>
+							</ul>
+
+		       				<div class="tab-content custom-tab-content">
+							    <div id="Rmenu1" class="tab-pane fade in active">
+								    <h4>Interpretations</h4>
+								    <ul>
+			       						<?php foreach ($sf36_eval as $row):?> 
+			       							<li>
+			       								<?php echo $row; ?>
+			       							</li>
+			       						<?php endforeach ?>
+			       					</ul>
+							    </div>
+							    <div id="Rmenu2" class="tab-pane fade">
+							      <h4>Recommendations</h4>
+							      	<ul>
+							      		<li><?php echo $sf36_recom[1]; ?></li>
+							      		<li><?php echo $sf36_recom[2]; ?></li>
+							      		<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
+							      		<li>You need to sleep <?php echo $cldq_recom[2]; ?></li>
+							      	</ul>
+							    </div>
+							</div>
+
 		       				<div>
-		       					<ul>
-		       						<?php foreach ($sf36_eval as $row):?> 
-		       							<li>
-		       								<?php echo $row; ?>
-		       							</li>
-		       						<?php endforeach ?>
-		       					</ul>
 								<!--<?php echo $sf36_recom[1]; ?>
 			       					<br>
 			       					<?php echo $sf36_recom[2]; ?>
 			       					<?php echo $cldq_recom[1]; ?>
 			       					<br>
 			       					<?php echo $cldq_recom[2]; ?> -->
-
 		       				</div>
 		       			<br>	
 	       			</div>

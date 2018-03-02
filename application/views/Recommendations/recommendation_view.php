@@ -19,13 +19,13 @@
 						<span class="glyphicon glyphicon-tint"></span>
 						Water Recommendation
 					</h3>
-					<p>Show score or reason why the recommended amount is generated</p>
+					<p>Hey, you should know that your abdominial symptom severity score is: </p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
-					<center><h2>CHART GOES HERE</h2></center>
+					<center><h3>[Show Abdominal Symptom Score and Severity]</h3></center>
 					<!-- ====================THE CHART OF CORRESPONDING RECOMMENDATION======================== -->
 
-					<p><strong>DISCLAIMER:</strong> Remind the user that this recommendations cannot replace a real doctor's advice and prescription</p>
+					<p><strong>DISCLAIMER:</strong> the recommendations we provide cannot replace a real doctor's advice and prescription</p>
 					<!-- ^======Insert disclaimer here: this must change according to the recommendation ======^ -->
 
 					<ul class="nav nav-tabs custom-nav-tabs">
@@ -37,7 +37,9 @@
 					<div class="tab-content custom-tab-content">
 					    <div id="Wmenu1" class="tab-pane fade in active">
 					      <h3>Concerns</h3>
-					      <p>If the result is high severity abdominal symptoms place it here.</p>
+					      <p>[this is the result if the result in SF36 is HEALTHY ] You are healthy, please keep it that way and regulate your water intake.</p>
+					      <p>[this is the result if the result in CLDQ is MILD ] You should keep watch over your water intake because your body might accumulate fluid that may worsen your abdominal symptoms</p>
+					      <p>[this is the result if the result in CLDQ is SEVERE ] You are at risk of the effects of severe ascites, please consult your doctor and get fluid restriction instructions from your doctor.</p>
 					    </div>
 					    <div id="Wmenu2" class="tab-pane fade">
 					      <h3>Hints and Suggestions</h3>
