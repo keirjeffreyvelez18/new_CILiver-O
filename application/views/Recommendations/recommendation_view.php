@@ -19,10 +19,10 @@
 						<span class="glyphicon glyphicon-tint"></span>
 						Water Recommendation
 					</h3>
-					<p>Hey, you should know that your abdominial symptom severity score is: <?php echo $cldq['a']; ?> </p>
+					<p>Hey, you should know that your abdominial symptom severity score is: <?php echo $cldq['as']; ?> </p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
-					<center><h3><?php echo $cldq_eval['a'] ?></h3></center>
+					<center><h3><?php echo $cldq_eval['as'] ?></h3></center>
 					<!-- ====================THE CHART OF CORRESPONDING RECOMMENDATION======================== -->
 
 					<p><strong>DISCLAIMER:</strong> The recommendations we provide cannot replace a real doctor's advice and prescription.</p>
@@ -36,17 +36,33 @@
 
 					<div class="tab-content custom-tab-content">
 					    <div id="Wmenu1" class="tab-pane fade in active">
-					      <h3>Concerns</h3>
-					      <?php if ($sf36['ave']>75): ?>
-					      	<h4>You are healthy, please keep it that way and regulate your water intake.</h4>
-					      <?php else: ?>
-					      	<?php if ($cldq['a']<50): ?>
-					      		<h4>You should keep watch over your water intake because your body might accumulate fluid that may worsen your abdominal symptoms</h4>
-					      	<?php else: ?>
-					      		<h4>You are at risk of the effects of severe ascites, please consult your doctor and get fluid restriction instructions from your doctor.</h4>
-					      	<?php endif ?>
-					      <?php endif ?>
-					     
+					      <h4>Concerns</h4>
+					      <ul>
+						      <?php if ($sf36['ave']>75): ?>
+						      	<li>
+						      		<h4>You are healthy, please keep it that way and regulate your water intake.</h4>
+
+						      	</li>
+						      <?php else: ?>
+						      	<?php if ($cldq['as']<50): ?>
+						      		<li>
+						      			<h4>You should keep watch over your water intake because your body might accumulate fluid that may worsen your abdominal symptoms</h4>
+						      		</li>
+						      		<li>
+						      			<h4>1 liter or 4 glasses [51 ounces] per day</h4>
+						      		</li>
+						      	<?php else: ?>
+						      		<li>
+						      			<h4>You are at risk of the effects of severe ascites, please consult your doctor and get fluid restriction instructions from your doctor.
+						      			</h4>
+						      		</li>
+						      		<li>
+						      			<?php echo $cldq_recom[2]; ?>
+						      		</li>
+						      	<?php endif ?>
+						      <?php endif ?>
+						     
+					     </ul>
 					    </div>
 					    <div id="Wmenu2" class="tab-pane fade">
 					      <h3>Hints and Suggestions</h3>
@@ -77,11 +93,9 @@
 						<span class="glyphicon glyphicon-bed"></span>
 						Sleep Recommendation
 					</h3>
-<<<<<<< HEAD
+
 					<p>Hey tou should be aware of these following domains: <?php echo $sf36['ef']; ?></p>
-=======
-					<p>Hey, you should be aware of these following domains: </p>
->>>>>>> 69c0bf6e5b2a6fb56e4a67cbf516349b23c7d986
+
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
 					<center><h3><?php echo $sf36_eval['ef']; ?></h3></center>
@@ -98,7 +112,7 @@
 
 					<div class="tab-content">
 					    <div id="Smenu1" class="tab-pane fade in active">
-					      <h3>Concerns</h3>
+					      <h4>Concerns</h4>
 					      <!-- <p>If the result is high severity Systemic/Emotional/Fatigue place it here.</p> -->
 					      <?php if ($sf36['ef']>75): ?>
 					      	<p> You are healthy, please keep it that way and regulate your sleeping pattern to avoid complications.</p>
@@ -139,12 +153,24 @@
 				<div class="col-lg-12">
 					<h3>
 						<span class="glyphicon glyphicon-cutlery"></span>
-						Calorie Recommendation
+						Calories/Carbohydrates/Fats Recommendations
 					</h3>
 					<p>Show score or reason why the recommended amount is generated</p>
+					<p style="font-weight: bold; font-size: 15px">Your Body Mass Index: <span style="font-weight: bold"><?php echo $bmi; ?></span></p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
-					<center><h3>[Show Abdominal/Systemic/Emotional/Fatigue Score and Severity]</h3></center>
+					<!-- <center>
+						<h4>
+							<ul>
+								<li>
+									Abdominal Health Result: <?php echo $cldq_eval['as']; ?>
+								</li>
+								<li>
+									Emotional/Fatigue: <?php echo $sf36_eval['ef']; ?>
+								</li>
+							</ul>
+						</h4>
+					</center> -->
 					<!-- ====================THE CHART OF CORRESPONDING RECOMMENDATION======================== -->
 
 					<p><strong>DISCLAIMER:</strong> The recommendations we provide cannot replace a real doctor's advice and prescription.</p>
@@ -158,11 +184,21 @@
 
 					<div class="tab-content">
 					    <div id="Fmenu1" class="tab-pane fade in active">
-					      <h3>Concerns</h3>
-					      <p>If the result is high severity Abdominal/Systemic/Emotional/Fatigue symptoms place it here.</p><!-- ====FOOD RELATED PROBLEMS==== -->
-					      <p>[this is the result if the result in SF36 is HEALTHY ] You are healthy, please keep consuming the reccommended amount of calories.</p>
+					      <h4>Concerns</h4>
+
+					      <ul>
+						      <li>Recommended Calorie Intake: <?php echo ($bmi*40); ?> kcal/kg</li>
+						      <li>Recommended Cardohydrates Intake: <?php echo (($bmi*40)*0.5)/4; ?> g</li>
+						      <li>Recommended Fats Intake: <?php echo round(((($bmi*40)*0.35)/9),2); ?> g</li>
+					      </ul>
+					      <!-- <?php if (condition): ?>
+					      	
+					      <?php endif ?>
+					      <p>If the result is high severity Abdominal/Systemic/Emotional/Fatigue symptoms place it here.</p> -->
+					      <!-- ====FOOD RELATED PROBLEMS==== -->
+					      <!-- <p>[this is the result if the result in SF36 is HEALTHY ] You are healthy, please keep consuming the reccommended amount of calories.</p>
 					      <p>[this is the result if the result in CLDQ is MILD ] You should keep watch over your calorie intake because your body might suffer more serious complications or more liver damage. Please follow the recommended amount of calories. </p>
-					      <p>[this is the result if the result in CLDQ is SEVERE ] You are at risk of the effects of severe hepatic encephalopathy, jaundice or even ascites. If this is left uncontolled, you will be at health will be at 50/50. Food is vital especially when you are suffering severe case of cirrhosis.</p>
+					      <p>[this is the result if the result in CLDQ is SEVERE ] You are at risk of the effects of severe hepatic encephalopathy, jaundice or even ascites. If this is left uncontolled, you will be at health will be at 50/50. Food is vital especially when you are suffering severe case of cirrhosis.</p> -->
 					    </div>
 					    <div id="Fmenu2" class="tab-pane fade">
 					      <h3>Hints and Suggestions</h3>

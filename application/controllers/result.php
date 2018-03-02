@@ -65,7 +65,7 @@ class Result extends CI_Controller {
 				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
 				$recom[2]=("7-9 hours of sleep per day");
 			}else{
-				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
+				$recom[1]=("11 - 12 glasses[92 ounces] per day");
 				$recom[2]=("7-9 hours of sleep per day");
 			}
 		}

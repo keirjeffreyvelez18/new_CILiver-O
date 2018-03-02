@@ -37,7 +37,10 @@ class Recommendation extends CI_Controller {
 		$data['blq_eval']=$this->evaluate_blq($data['blq']);
 		$data['cldq_eval']=$this->evaluate_cldq($data['cldq']);
 		$data['cldq_recom']=$this->cldq_recom($data['cldq']);
-
+		$bmi = $this->assessments_tab->getbmi()[0];
+		$w = $bmi['weight'];
+		$h = $bmi['height'];
+		$data['bmi'] = round($w/(pow(($h/100),2)),2);
 		$this->load->view('Recommendations/recommendation_view', $data);
 	}
 
@@ -50,7 +53,7 @@ class Recommendation extends CI_Controller {
 				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
 				$recom[2]=("7-9 hours of sleep per day");
 			}else{
-				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
+				$recom[1]=("11 - 12 glasses[92 ounces] per day");
 				$recom[2]=("7-9 hours of sleep per day");
 			}
 		}
