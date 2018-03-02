@@ -43,11 +43,19 @@
 					    </div>
 					    <div id="Wmenu2" class="tab-pane fade">
 					      <h3>Hints and Suggestions</h3>
-					      <p>In this section the hints and tips on how to drink water shall be found here</p>
+					      <ul>
+					      	<li>According to most research, an average person needs 8 cups of 8 ounces of water as a minimum water intake for a day.</li>
+					      	<li>Drinking water before eating improves digestion.</li>
+					      	<li>After drinking or eating sugary treats, drinking water dilutes the sugar.</li>
+					      	<li>Always keep a water jug nearby to stay hydrated.</li>
+					      </ul>
 					    </div>
 					    <div id="Wmenu3" class="tab-pane fade">
-					      <h3>Additional Information</h3>
-					      <p>Display facts that stresses the importance of water</p>
+					      <h3>Did you know?</h3>
+					      <ul>
+					      	<li>According to most research, An average human body is composed of 60% - 70%.</li>
+					      	<li>Some researches say that, drinking too much water too fast causes water intoxication or Hyponatermia.</li>
+					      </ul>
 					    </div>
 					</div>
 					<!-- ^======FOR MORE PRECISED RECOMMEDNATIONS ADD HERE FOR ADDITIONAL HINTS AND RECOMMENDATIONS ======^ -->
@@ -59,7 +67,7 @@
 						<span class="glyphicon glyphicon-bed"></span>
 						Sleep Recommendation
 					</h3>
-					<p>Show score or reason why the recommended amount is generated</p>
+					<p>Hey score or reason why the recommended amount is generated</p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
 					<center><h2>CHART GOES HERE</h2></center>
@@ -95,7 +103,7 @@
 				<div class="col-lg-12">
 					<h3>
 						<span class="glyphicon glyphicon-cutlery"></span>
-						Food Suggestion
+						Calorie Recommendation
 					</h3>
 					<p>Show score or reason why the recommended amount is generated</p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
