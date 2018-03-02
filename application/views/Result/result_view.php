@@ -212,20 +212,34 @@
 							    <div id="Rmenu1" class="tab-pane fade in active">
 								    <h4>Interpretations</h4>
 								    <ul>
-			       						<?php foreach ($sf36_eval as $row):?> 
-			       							<li>
-			       								<?php echo $row; ?>
-			       							</li>
-			       						<?php endforeach ?>
+								    	<?php if ($sf36['ave']>75): ?>
+								    		<?php foreach ($sf36_eval as $row):?> 
+				       							<li>
+				       								<?php echo $row; ?>
+				       							</li>
+			       							<?php endforeach ?>
+			       						<?php else: ?>
+			       							<?php foreach ($cldq_eval as $row):?> 
+				       							<li>
+				       								<?php echo $row; ?>
+				       							</li>
+			       							<?php endforeach ?>
+								    	<?php endif ?>
+			       						
 			       					</ul>
 							    </div>
 							    <div id="Rmenu2" class="tab-pane fade">
 							      <h4>Recommendations</h4>
 							      	<ul>
-							      		<li><?php echo $sf36_recom[1]; ?></li>
-							      		<li><?php echo $sf36_recom[2]; ?></li>
-							      		<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
-							      		<li>You need to sleep <?php echo $cldq_recom[2]; ?></li>
+							      		<?php if ($sf36['ave']>75): ?>
+							      			<li><?php echo $sf36_recom[1]; ?></li>
+							      			<li><?php echo $sf36_recom[2]; ?></li>
+							      		<?php else: ?>
+							      			<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
+							      			<li>You need to sleep <?php echo $cldq_recom[2]; ?></li>
+							      		<?php endif ?>
+							      		
+							      		
 							      	</ul>
 							    </div>
 							</div>
