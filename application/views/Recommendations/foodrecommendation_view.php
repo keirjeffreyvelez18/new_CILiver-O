@@ -18,7 +18,7 @@
 				
 			<!-- ================================FORM 1================================ -->
 			<div class="row recom-container">
-				<div class="col-lg-12">
+				<!-- <div class="col-lg-12">
 					<div class="text-center">
 
 						<form method="post" action="<?php echo base_url('index.php/foodrecommendation/saveCalorieIntake');?>">
@@ -29,6 +29,22 @@
 					</div>
 					
 					<?php include_once('Lib/layout/calorieTracker.php');?>
+					<br>
+				</div> -->
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-7"> 
+							<h2>Recommended ammount of Calories</h2>
+						</div>
+						<div class="col-lg-5">
+							<h2>Recommended ammount of Calories</h2>
+							<ul>
+								<li>Fat</li>
+								<li>Carbohydrate</li>
+								<li></li>
+							</ul>
+						</div>
+					</div>
 					<br>
 				</div>
 			</div>
