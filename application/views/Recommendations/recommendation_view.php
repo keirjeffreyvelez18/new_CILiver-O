@@ -22,7 +22,7 @@
 					<p>Hey, you should know that your abdominial symptom severity score is: </p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
-					<center><h3>[Show Abdominal Symptom Score and Severity]</h3></center>
+					<center><h3><?php echo $cldq_eval['a'] ?></h3></center>
 					<!-- ====================THE CHART OF CORRESPONDING RECOMMENDATION======================== -->
 
 					<p><strong>DISCLAIMER:</strong> the recommendations we provide cannot replace a real doctor's advice and prescription</p>
@@ -37,9 +37,16 @@
 					<div class="tab-content custom-tab-content">
 					    <div id="Wmenu1" class="tab-pane fade in active">
 					      <h3>Concerns</h3>
-					      <p>[this is the result if the result in SF36 is HEALTHY ] You are healthy, please keep it that way and regulate your water intake.</p>
-					      <p>[this is the result if the result in CLDQ is MILD ] You should keep watch over your water intake because your body might accumulate fluid that may worsen your abdominal symptoms</p>
-					      <p>[this is the result if the result in CLDQ is SEVERE ] You are at risk of the effects of severe ascites, please consult your doctor and get fluid restriction instructions from your doctor.</p>
+					      <?php if ($sf36['ave']>75): ?>
+					      	<h3>You are healthy, please keep it that way and regulate your water intake.</h3>
+					      <?php else: ?>
+					      	<?php if ($cldq<50): ?>
+					      		<h4>You should keep watch over your water intake because your body might accumulate fluid that may worsen your abdominal symptoms</h4>
+					      	<?php else: ?>
+					      		<h4>You are at risk of the effects of severe ascites, please consult your doctor and get fluid restriction instructions from your doctor.</h4>
+					      	<?php endif ?>
+					      <?php endif ?>
+					     
 					    </div>
 					    <div id="Wmenu2" class="tab-pane fade">
 					      <h3>Hints and Suggestions</h3>

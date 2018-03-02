@@ -44,6 +44,7 @@ class Result extends CI_Controller {
 				$data_result['blq'] = ($r[1]['qresults']/34)*100;
 				$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
 				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
+				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
 				$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
 				$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
 				$data_result['cldq_recom']=$this->cldq_recom($data_result['cldq']);
@@ -103,10 +104,12 @@ class Result extends CI_Controller {
 			return "Highest chance not to have a liver disease";
 		}
 	}
+		
 
 	function evaluate_sf36($score_mean=""){
 
 		$eval = array(
+			'ave' =>"" ,
 			'pf' => "",
 			'lph' => "",
 			'leh' => "",
@@ -115,7 +118,7 @@ class Result extends CI_Controller {
 			'sf' => "",
 			'p' => "",
 			'gh' => "",
-			'ave' =>"" 
+			
 		);
 
 		if ($score_mean['pf']<=75) {
@@ -182,11 +185,11 @@ class Result extends CI_Controller {
 
 		if ($score_mean['ave']<=75) {
 			
-			$eval['ave']=("Average Health is Unhealthy");
+			$eval['ave']=("Average Health is <span style='font-weight: bold'>Unhealthy</span>");
 			
 		} else {
 
-			$eval['ave']=("Average Health is Healthy");
+			$eval['ave']=("Average Health is <span style='font-weight: bold'>Healthy</span>");
 			
 		}
 
@@ -195,58 +198,69 @@ class Result extends CI_Controller {
 
 	function evaluate_cldq($score_mean=""){
 		$eval = array(
+			'ave' =>"",
 			'as' => "",
 			'f' => "",
 			'ss' => "",
 			'a' => "",
 			'emf' => "",
 			'w' => "",
-			'ave' =>"" 
 		);
 
-		if ($score_mean['as']>=50) {
-			$eval['as']=("is Unhealthy");
+		if ($$score_mean['as'] >= 50) {
+			$eval['as']=$this->results_tab->getDomainResults("cldq", "as", "Severe");
 		}else{
-			$eval['as']=("is Healthy");
+			$eval['as']=$this->results_tab->getDomainResults("cldq", "as", "Mild");
 		}
 
 		if ($score_mean['f']>=50) {
-			$eval['f']=("is Unhealthy");
-		}else{
-			$eval['f']=("is Healthy");
-		}
+	 		$eval['f']=$this->results_tab->getDomainResults("cldq", "f", "Severe");
+	 	} else {
+	 		$eval['f']=$this->results_tab->getDomainResults("cldq", "f", "Mild");
+	 	}
 
-		if ($score_mean['ss']>=50) {
-			$eval['ss']=("is Unhealthy");
-		}else{
-			$eval['ss']=("is Healthy");
-		}
 
+	 	if ($score_mean['ss']>=50) {
+			$eval['ss']=$this->results_tab->getDomainResults("cldq", "ss", "Severe");
+			
+		} else {
+			$eval['ss']=$this->results_tab->getDomainResults("cldq", "ss", "Mild");
+			
+		}
+		
 		if ($score_mean['a']>=50) {
-			$eval['a']=("is Unhealthy");
-		}else{
-			$eval['a']=("is Healthy");
+			$eval['a']=$this->results_tab->getDomainResults("cldq", "a", "Severe");
+			
+		} else {
+			$eval['a']=$this->results_tab->getDomainResults("cldq", "a", "Mild");
+			
 		}
 
 		if ($score_mean['emf']>=50) {
-			$eval['emf']=("is Unhealthy");
-		}else{
-			$eval['emf']=("is Healthy");
+			$eval['emf']=$this->results_tab->getDomainResults("cldq", "emf", "Severe");
+			
+		} else {
+			$eval['emf']=$this->results_tab->getDomainResults("cldq", "emf", "Mild");
+			
 		}
 
 		if ($score_mean['w']>=50) {
-			$eval['w']=("is Unhealthy");
-		}else{
-			$eval['w']=("is Healthy");
+			$eval['w']=$this->results_tab->getDomainResults("cldq", "w", "Severe");
+			
+		} else {
+			$eval['w']=$this->results_tab->getDomainResults("cldq", "w", "Mild");
+			
 		}
 
-		if ($score_mean['ave']>=50) {
-			$eval['ave']=("High Probability to have chronic Liver Disease");
-		}else{
-			$eval['ave']=("Low Probability to have chronic Liver Disease");
+		if ($score_mean['ave']<=50) {
+			
+			$eval['ave']=("Probability to have Chronic Liver Disease is <span style='font-weight: bold'>Low</span>");
+			
+		} else {
+
+			$eval['ave']=("Probability to have Chronic Liver Disease is <span style='font-weight: bold'>High</span>");
+			
 		}
-
-
 
 		return $eval;
 	}
