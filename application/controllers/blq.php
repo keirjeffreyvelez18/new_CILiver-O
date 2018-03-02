@@ -153,15 +153,15 @@ class Blq extends CI_Controller {
 		if ($score_mean>=29.69) {
 			return $this->results_tab->getRecommendation('blq', '29.69 – 34.00');
 		}elseif ($score_mean>=25.46 && $score_mean<=29.68){
-			return "Higher chance to have a liver disease";
+			return $this->results_tab->getRecommendation('blq', '25.46 – 29.68');
 		}elseif ($score_mean>=21.23 && $score_mean<=25.45){
-			return "High chance to have a liver disease";
+			return $this->results_tab->getRecommendation('blq', '21.23 – 25.45');
 		}elseif ($score_mean>=17.00 && $score_mean<=21.22){
-			return "Reasonable chance to have a liver disease";
+			return $this->results_tab->getRecommendation('blq', '17.00 – 21.22');
 		}elseif ($score_mean>=12.77 && $score_mean<=16.99){
-			return "Marginal chance to have a liver disease";
+			return $this->results_tab->getRecommendation('blq', '12.77 – 16.99');
 		}elseif ($score_mean>=9.57 && $score_mean<=12.76){
-			return "Reasonable chance not to have a liver disease";
+			return $this->results_tab->getRecommendation('blq', '9.57 – 12.76');
 		}elseif ($score_mean>=5.31 && $score_mean<=9.56){
 			return $this->results_tab->getRecommendation('blq', '5.31 – 9.56');
 		}elseif ($score_mean>=1.18 && $score_mean<=5.31){
