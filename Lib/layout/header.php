@@ -104,9 +104,9 @@
                             <a href = "<?php echo site_url('sleeptracker')?>">Sleep Tracker</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-                        <li class="<?php if($this->uri->segment(2)=='foodrecommendation_view'|| $this->uri->segment(1)=='foodrecommendation'){echo 'active';}?>">
+                        <!-- <li class="<?php if($this->uri->segment(2)=='foodrecommendation_view'|| $this->uri->segment(1)=='foodrecommendation'){echo 'active';}?>">
                             <a href = "<?php echo site_url('foodrecommendation')?>">Calorie Recommendation</a>
-                        </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
+                        </li> --><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
                         <li class="<?php if($this->uri->segment(2)=='recommendation_view'|| $this->uri->segment(1)=='recommendation'){echo 'active';}?>">
                             <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
