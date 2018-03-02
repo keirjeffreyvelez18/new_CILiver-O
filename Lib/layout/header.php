@@ -112,15 +112,6 @@
                             <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">Start Learning</a></li>
-                            <li><a href="#">View All Courses</a></li>
-                            <li><a href="#">Chat with a CodeGuide</a></li>
-                          </ul>
-                        </li>   
-
                     </ul>
 
                 <?php endif; ?>

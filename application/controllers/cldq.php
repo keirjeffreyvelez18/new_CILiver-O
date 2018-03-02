@@ -229,7 +229,7 @@ class Cldq extends CI_Controller {
 			
 		}
 
-		if ($score_mean['ave']>=50) {
+		if ($score_mean['ave']<=50) {
 			
 			$eval['ave']=("Probability to have Chronic Liver Disease is <span style='font-weight: bold'>Low</span>");
 			
