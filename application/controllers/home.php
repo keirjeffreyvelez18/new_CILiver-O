@@ -81,8 +81,9 @@ class Home extends CI_Controller {
 
 		$config = array(
 			'useragent' => 'Liver-O',
-		    'protocol'  => 'quete',
-		    'smtp_host' => 'ssl://smtp.googlemail.com',
+		    'protocol'  => 'smtp',
+		    'mailpath' 	=> '/usr/sbin/sendmail',
+		    'smtp_host' => 'ssl://smtp.gmail.com',
 		    'smtp_port' => 465,
 		    'smtp_user' => 'liveo2018@gmail.com',
 		    'smtp_pass' => 'Thesis2018',

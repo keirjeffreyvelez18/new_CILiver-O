@@ -74,7 +74,7 @@
 													showInLegend: true, 
 													dataPoints:[
 														{ label: "SF36", y: <?php echo $sf36['ave'] ?>,indexLabel: "<?php echo $sf36_eval['ave']; ?>"},
-														{ label: "BLQ", y: <?php echo $blq ?> ,indexLabel: "<?php echo $blq_eval; ?>" },
+														{ label: "BLQ", y: <?php echo round($blq,2) ?> ,indexLabel: "<?php echo $blq_eval; ?>" },
 														{ label: "CLDQ", y: <?php echo $cldq['ave'] ?>,indexLabel: "<?php echo $cldq_eval['ave']; ?>"  },
 													]
 												},

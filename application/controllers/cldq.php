@@ -78,6 +78,12 @@ class Cldq extends CI_Controller {
 		$ans=$this->session->userdata('cur_uAns');
 		$data['curAns'] = json_decode($ans['answers']);
 		
+		if (json_decode($ans['answers'],TRUE)[$a]=="") {
+			$msg="Please select one.";
+			$this->session->set_flashdata('error',$msg);
+			$data['index']=$a;
+		}
+
 		$data['progress'] =1;
 		if ($a=="") {
 			$data['index']=1;
@@ -169,13 +175,13 @@ class Cldq extends CI_Controller {
 	}
 	function evaluate($score_mean=""){
 		$eval = array(
+			'ave' =>"",
 			'as' => "",
 			'f' => "",
 			'ss' => "",
 			'a' => "",
 			'emf' => "",
 			'w' => "",
-			'ave' =>"" 
 		);
 
 		if ($$score_mean['as'] >= 50) {
@@ -225,11 +231,11 @@ class Cldq extends CI_Controller {
 
 		if ($score_mean['ave']>=50) {
 			
-			$eval['ave']=("Average Health is Unhealthy");
+			$eval['ave']=("Probability to have Chronic Liver Disease is <span style='font-weight: bold'>Low</span>");
 			
 		} else {
 
-			$eval['ave']=("Average Health is Healthy");
+			$eval['ave']=("Probability to have Chronic Liver Disease is <span style='font-weight: bold'>High</span>");
 			
 		}
 

@@ -10,12 +10,15 @@
 	    </div>
 
 	    <div class="content">
-			<div class = "container quiz-container">
+			<div class = "container">
 			    <?php if ($index<30): ?>
-			    	<form method="post" action="<?php echo base_url('index.php/cldq/show_cldq') ?>" class="container">
+			    	<form method="post" action="<?php echo base_url('index.php/cldq/show_cldq') ?>" class="container quiz-container">
 			    <?php else: ?>
-			    	<form method="post" action="<?php echo base_url('index.php/cldq/cldq_result') ?>" class="container">
+			    	<form method="post" action="<?php echo base_url('index.php/cldq/cldq_result') ?>" class="container quiz-container">
 			    <?php endif ?>
+			    		<h2 style="text-align: center">Chronic Liver Disease Questions</h2>
+						<h4 class="alert-danger" style="text-align: center"> <?php echo $this->session->flashdata('error'); ?></h4>
+						<br>
 						<table class="table table-inverse" id = "white">
 							<thead align="center">
 								<tr>	
@@ -87,7 +90,7 @@
 										<h2>
 											Severity Percentage: <?php echo round($result['ave']) ?> %
 										</h2>
-										<div class="col-md-8">
+										<div class="">
 												<ul>
 						       						<?php foreach ($cldq_eval as $row):?> 
 						       							<li>

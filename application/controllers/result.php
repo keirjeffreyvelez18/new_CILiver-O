@@ -41,7 +41,7 @@ class Result extends CI_Controller {
 				$data_result['blq_eval']="You are Healthy";
 				$data_result['cldq_eval']['ave']="You are Healthy";
 			}else{
-				$data_result['blq'] = ($r[1]['qresults']/32)*100;
+				$data_result['blq'] = ($r[1]['qresults']/34)*100;
 				$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
 				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
 				$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
