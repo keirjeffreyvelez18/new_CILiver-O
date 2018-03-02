@@ -114,13 +114,19 @@
 
                     </ul>
 
-                <?php endif; ?>
+                <?php endif ?>
+
             <ul class="nav navbar-nav navbar-right">
+
+                
+            <?php if ($this->session->userdata('isLoggedIn')): ?>
                 <li class="<?php if($this->uri->segment(2)=='profile'){echo 'active';} ?>">
-                    <a href="<?php echo base_url('index.php/home/profile') ?>"> 
-                        <?php echo $this->session->userdata('username') ?></a> <!-- This is where the system uses calls the name of the user logged in -->
+                    <a href="<?php echo base_url('index.php/home/profile') ?>">
+                        <span class="badge">3</span>   
+                        <?php echo $this->session->userdata('username') ?>
+                    </a> <!-- This is where the system uses calls the name of the user logged in -->
                 </li>
-            
+            <?php endif ?>
 
                 <?php if ($this->session->userdata('isLoggedIn')): ?>
                     <li><a href="<?php echo base_url('index.php/home/logout') ?>" ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

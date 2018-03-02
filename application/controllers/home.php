@@ -77,36 +77,31 @@ class Home extends CI_Controller {
 	}
 
 
+    // public function sendEmail(){
+    //   	$config = Array(
+	   //    'protocol' => 'smtp',
+	   //    'smtp_host' => 'ssl://smtp.googlemail.com',
+	   //    'smtp_port' => 465,
+	   //    'smtp_user' => 'livero2018@gmail.com',
+	   //    'smtp_pass' => 'Thesis2018',
+    // 	);
+    // //$this->load->library('email', $config);
+    //   	$this->email->initialize($config)
+    // 	$this->email->set_newline("\r\n");
+    // 	$this->email->from('noreply@email.com', 'Liver-O');
+    // 	$this->email->to('keirjeffreyvelez18@gmail.com');
+    // 	$this->email->subject('Email Test');
+    // 	$this->email->message('Testing the email class.');
+    // 	if (!$this->email->send()) {
+    //     	show_error($this->email->print_debugger()); 
+    // 	}else {
+    //     	print_r("Your e-mail has been sent!");
+    //   	}
+    // }
+
+
 	function sendEmail($email=""){	
 
-		$config = array(
-			'useragent' => 'Liver-O',
-		    'protocol'  => 'smtp',
-		    'mailpath' 	=> '/usr/sbin/sendmail',
-		    'smtp_host' => 'ssl://smtp.gmail.com',
-		    'smtp_port' => 465,
-		    'smtp_user' => 'liveo2018@gmail.com',
-		    'smtp_pass' => 'Thesis2018',
-		    'mailtype'  => 'text',
-		    'charset'   => 'iso-8859-i',
-		    'wordwrap'  => TRUE
-		);
-
-		$this->email->initialize($config);
-		$this->email->set_newline("\r\n");
-		$this->email->from('livero2018@gmail.com', 'Liver-0');
-		$this->email->to('keirjeffreyvelez18@gmail.com');
-
-		$this->email->subject('Email Test');
-		$this->email->message('Testing the email class.');
-
-		
-
-		if ($this->email->send()) {
-			print_r("SENT");
-		}else{
-			print_r($this->email->print_debugger());
-		}
 		
 	}
 
@@ -173,7 +168,7 @@ class Home extends CI_Controller {
 	public function home_page(){
 	
 		if ($this->session->userdata('isLoggedIn')) {
-			$data['title']='Home|CILiver-O';
+			$data['title']='Home | CILiver-O';
 			// UP8
 			//print_r(date('H:i:sa'));
 			//print_r($this->userdata->lastDateLogin());
