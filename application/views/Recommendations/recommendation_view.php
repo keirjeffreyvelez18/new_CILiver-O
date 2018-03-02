@@ -63,6 +63,8 @@
 					      <ul>
 					      	<li>According to most research, An average human body is composed of 60% - 70%.</li>
 					      	<li>Some researches say that, drinking too much water too fast causes water intoxication or Hyponatermia.</li>
+					      	<li>Drinking water helps flush out toxins from the human body.</li>
+					      	<li>Adequate water intake can fix metabolism.</li>
 					      </ul>
 					    </div>
 					</div>
@@ -75,7 +77,7 @@
 						<span class="glyphicon glyphicon-bed"></span>
 						Sleep Recommendation
 					</h3>
-					<p>Hey tou should be aware of these following domains: </p>
+					<p>Hey, you should be aware of these following domains: </p>
 					<!-- ^======Insert recommendation here: this must change according to the score ======^ -->
 
 					<center><h3>[Show Systemic/Emotional/Fatigue Score and Severity]</h3></center>
@@ -163,9 +165,9 @@
 					    <div id="Fmenu3" class="tab-pane fade">
 					      <h3>Did you know?</h3>
 					      <ul>
-					      	<li>Avoid transfat as much as possible.</li>
-					      	<li>Keep your purine levels at controlled levels.</li>
-					      	<li>Limit your sodium intake, it makes you more thirsty it may cause you do accumulate more water than needed which is bad.</li>
+					      	<li>Calories can be bad or good, but we need the right amount to survive.</li>
+					      	<li>There are "empty calories". These calories are only accompanied by a few nutrients.</li>
+					      	<li>Calories weighs nothing, but excess calories are stored as potential energy then it is turned into fat. </li>
 					      </ul>
 					    </div>
 					</div>
