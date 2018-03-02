@@ -50,6 +50,7 @@
 <body>
 	
 <!--Nav Bar-->
+<?php if($this->uri->segment(2)!='home_page'): ?>
 
     <nav class="navbar navbar-inverse <?php if($this->uri->uri_string()=='home'){echo('navbar-fixed-top transparent');} ?>">
         <div class="container-fluid">
@@ -132,6 +133,7 @@
         </div>
     </nav>
 
+<?php endif ?>
 
 <?php if ($this->session->flashdata('error')): ?>
 

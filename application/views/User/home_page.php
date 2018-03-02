@@ -42,8 +42,8 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
-                    <h2>Lets Track Your Progress</h2>
-                    <p>description, description, description, description, description, description, description</p>
+                    <h2>Lets Track Your Liver Through your Progress</h2>
+                    <p>After the result is given, Liver-O can be used as a tool to keep track of your liver enhancing activities</p>
                 </div>
             </div>
 
@@ -51,16 +51,27 @@
 
             <div class="row">
                 <div class="col-lg-12 center-block">
-                    <a href="<?php echo site_url('Assessment/nextAssessment')?>"><button class="btn btn-primary btn-block" ><h4>Lets Gets Started</h4></button></a>
+                    <a href="<?php echo site_url('assessment')?>"><button class="btn btn-primary btn-block" ><h4>Lets Gets Started</h4></button></a>
                     <!-- ^ THIS BUTTON WILL TRIGGER THE ENABLE OF THE NAVBAR ^ -->
                 </div>
             </div>
+
             <br>
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <small>“I am strong because I've been weak. I am fearless because I've
+                            been afraid. I am wise because I've been foolish.”</small>
+                    <br>
+                    <small>- Anonymous</small>
+                </div>
+            </div>
         </div>
 
     </div>
 <!-- Contents and News -->
 </div>
+<br>
 <!-- ====================================FOOTER HERE=================================================== -->
     <?php include_once('Lib/layout/footer.php');?>
 <!-- ====================================FOOTER HERE=================================================== -->
