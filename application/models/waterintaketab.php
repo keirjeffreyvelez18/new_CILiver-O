@@ -3,6 +3,8 @@
 
 
 		function insertWaterIntake($data=array()){
+			$this->db->where('userid', $this->session->userdata('userid'));
+			// $this->db->where('dateStartOfRecom', $this->session->userdata('dateStartOfRecom'));
 			$query = $this->db->insert('waterintake', $data);
     	   	return $query;
 		}
@@ -15,6 +17,7 @@
 			$query = $this->db->get();
         	return $query->result_array();
 		}
+		
 	}
 
 ?>

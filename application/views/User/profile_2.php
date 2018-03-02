@@ -78,19 +78,6 @@
                       <span>Password  : </span> &nbsp&nbsp
                     </td>
                     
-                        <script type="text/javascript">
-                            function pass1() {
-                                var x = document.getElementById("passpro");
-                                    if (x.type === "text") {
-                                        x.type = "password";
-                                        var visibile = document.getElementById("ipasspro").className+='glyphicon glyphicon-eye-open';                    
-                                    } else {
-                                        x.type = "text";
-                                        var visibile = document.getElementById("ipasspro").className+='glyphicon glyphicon-eye-close';
-                                    }
-                            } 
-                        </script>
-
                       <?php if ($edit_pass==TRUE): ?>
                         <form method="post" action="<?php echo base_url('index.php/home/update_pass');?>">
                       <?php else: ?>
@@ -102,6 +89,18 @@
                         <div class="inner-addon right-addon">
                             <div class="input-group">
                                 <input type="password" name="password" class = "form-control"  id="passpro" placeholder="Password" value = ""  <?php if(!$edit_pass){echo "readonly";} ?> required><br>
+                                <script type="text/javascript">
+                                    function pass1() {
+                                        var x = document.getElementById("passpro");
+                                            if (x.type === "text") {
+                                                x.type = "password";
+                                                var visibile = document.getElementById("ipasspro").className+='glyphicon glyphicon-eye-open';                    
+                                            } else {
+                                                x.type = "text";
+                                                var visibile = document.getElementById("ipasspro").className+='glyphicon glyphicon-eye-close';
+                                            }
+                                    } 
+                                </script>
                                 <div class="input-group-addon">
                                     <div>
                                         <span id = "ipasspro" class="glyphicon glyphicon-eye-open" title = "Show Password" onclick="pass1()"></span>

@@ -10,6 +10,11 @@
 					<h1>
 						<span class="glyphicon glyphicon-check"></span> 
 						Recommendation Page
+								<a href="<?php echo site_url('watertracker') ?>">
+									<button class = "btn btn-md btn-success" type = "button" style="float:right">Start Daily Tracking
+		       				 		<span class = "glyphicon glyphicon-chevron-right"></span>
+		       						</button>
+		       					</a><br>
 					</h1>
 				</div>
 			</div>
