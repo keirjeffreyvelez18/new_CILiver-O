@@ -34,14 +34,18 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-7"> 
-							<h2>Recommended ammount of Calories</h2>
+							<h2>Recommended ammount of Calories: </h2>
+							<ul>
+								<li><h4>Body Mass Index Score: </h4></li>
+								<li><h4>Calorie Recommendation: </h4></li>
+							</ul>
 						</div>
 						<div class="col-lg-5">
-							<h2>Recommended ammount of Calories</h2>
+							<h2>Calorie Distribution: </h2>
 							<ul>
-								<li>Fat</li>
-								<li>Carbohydrate</li>
-								<li></li>
+								<li><h4>Carbohydrates Amount: </h4></li>
+								<li><h4>Fat Amount: </h4></li>
+								<li><h4>Protein Amount: </h4></li>
 							</ul>
 						</div>
 					</div>
