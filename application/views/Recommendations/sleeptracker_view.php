@@ -10,8 +10,9 @@
 				<div class="col-lg-12">
 					<h1>
 						<span class="glyphicon glyphicon-bed"></span>
-						Sleep Tracker &nbsp <br><small>Suggested to be record every morning</small>
+						Sleep Tracker &nbsp <br>
 					</h1>
+					<h4><strong>Notice:</strong> * Suggested to record every morning *</h4>
 				</div>
 			</div>
 

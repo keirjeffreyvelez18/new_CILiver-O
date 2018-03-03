@@ -31,17 +31,20 @@
 
             <div class = "row">
                 <div class="col-lg-4 text-center">
-                    <img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
+                    <div><span class="glyphicon glyphicon-list-alt img-circle" style="font-size: 150px"></span></div>
+                    <!-- <img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/> -->
                     <h2>Take the Liver Health Assessment</h2>
                     <p>First, Liver-O will provide a set of questionnaires to determine your current liver health status</p>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
+                    <div><span class="glyphicon glyphicon-paste img-circle" style="font-size: 150px"></span></div>
+                    <!-- <img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/> -->
                     <h2>Get Results and Recommendations</h2>
                     <p>Second, after the assessment Liver-O will generate results and interpretations about your current liver health status</p>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
+                    <div><span class="glyphicon glyphicon-stats img-circle" style="font-size: 150px"></span></div>
+                    <!-- <img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/> -->
                     <h2>Lets Track Your Liver Through your Progress</h2>
                     <p>After the result is given, Liver-O can be used as a tool to keep track of your liver enhancing activities</p>
                 </div>
