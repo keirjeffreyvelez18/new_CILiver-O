@@ -200,7 +200,7 @@
 	       			<div class = "container-fluid m-middle">
 		       				
 		       			<br>
-		       				<p>Condition of the patient</p><!-- Mention the current condition of the user-->
+		       				<h4>Condition of the patient is: </h4><!-- Mention the current condition of the user-->
 		       			<br>
 		       				
 		       				<ul class="nav nav-tabs custom-nav-tabs">

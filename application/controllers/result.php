@@ -185,11 +185,11 @@ class Result extends CI_Controller {
 
 		if ($score_mean['ave']<=75) {
 			
-			$eval['ave']=("Average Health is <strong>Unhealthy</strong>"); // <span style='font-weight: bold'></span>
+			$eval['ave']=("Average Health is Unhealthy"); // <span style='font-weight: bold'></span>
 			
 		} else {
 
-			$eval['ave']=("Average Health is <strong>Healthy</strong>"); // <span style='font-weight: bold'></span>
+			$eval['ave']=("Average Health is Healthy"); // <span style='font-weight: bold'></span>
 			
 		}
 
@@ -254,11 +254,11 @@ class Result extends CI_Controller {
 
 		if ($score_mean['ave']<=50) {
 			
-			$eval['ave']=("Your Chronic Liver Disease status is <strong>Mild</strong>"); //<span style='font-weight: bold'></span>
+			$eval['ave']=("Your Chronic Liver Disease status is Mild"); //<span style='font-weight: bold'></span>
 			
 		} else {
 
-			$eval['ave']=("Your Chronic Liver Disease status is <strong>Severe</strong>"); // <span style='font-weight: bold'></span>
+			$eval['ave']=("Your Chronic Liver Disease status is Severe"); // <span style='font-weight: bold'></span>
 			
 		}
 

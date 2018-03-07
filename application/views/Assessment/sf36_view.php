@@ -4,7 +4,9 @@
 </head>
 	<body>
 		<div class = "container">
+			<div class="row">
 	       		<?php include_once('Lib/layout/progress.php');?>
+	       	</div>
 	    </div>
 
 	    <div class="content">
@@ -15,31 +17,23 @@
 			    <?php else: ?>
 			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36_save') ?>" class="container quiz-container">
 			    <?php endif ?>
-						<h2 style="text-align: center">Short Form 36 Questions</h2>
-						<h4 class="alert-danger" style="text-align: center"> <?php echo $this->session->flashdata('error'); ?></h4>
-						<br>
+
 						<table class="table table-inverse" id = "white">
 
 							<thead align="center">
 								<tr>
 									<?php if ($index!=37): ?>
-										<th class="col-md-9"><?php echo "Question #".$index." of 36"; ?> </th>
+										<div class="col-md-9">
+											<h4><?php echo "General Health Question #".$index." of 36"; ?><h4> 
+											<h4 class="alert-danger"> <?php echo $this->session->flashdata('error'); ?></h4>
+										</div>
 									<?php else: ?>
-										<th class="col-md-9">Thank you for Answering</th>
+										<div class="col-md-9"><h4>Thank you for Answering</h4></div>
 									<?php endif ?>
-									<th>
-										<input type="submit" name="submit" class="btn btn-primary" value="Back" 
-											<?php if($index==1){echo "disabled";} ?>
-										>
-										<?php if ($index==37): ?>
-											<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
-										<?php else: ?>
-											<input type="submit" name="submit" class="btn btn-primary" value="Next">
-										<?php endif ?>
-									</th>
-								</tr>	
+								</tr>
+
 								<tr>
-									<th class="<?php if($index==37){echo 'collapse';} ?>">
+									<div class="<?php if($index==37){echo 'collapse';} ?> container-fluid">
 										<!-- Progress Trackers -->
 									       	<div class = "row">
 									       		<div class = "col-lg-12">
@@ -51,9 +45,9 @@
 													</div>
 									       		</div>
 									      	 </div>
-										<!-- Progress Trackers -->	
-									</th>
-								</tr>
+										<!-- Progress Trackers --> 	
+									</div>
+								</tr> 
 							</thead>
 							
 							<tbody>
@@ -61,38 +55,60 @@
 									<tr>
 										<?php if ($row->qCat==$qcategory): ?>
 										<?php $MyQuestion = json_decode($row->qAndA); ?>
-											<td class="<?php if($index!=$row->qIndex){echo 'collapse';} ?>"><h2><?php echo $row->qIndex.". ".$MyQuestion->question;?></h2>
-												<br>												
-												<input name="qIndex" type="hidden" value="<?php echo $row->qIndex; ?>">
-												<input type="hidden" name="i"  value="<?php echo $index; ?>">
-												<div class="btn-group" data-toggle="buttons">
-														<?php for ($a=0; $a < count($MyQuestion->answer) ; $a++): ?>
-															<?php if ($MyQuestion->answer[$a]!=""): ?>
+										
+										<td class="<?php if($index!=$row->qIndex){echo 'collapse';} ?>" >
+											<!-- ==============Question and Avatar Container================== -->
+												<div class = "container-fluid">
+													<div class = "center-block animated jackInTheBox">
+														<h3 class = "speech-bubble"><?php echo $MyQuestion->question;?></h3>
+													</div>
+													
+													<div>
+														<!-- ======================Response and Answers=========================== -->
+														<input name="qIndex" type="hidden" value="<?php echo $row->qIndex; ?>">
+														<input type="hidden" name="i"  value="<?php echo $index; ?>">
 
-																<label class="Rcontainer radio-custom <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'active';}} ?>">
+														<div class="btn-group" data-toggle="buttons" style="margin: 5%; margin-left: 7%;"> <!-- Look into this -->
+														
+															<?php for ($a=0; $a < count($MyQuestion->answer) ; $a++): ?>
+																<?php if ($MyQuestion->answer[$a]!=""): ?>
+																	
+																	<label class="Rcontainer radio-custom <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'active';}} ?>">
+																	
+																	    <input name="ans[<?php echo $row->qIndex ?>]" type="radio" value="<?php echo $MyQuestion->score[$a]; ?>" <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'checked="checked"';}} ?>>
+																	    	<span class="checkmark"></span>
 
-															    	<input name="ans[<?php echo $row->qIndex ?>]" type="radio" value="<?php echo $MyQuestion->score[$a]; ?>" <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'checked="checked"';}} ?>>
-															    		<span class="checkmark"></span>
-															    	<?php echo $MyQuestion->answer[$a] ?>
+																	    <?php echo $MyQuestion->answer[$a] ?>
 
-															    </label>
+																	</label>
+																																	
+																<?php endif ?>
+															<?php endfor ?>
+																
+														
+															<input name="domain[<?php echo $row->qIndex?>]" type="hidden" value="<?php echo $row->domain; ?>">
+															<input name="qcategory" type="hidden" value="<?php echo $qcategory; ?>">
+														</div>
 
-															    
+													<!-- =========================Response and Answers=========================== -->
 
-															 <?php endif ?>
-														<?php endfor ?>
-														<input name="domain[<?php echo $row->qIndex?>]" type="hidden" value="<?php echo $row->domain; ?>">
-														<input name="qcategory" type="hidden" value="<?php echo $qcategory; ?>">
+														<img class="pull-right animated swing" style=" max-height: 30%; max-width: 30%;" src="<?php echo base_url('Lib/imgs/Liver_D.png')?>" alt="liver Doctor"/>
+													</div>
 												</div>
-											</td>
-										<?php endif ?>
+											<!-- ==============Question and Avatar Container================== -->
+											<?php endif ?>
+											<?php endforeach ?>
+										</td>			
 									</tr>
-								<?php endforeach ?>
+								
+
+								<!-- =======================Result=============================== -->
 								<tr>
 									<td class="<?php if($index!=37){echo 'collapse';} ?>">
 										<h2>
-											Average Health: <?php echo round($result['ave']) ?> %
+										 Your Average General Health: <?php echo round($result['ave']) ?> %	
 										</h2>
+										
 										<div class="row">
 											<div class="col-md-8">
 												<ul>
@@ -112,6 +128,8 @@
 										
 									</td>
 								</tr>
+								<!-- =======================Result=============================== -->
+
 							</tbody>
 
 							<tfoot>
@@ -124,25 +142,9 @@
 											<?php if ($index==37): ?>
 												<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
 											<?php else: ?>
-												<input type="submit" name="submit" class="btn btn-primary" value="Next">
+												<input type="submit" name="submit" class="btn btn-primary" value="Next" autofocus="">
 											<?php endif ?>
 										</div>
-										<!-- <div class="container-fluid">
-											<div class="row">
-												<div class="col-md-6">
-													<input type="submit" name="submit" class="btn btn-primary btn-block" value="Back" 
-														<?php if($index==1){echo "disabled";} ?>
-													>
-												</div>		
-												<div class="col-md-6">
-													<?php if ($index==37): ?>
-														<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary btn-block" value="Save">
-													<?php else: ?>
-														<input type="submit" name="submit" class="btn btn-primary btn-block" value="Next">
-													<?php endif ?>		
-												</div>
-											</div>
-										</div> -->
 									</td>
 								</tr>
 							</tfoot>
