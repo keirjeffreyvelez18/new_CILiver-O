@@ -24,6 +24,7 @@ class Home extends CI_Controller {
         $this->load->library('email');
        	$this->load->library('form_validation');
        	$this->load->model('userstab');
+       	$this->load->model('waterintaketab');
        	$this->load->helper(array('form', 'url', 'date'));
 
    	}
@@ -146,8 +147,11 @@ class Home extends CI_Controller {
 					'lastLogin' => $result['lastDateLogin'],
 					'isLoggedIn'=> TRUE,
 					);
+
 				$this->session->set_userdata($session_data);
 				$this->userstab->update_login();
+				$data['dateStartOfRecom'] = $this->waterintaketab->getStartRecom();
+				$this->session->set_userdata($data);
 				redirect('/home/home_page');
 			}else{
 				$msg="Incorrect username/password";

@@ -26,30 +26,28 @@ class Watertracker extends CI_Controller {
 	public function index()
 	{	
 		$data['title'] = "Water Tracker | Liver-O";
-		$data['waterintakeData'] = $this->waterintaketab->getwaterintake();
+		$data['waterintakeData'] = $this->waterintaketab->getwaterintake('asc');
 		if (!$data['waterintakeData']) {
-			$date = array($dateStartOfRecom => date('Y-m-d')."");
+			$date['dateStartOfRecom'] = date('Y-m-d');
 			$this->session->set_userdata($date);			
 		}
-		$date = array($dateStartOfRecom => date('Y-m-d'));
-		$this->session->set_userdata($date);
-		print_r($this->session->userdata('dateStartOfRecom').$date);
- 		$this->load->view('Recommendations/watertracker_view', $data);
+		$this->load->view('Recommendations/watertracker_view', $data);
 	}
 
 	public function saveWaterIntake(){
-		//$data['dateStartOfRecom'] = $this->session->userdata('dateStartOfRecom');
+		$data['dateStartOfRecom'] = $this->session->userdata('dateStartOfRecom');
 		$data['dateOfIntake'] = $this->input->post('dOfIntake');
 		$data['numberOfWaterIntake'] = $this->input->post('numOfIntake');
 		$data['userid'] = $this->session->userdata('userid');
 		$result = $this->waterintaketab->insertWaterIntake($data);
+		$this->getNotification();
 		if ($result) {
 			$this->index();
-		}else{
-			print_r("failed");
 		}
 	}
 
+
+	
 
 }
 

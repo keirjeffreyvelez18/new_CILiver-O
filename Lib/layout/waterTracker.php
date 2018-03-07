@@ -8,6 +8,7 @@
 									text: "Water Intake"
 								},
 								axisY: {
+									maximum: 20,
 									title: "Number of Glasses",
 									suffix: " Glasses",
 									stripLines: [{
@@ -15,7 +16,6 @@
 										label: "Average",
 										valueFormatString: "DD MMMM YYYY"
 									}],
-
 								},
 								data: [{
 									yValueFormatString: "## Glasses",
