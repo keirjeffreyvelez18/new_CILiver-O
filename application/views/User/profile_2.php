@@ -15,7 +15,7 @@
         </div>
 
         <div class="row container profile" >
-              <div class="col-lg-5">
+              <div class="col-lg-8">
                 <table class="pull-right" >
                     <tr class="row">
                       <td>
@@ -224,10 +224,10 @@
                     </tr>
                 </table>
               </div>
-              <div class="col-lg-7">
-                <h3>Would you like to re-assess yourself?</h3>
-                <div class="col-lg-12 center-block">
-                    <a href="<?php echo site_url('assessment')?>"><button class="btn btn-primary btn-block" ><h5>Reset Assessment</h5></button></a>
+              <!-- <div class="col-lg-7"> -->
+                <!-- <h3>Would you like to re-assess yourself?</h3>
+                <div class="col-lg-12 center-block"> -->
+                    <!-- <a href="<?php echo site_url('assessment')?>"><button class="btn btn-primary btn-block" ><h5>Reset Assessment</h5></button></a> -->
                     <!-- ^ THIS BUTTON WILL TRIGGER THE ENABLE OF THE NAVBAR ^ -->
                     <!-- <div class="overlay">
                       <img class = "bar" src = "logo.png" alt ="logo-load">
@@ -236,8 +236,8 @@
                       <div class="bar"> </div>
                       <div class="bar"> </div> 
                     </div> -->
-                </div>
-              </div>
+                <!-- </div> -->
+              <!-- </div> -->
               <!-- <hr> 
               <strong><h4 id = "black" style="text-align: center">BMI</h4><br></strong> -->
         </div>
