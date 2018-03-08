@@ -15,7 +15,9 @@
 				<tr>
 					<th>Question ID</th>
 					<th>Question Index</th>
-					<th>Question And Answer</th>
+					<th>Question</th>
+					<th>Answer</th>
+					<th>Category</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -25,11 +27,15 @@
 					<tr>
 						<td><?php echo $row->questionId ?></td>
 						<td><?php echo $row->qIndex ?></td>
-						<td><?php print_r(json_decode($row->qAndA)) ?></td>
+						<td><?php print_r(json_decode($row->qAndA, TRUE)["question"]) ?></td>
 						<td>
-							<a onclick = "return confirm('Do you wish to view selected question?')" href = "<?php echo base_url('index.php/questionnaire/questions_view/'.$row->questionId);?>">VIEW</a>
-
-							|
+							<?php foreach (json_decode($row->qAndA, TRUE)["answer"] as $key => $value):?> 
+								<li><?php print_r(json_decode($row->qAndA, TRUE)["answer"][$key]); ?> </li>
+							<?php endforeach ?>
+						</td>
+						<td><?php print_r(json_decode($row->qAndA, TRUE)["qCat"]) ?></td>
+						<td>
+							<a onclick = "return confirm('Do you wish to view selected question?')" href = "<?php echo base_url('index.php/quiz/questions_view/'.$row->questionId);?>">VIEW</a>
 							<a onclick = "return confirm('Do you wish to delete selected question?')" href = "<?php echo base_url('index.php/questionnaire/delComplete/'.$row->questionId);?>">DELETE</a>
 						</td>
 					</tr>

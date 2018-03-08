@@ -31,6 +31,7 @@ class Watertracker extends CI_Controller {
 			$date['dateStartOfRecom'] = date('Y-m-d');
 			$this->session->set_userdata($date);			
 		}
+		$this->interpretWaterIntake();
 		$this->load->view('Recommendations/watertracker_view', $data);
 	}
 
@@ -40,12 +41,21 @@ class Watertracker extends CI_Controller {
 		$data['numberOfWaterIntake'] = $this->input->post('numOfIntake');
 		$data['userid'] = $this->session->userdata('userid');
 		$result = $this->waterintaketab->insertWaterIntake($data);
-		$this->getNotification();
+		//$this->getNotification();
 		if ($result) {
-			$this->index();
+			redirect('watertracker', 'refresh');
 		}
 	}
 
+
+	function interpretWaterIntake(){
+		$waterintakeData = $this->waterintaketab->getwaterintake('asc');
+		foreach ($waterintakeData as $key => $value) {
+			$w+=$waterintakeData[$key]['numberOfWaterIntake'];
+		}
+		$a = $w/(count($waterintakeData));
+		print_r(round($a, 2));
+	}
 
 	
 

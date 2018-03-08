@@ -20,7 +20,7 @@
 
 						<form method="post" action="<?php echo base_url('index.php/watertracker/saveWaterIntake');?>">
 							<input type="date" name="dOfIntake" value="<?php echo date('Y-m-d'); ?>" style="color: black">
-							<input type="number" name="numOfIntake" min="1" max="8" value="20 style="color: black"><span>Glasses</span>
+							<input  type="number" name="numOfIntake" min="1" max="20" value="8" style="color: black"><span>Glasses</span>
 							<input type="submit" name="" value="Save" style="color: black">
 						</form>
 					</div>

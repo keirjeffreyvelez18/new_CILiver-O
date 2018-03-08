@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html>
-
-
-<header>
-	
-</header>
-<body>
+<?php include_once('Lib/layout/header.php');?>
 	<div>
-		<a href = '<?php echo base_url('index.php/home/register'); ?>'>Create User</a>
-		<table width = 700px class = "table" border=1px cellspacing=0 cellpadding=0>
+		<table class = "table" border=1px >
 			<thead align = "center" bgcolor = "grey">
 				<tr>
 					<th>User ID</th>
 					<th>Username</th>
 					<th>Email</th>
-					<th>Password</th>
-					<th>Confirm Password</th>
 					<th>Birthday</th>
 					<th>Gender</th>
-					<th>Action</th>
+					<th>Date Join</th>
+					<th>Last Login</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,18 +19,14 @@
 						<td><?php echo $row->userid ?></td>
 						<td><?php echo $row->username ?></td>
 						<td><?php echo $row->email ?></td>
-						<td><?php echo $row->password ?></td>
-						<td><?php echo $row->password2 ?></td>
 						<td><?php echo $row->birthday ?></td>
 						<td><?php echo $row->gender ?></td>
-						<td>
-							<a onclick = "return confirm('Do you wish to delete selected user?')" href = "<?php echo base_url('index.php/home/delete_user/'.$row->userid);?>">DELETE</a>
-							<a onclick = "return confirm('Do you wish to update selected user?')" href = "<?php echo base_url('index.php/home/register/'.$row->userid);?>">UPDATE</a></td>
+						<td><?php echo $row->dateJoin ?></td>
+						<td><?php echo $row->lastDateLogin ?></td>
+
 					</tr>
 			<?php endforeach;?>
 			</tbody>
 		</table>
-		<a href="<?php echo base_url('index.php/home/logout') ?>">Logout</a>
 	</div>
-</body>
-</html>
+<?php include_once('Lib/layout/footer.php');?>

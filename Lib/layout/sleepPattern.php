@@ -47,7 +47,8 @@
 										        				legendMarkerType: "square" ,
 										        				legendText: "Normal Sleeping",
 										        				markerColor: "green",
-										        				markerSize: 10,										        			},
+										        				markerSize: 10,										        			
+										        			},
 										        		<?php elseif($value['hoursOfSleep']>9): ?>
 										        			{  	x: new Date(<?php echo $d[0].",".($d[1]-1).",".$d[2]; ?>),
 										        				y: <?php echo $sleepTrackerData[$key]['hoursOfSleep']; ?>, 
@@ -70,15 +71,6 @@
 										        		<?php endif ?>
 										        		
 										        	<?php endforeach ?>
-											        // {  y: 7 },
-											        // {  y: 8, indexLabel: "normal",markerType:"square",markerColor: "green" , markerSize: 10},
-											        // {  y: 6 },
-											        // {  y: 5 },
-											        // {  y: 10, indexLabel: "high", markerType:"triangle", markerColor: "red", markerSize: 10 },
-											        // {  y: 4 },
-											        // {  y: 7 },
-											        // {  y: 6 },
-											        // {  y: 3, indexLabel: "low",markerType:"cross",markerColor: "blue" , markerSize: 10 }
 										        ]
 									      	}
 								      	]
