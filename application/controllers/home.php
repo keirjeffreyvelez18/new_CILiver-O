@@ -152,7 +152,12 @@ class Home extends CI_Controller {
 				$this->userstab->update_login();
 				$data['dateStartOfRecom'] = $this->waterintaketab->getStartRecom();
 				$this->session->set_userdata($data);
-				redirect('/home/home_page');
+				if ($result['username']=='Administrator') {
+					redirect('quiz/questions_view');
+				}else{
+					redirect('/home/home_page');
+				}
+				
 			}else{
 				$msg="Incorrect username/password";
 				$this->session->set_flashdata('error',$msg);

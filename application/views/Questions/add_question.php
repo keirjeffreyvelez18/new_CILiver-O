@@ -30,14 +30,16 @@
     <?php echo(validation_errors())?>
     <div class = "container-fluid">
         <form method="post" action="<?php echo base_url('index.php/quiz/add_question')?>">
-        <center><h2 id = "white" >Add New Question</h2><br></center>
+        <center><h2 id = "black" >Add New Question</h2><br></center>
             <input type="text" name="qIndex" class = "form-control" placeholder="Question Index"><br>
             <textarea rows="5" cols="72" name="question" class = "form-control" placeholder="Question"></textarea><hr>
+            <input type="text" name="qCat" class = "form-control" placeholder="Question Category"><br>
             <div class="form-group fieldGroup">
+            <label>Answers:</label>
             <div class="input-group">
-                <input type="text" name="answer[]" class="form-control" placeholder="Enter name"/>
+                <input type="text" name="answer[]" class="form-control" placeholder="Enter answer"/>
                     <div class="input-group-addon"> 
-                        <input type="number" name="score[]">
+                        <input type="number" name="score[]" placeholder="Enter score">
                         <a href="javascript:void(0)" class="addMore"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </div>
                 </div>
@@ -48,7 +50,7 @@
 
         <div class="form-group fieldGroupCopy" style="display: none;">
             <div class="input-group">
-                <input type="text" name="answer[]" class="form-control" placeholder="Enter name"/>
+                <input type="text" name="answer[]" class="form-control" placeholder="Enter answer"/>
                 <div class="input-group-addon"> 
                      <input type="number" name="score[]">
                     <a href="javascript:void(0)" class="remove"><span class="glyphicon glyphicon glyphicon-minus" aria-hidden="true"></span></a>

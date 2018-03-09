@@ -54,7 +54,19 @@
 
             <div class="row">
                 <div class="col-lg-12 center-block">
-                    <a href="<?php echo site_url('assessment')?>"><button class="btn btn-primary btn-block" ><h4>Lets Gets Started</h4></button></a>
+                    <?php if ($this->session->userdata('username')!='Administrator'): ?>
+                        <a href="<?php echo site_url('assessment')?>">
+                            <button class="btn btn-primary btn-block" >
+                                <h4>Lets Gets Started</h4>
+                            </button>
+                        </a>
+                    <?php else: ?>
+                        <a href="<?php echo site_url('quiz/questions_view')?>">
+                            <button class="btn btn-primary btn-block" >
+                                <h4>View All Questions</h4>
+                            </button>
+                        </a>
+                    <?php endif ?>
                     <!-- ^ THIS BUTTON WILL TRIGGER THE ENABLE OF THE NAVBAR ^ -->
                 </div>
             </div>

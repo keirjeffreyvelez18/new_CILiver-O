@@ -33,10 +33,7 @@ class Sleeptracker extends CI_Controller {
 			$this->session->set_userdata($date);			
 		}
 
-		foreach ($data['sleepTrackerData'] as $key => $value) {
-			$d = explode('-', $data['sleepTrackerData'][$key]['dateofSleep']);
-			print_r($d);
-		}
+		
 		
 		//print_r($data['marker']);
 		$this->load->view('Recommendations/sleeptracker_view', $data);
@@ -48,14 +45,21 @@ class Sleeptracker extends CI_Controller {
 		$data['hoursOfSleep'] = 8;
 		$a = strtotime($this->input->post('sleeptime'));
 		$b = strtotime($this->input->post('wakeuptime'));
-		if ($a<strtotime('12:00:00')) {
-			$t = (strtotime('24:00:00')-$a)/60;
+		
+		if ($a>strtotime('12:00') && $b>strtotime('00:00')) {
+			$t = date("H:i",(23-$a)+$b);
+		}else {
+			print_r("expression");	
+			$t = date("H:i",$a-$b);
 		}
+		$data['hoursOfSleep'] = str_replace(':', '.', $t);
 		// $data['userid'] = $this->session->userdata('userid');
 		// $t = $b->diff($a);
 		// $t->format("%H:%I:%S");
 		$result = $this->sleeptrackertab->insertSleepTracker($data);
-		$this->load->view('Recommendations/sleeptracker_view');
+		if ($result) {
+			redirect('sleeptracker', 'refresh');
+		}
 	}
 }
 

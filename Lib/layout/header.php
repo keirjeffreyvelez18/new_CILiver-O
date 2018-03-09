@@ -91,7 +91,7 @@
                                         }
                                      ?>">Questionnaire</a>
                         </li>
-                       
+                    <?php if ($this->session->userdata('username')!='Administrator'): ?>
                         <li class="<?php if($this->uri->segment(2)=='result_view'|| $this->uri->segment(1)=='result'){echo 'active';}?>">
                             <a href = "<?php echo site_url('result')?>">Result</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
@@ -111,7 +111,11 @@
                         <li class="<?php if($this->uri->segment(2)=='recommendation_view'|| $this->uri->segment(1)=='recommendation'){echo 'active';}?>">
                             <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
-
+                    <?php else: ?>
+                        <li class="<?php if($this->uri->segment(2)=='users'){echo 'active';}?>">
+                            <a href = "<?php echo site_url('home/users')?>">Users</a>
+                        </li>
+                    <?php endif ?> 
                     </ul>
 
                 <?php endif ?>

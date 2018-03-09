@@ -37,6 +37,10 @@ class Quiz extends CI_Controller {
 		$this->load->view('Questions/questions_view',$data);
 	}
 
+	public function question_view(){
+			
+	}
+
 	public function add_question_view(){
 		$title['title'] = 'Add Questions';
 		$this->load->view('Questions/add_question',$title);

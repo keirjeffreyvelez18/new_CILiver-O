@@ -17,10 +17,9 @@
 				<div class="col-lg-12">
 				<center>
 					<div class="slidecontainer range">
-
 						<form method="post" action="<?php echo base_url('index.php/watertracker/saveWaterIntake');?>">
 							<input type="date" name="dOfIntake" value="<?php echo date('Y-m-d'); ?>" style="color: black">
-							<input type="number" name="numOfIntake" min="1" max="8" value="20 style="color: black"><span>Glasses</span>
+							<input  type="number" name="numOfIntake" min="1" max="20" value="8" style="color: black"><span>Glasses</span>
 							<input type="submit" name="" value="Save" style="color: black">
 						</form>
 					</div>
@@ -28,6 +27,19 @@
 					<?php include_once('Lib/layout/waterTracker.php');?>
 
 				</center><br>
+				</div>
+				<div class="col-md-12">
+					<h2>Water Tracker Interpretation:</h2>
+					<div class="col-md-10">
+						<ul>
+							<li><?php echo $waterAve; ?> Glasses</li>
+								<?php if ($sf36['ave']>75): ?>
+							 		<li><?php echo $sf36_recom[1]; ?></li>
+								<?php else: ?>
+							 		<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
+								<?php endif ?>
+						</ul>
+					</div>
 				</div>
 			</div>		
 		</div>
