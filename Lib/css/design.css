@@ -21,6 +21,28 @@
     left: 650px;
 }
 
+.speech-bubble2 {
+    position: relative;
+    /*color:#e3f2fd;*/
+    color:#000000;
+    background:#ffffff; /*#2196f3 - twitter blue*/
+    border: solid 10px #ffffff;
+    padding: 20px;
+    border-radius: .4em;
+}
+
+.speech-bubble2:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 30px 20px 0; /*this must be adjusted accordingly with the bottom property*/
+    border-color: #ffffff transparent;
+    display: block;width: 0;
+    z-index: 1;
+    bottom: -30px; /*this must be adjusted accordingly with the border-width property*/
+    left: 850px;
+}
+
 /*==========================END OF QUESTION DIALOGUE=================================*/
 
 div .login{
