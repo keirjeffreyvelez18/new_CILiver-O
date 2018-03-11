@@ -121,26 +121,26 @@
     <div class="row">
 
       <div class="col-lg-3 about-custom">
-        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
+        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/CV-Photos/liver (4).jpg')?>" alt="franz"/>
           <h3>Franz P. Licañel</h3>
           <h4>Project Leader</h4>
         </center>
         
       </div>
       <div class="col-lg-3 about-custom">
-        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
+        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/CV-Photos/liver (1).jpg')?>" alt="keir"/>
           <h3>Keir Jeffrey Velez</h3>
           <h4>Lead Programmer</h4>
         </center>
       </div>
       <div class="col-lg-3 about-custom">
-        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
+        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/CV-Photos/liver (3).jpg')?>" alt="steven"/>
           <h3>Steven Vincent C. Saludares</h3>
           <h4>Lead Researcher</h4>
         </center>
       </div>
       <div class="col-lg-3 about-custom">
-        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/developers/dev.jpg')?>"/>
+        <center><img class="img-circle" src="<?php echo base_url('Lib/imgs/CV-Photos/liver (2).jpg')?>" alt="zyra"/>
           <h3>Zyra Vince Montalvo</h3>
           <h4>Documentation Manager</h4>
         </center>
