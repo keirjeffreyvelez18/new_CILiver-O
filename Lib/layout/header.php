@@ -96,6 +96,10 @@
                             <a href = "<?php echo site_url('result')?>">Result</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
+                        <li class="<?php if($this->uri->segment(2)=='recommendation_view'|| $this->uri->segment(1)=='recommendation'){echo 'active';}?>">
+                            <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
+                        </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
+
                         <li class="<?php if($this->uri->segment(2)=='watertracker_view'|| $this->uri->segment(1)=='watertracker'){echo 'active';}?>">
                             <a href = "<?php echo site_url('watertracker')?>">Water Tracker</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
@@ -107,10 +111,7 @@
                         <!-- <li class="<?php if($this->uri->segment(2)=='foodrecommendation_view'|| $this->uri->segment(1)=='foodrecommendation'){echo 'active';}?>">
                             <a href = "<?php echo site_url('foodrecommendation')?>">Calorie Recommendation</a>
                         </li> --><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
-
-                        <li class="<?php if($this->uri->segment(2)=='recommendation_view'|| $this->uri->segment(1)=='recommendation'){echo 'active';}?>">
-                            <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
-                        </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
+     
                     <?php else: ?>
                         <li class="<?php if($this->uri->segment(2)=='users'){echo 'active';}?>">
                             <a href = "<?php echo site_url('home/users')?>">Users</a>
