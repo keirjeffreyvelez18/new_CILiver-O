@@ -105,10 +105,10 @@
 											<br>
 											<ul>
 												<li>
-													<?php echo $evaluate['interprete']; ?>
+													<?php echo $evaluate[0]['interpretation']; ?>
 												</li>
 												<li>
-													<?php echo $evaluate['recom']; ?>
+													<?php echo $evaluate[0]['description']; ?>
 												</li>
 											</ul>
 										
@@ -119,12 +119,12 @@
 								<tr>
 									<td>
 										<div class="pull-right">
-											
+											<input type="submit" name="submit" class="btn btn-primary" value="Back" 
+												<?php if($index==1){echo "disabled";} ?>
+											>
 											<?php if ($index==18): ?>
 												<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
 											<?php else: ?>
-												<input type="submit" name="submit" class="btn btn-primary" value="Back" 
-												<?php if($index==1){echo "disabled";} ?>>
 												<input type="submit" name="submit" class="btn btn-primary" value="Next" autofocus="">
 											<?php endif ?>
 										</div>

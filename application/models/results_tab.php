@@ -14,12 +14,12 @@
         }
 
         function getRecommendation($category="", $scoreRange=""){
-            $this->db->select('description');
+            $this->db->select('*');
             $this->db->from('recommendation');
             $this->db->where('scoreRange' , $scoreRange);
             $this->db->where('category' , $category);
             $query = $this->db->get();
-            return $query->result_array()[0]['description'];
+            return $query->result_array();
         }
 
 

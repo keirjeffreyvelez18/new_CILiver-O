@@ -72,42 +72,25 @@ class Recommendation extends CI_Controller {
 	}
 
 	function evaluate_blq($score=0){
-
-		$eval = array(
-			$interprete => "",
-			$recom => "",
-		);
-
 		if ($score>=29.69) {
-			$interprete = "Highest chance to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '29.69 – 34.00');
+			return "Highest chance to have a liver disease";
 		}elseif ($score>=25.46 && $score<=29.68){
-			$interprete = "Higher chance to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '25.46 – 29.68');
+			return "Higher chance to have a liver disease";
 		}elseif ($score>=21.23 && $score<=25.45){
-			$interprete = "High chance to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '21.23 – 25.45');
+			return "High chance to have a liver disease";
 		}elseif ($score>=17.00 && $score<=21.22){
-			$interprete = "Reasonable chance to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '17.00 – 21.22');
+			return "Reasonable chance to have a liver disease";
 		}elseif ($score>=12.77 && $score<=16.99){
-			print_r("expression");
-			$interprete = "Marginal chance to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '12.77 – 16.99');
+			return "Marginal chance to have a liver disease";
 		}elseif ($score>=9.57 && $score<=12.76){
-			$interprete = "Reasonable chance not to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '9.57 – 12.76');
+			return "Reasonable chance not to have a liver disease";
 		}elseif ($score>=5.31 && $score<=9.56){
-			$interprete = "High chance not to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '5.31 – 9.56');
+			return "High chance not to have a liver disease";
 		}elseif ($score>=1.18 && $score<=5.31){
-			$interprete = "Higher chance not to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '1.18 – 5.30');
+			return "Higher chance not to have a liver disease";
 		}elseif ($score>=0 && $score<=1.17){
-			$interprete = "Highest chance not to have a liver disease";
-			$recom = $this->results_tab->getRecommendation('blq', '0.00 – 1.17');
+			return "Highest chance not to have a liver disease";
 		}
-		return $eval;
 	}
 		
 	function evaluate_sf36($score_mean=""){

@@ -75,7 +75,7 @@
 													showInLegend: true, 
 													dataPoints:[
 														{ label: "SF36", y: <?php echo $sf36['ave'] ?>,indexLabel: "<?php echo $sf36_eval['ave']; ?>"},
-														{ label: "BLQ", y: <?php echo round($blq,2) ?> ,indexLabel: "<?php echo $blq_eval['interprete']; ?>" },
+														{ label: "BLQ", y: <?php echo round($blq,2) ?> ,indexLabel: "<?php echo $blq_eval; ?>" },
 														{ label: "CLDQ", y: <?php echo $cldq['ave'] ?>,indexLabel: "<?php echo $cldq_eval['ave']; ?>"  },
 													]
 												},
@@ -219,10 +219,6 @@
 				       								<?php echo $row; ?>
 				       							</li>
 			       							<?php endforeach ?>
-			       						<?php elseif($blq<=50): ?>
-			       							<li>
-			       								<?php echo $blq_eval['interprete']; ?>
-			       							</li>
 			       						<?php else: ?>
 			       							<?php foreach ($cldq_eval as $row):?> 
 				       							<li>
@@ -239,9 +235,6 @@
 							      		<?php if ($sf36['ave']>75): ?>
 							      			<li><?php echo $sf36_recom[1]; ?></li>
 							      			<li><?php echo $sf36_recom[2]; ?></li>
-							      		<?php elseif($blq<=50): ?>
-							      			<li><?php echo $blq_eval['recom'] ?></li>
-							      			<li>Please, See a Doctor for more test and more accurate results</li>
 							      		<?php else: ?>
 							      			<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
 							      			<li>You need to sleep <?php echo $cldq_recom[2]; ?></li>

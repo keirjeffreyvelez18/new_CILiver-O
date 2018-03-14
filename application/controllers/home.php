@@ -52,13 +52,13 @@ class Home extends CI_Controller {
 					'sf36' => 0,
 					'blq' => 0,
 					'prs' => 0,
-					'cldq' => 0,
-					'result' => 0
+					'cldq' => 0
 				);
 				$data['qTaken'] = json_encode($taken);
 				
 				if ($this->isLegalAge()) {
 					if($this->userstab->insert_user($data)){
+						
 						$msg="Successfully Register, Please Log-in";
 						$this->session->set_flashdata('success',$msg);
 						$this->login();
@@ -169,7 +169,6 @@ class Home extends CI_Controller {
 	}
 
 	public function logout(){
-		$this->userstab->insert_log();
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('logout','Successfully Logout');
 		redirect('/home/');

@@ -13,16 +13,6 @@
         	return $query->result();
     	}
 
-        function insert_log(){
-            $data = array(
-                'userid' => $this->session->userdata('userid'),
-                'datetimelogout' => date('Y-m-d h:i:s')
-            );
-            $query = $this->db->insert('log', $data);
-            return $query;
-        }
-
-
     	function insert_user($datainsert = array()){
     	   $query = $this->db->insert('users', $datainsert);
     	   return $query;
