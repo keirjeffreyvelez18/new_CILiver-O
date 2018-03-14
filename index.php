@@ -33,16 +33,28 @@
  * By default development will show errors but testing and live will hide them.
  */
 
-if (defined('ENVIRONMENT')) {
-    switch (ENVIRONMENT) {
+if (defined('ENVIRONMENT'))
+{
+    switch (ENVIRONMENT)
+    {
         case 'development':
+            // Report all errors
             error_reporting(E_ALL);
-            break;
+
+            // Display errors in output
+            ini_set('display_errors', 1);
+        break;
+
         case 'testing':
         case 'production':
-            error_reporting(0);
-            ini_set('display_errors', 0);  
-            break;
+            // Report all errors except E_NOTICE
+            // This is the default value set in php.ini
+            error_reporting(E_ALL ^ E_NOTICE);
+
+            // Don't display errors (they can still be logged)
+            ini_set('display_errors', 1);
+        break;
+
         default:
             exit('The application environment is not set correctly.');
     }
