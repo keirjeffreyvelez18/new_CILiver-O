@@ -41,6 +41,7 @@ class Sleeptracker extends CI_Controller {
 			$this->session->set_userdata($date);			
 		}
 
+
 		if ($r) {
 			$data['sf36'] = json_decode($r[0]['qresults'], TRUE);
 			if ($data['sf36']['ave']>=75) {
@@ -50,25 +51,25 @@ class Sleeptracker extends CI_Controller {
 				$data['sf36_recom'] = $this->sf36_recom($data['sf36']);
 				$data['cldq_recom']=$this->cldq_recom($data['cldq']);
 			}
-
 		}
-		
-		
-		//print_r($data['marker']);
+		$data['sleep'] = round($this->sleepingAve(), 2);
 		$this->load->view('Recommendations/sleeptracker_view', $data);
 	}
 
+	function sleepingAve(){
+		$sleepingRec = $this->sleeptrackertab->getSleepingRecords();
+		foreach ($sleepingRec as $key => $value) {
+			$s+=($sleepingRec[$key]['hoursOfSleep']);
+		}
+		return $s/(count($sleepingRec));
+	}
+
 	function sf36_recom($score_mean=""){
-		if ($score_mean['ave']<75) {
-			$recom[1]=("Average Health is Unhealthy");
-			$recom[2]="";
-		} else {
+		if ($score_mean['ave']>75) {
 			if ($this->session->userdata('gender')=='Male') {
-				$recom[1]=("15 - 16 glasseses [125 ounces] per day");
-				$recom[2]=("7-9 hours of sleep per day");
+				$recom[1]=("7-9 hours of sleep per day");
 			}else{
-				$recom[1]=("11 - 12 glasses[92 ounces] per day");
-				$recom[2]=("7-9 hours of sleep per day");
+				$recom[1]=("7-9 hours of sleep per day");
 			}
 		}
 		return $recom;
@@ -76,15 +77,12 @@ class Sleeptracker extends CI_Controller {
 
 	function cldq_recom($score_mean=""){
 		if ($score_mean['ave']<50) {
-			$recom[1]=("6 - 7 glasses [51 ounces] per day");
-			$recom[2]="7-9 hours of sleep per day";
+			$recom[1]="7-9 hours of sleep per day";
 		} else {
-			$recom[1]=("1 liter or 4 glasses [51 ounces] per day");
-			$recom[2]="≥ 8 hours of sleep per day";
+			$recom[1]="≥ 8 hours of sleep per day";
 		}
 		return $recom;
 	}
-
 
 	public function saveSleepTracker(){
 		$data['dateOfSleep'] = $this->input->post('dateOfSleep');

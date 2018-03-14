@@ -53,10 +53,12 @@
 							<h2>Sleep Tracker Interpretation:</h2>
 							<div class="col-md-10">
 								<ul>
-									<li> Your Sleeping Average:  <?php echo $waterAve; ?> Sleeping Hours Per Day</li>
-									<li>
-										You are required to sleep: <?php echo $cldq_recom[2]; ?>
-									</li>
+									<li> Your Sleeping Average:  <?php echo $sleep; ?> Sleeping Hours Per Day</li>
+										<?php if ($sf36['ave']>75): ?>
+											<li>You are required to sleeping: <?php echo $sf36_recom[1]; ?></li>
+										<?php else: ?>
+											<li>You are required to sleeping: <?php echo $sf36_recom[1]; ?></li>
+										<?php endif ?>
 								</ul>
 							</div>
 						</div>

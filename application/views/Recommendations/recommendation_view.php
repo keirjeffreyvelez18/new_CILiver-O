@@ -10,11 +10,6 @@
 					<h1>
 						<span class="glyphicon glyphicon-check"></span> 
 						Recommendation Page
-								<a href="<?php echo site_url('watertracker') ?>">
-									<button class = "btn btn-md btn-success" type = "button" style="float:right">Start Daily Tracking
-		       				 		<span class = "glyphicon glyphicon-chevron-right"></span>
-		       						</button>
-		       					</a><br>
 					</h1>
 				</div>
 			</div>			
@@ -96,6 +91,15 @@
 											    <?php endif ?>
 											     
 										    </ul>
+
+										    <a href="<?php echo site_url('watertracker') ?>">
+												<button class = "btn btn-md btn-success" type = "button" style="float:right">
+												<span class="glyphicon glyphicon-tint"></span>
+												Start Daily Water Tracking
+					       				 		<span class = "glyphicon glyphicon-chevron-right"></span>
+					       						</button>
+					       					</a><br>
+
 										</div>
 										<div id="Wmenu2" class="tab-pane fade">
 										    <h3>Hints and Suggestions</h3>
@@ -156,25 +160,34 @@
 
 									<div class="tab-content">
 									    <div id="Smenu1" class="tab-pane fade in active">
-									      <h3>Concerns: </h3>
-									      <!-- <p>If the result is high severity Systemic/Emotional/Fatigue place it here.</p> -->
-									      <ul>
-									      <?php if ($sf36['ef']>75): ?>
-									      	<li>
-									      		<h4> You are healthy, please keep it that way and regulate your sleeping pattern to avoid complications.</h4>
-									      	</li>
-									      <?php else: ?>
-									      <?php if ($cldq['f']<50): ?>
-									      	<li>
-									      		<h4> You should keep watch over your sleeping pattern because your body might suffer more serious complications involving sleep related liver complications. Keep track of your sleeping pattern before it's to late. </h4>
-									      	</li>
-									      <?php else: ?>
-										    <li>
-										      	<h4> You are at risk of the effects of severe hepatic encephalopathy, please consult your doctor and monitor your sleeping patterns. </h4>
-										    </li>
-									      <?php endif ?>
-									      <?php endif ?>
-									      </ul>
+										    <h3>Concerns: </h3>
+										      <!-- <p>If the result is high severity Systemic/Emotional/Fatigue place it here.</p> -->
+										    <ul>
+										   		<?php if ($sf36['ef']>75): ?>
+										      	<li>
+										      		<h4> You are healthy, please keep it that way and regulate your sleeping pattern to avoid complications.</h4>
+										      	</li>
+										    	<?php else: ?>
+										    	<?php if ($cldq['f']<50): ?>
+										      	<li>
+										      		<h4> You should keep watch over your sleeping pattern because your body might suffer more serious complications involving sleep related liver complications. Keep track of your sleeping pattern before it's to late. </h4>
+										      	</li>
+										    	<?php else: ?>
+											    <li>
+											      	<h4> You are at risk of the effects of severe hepatic encephalopathy, please consult your doctor and monitor your sleeping patterns. </h4>
+											    </li>
+										    	<?php endif ?>
+										    	<?php endif ?>
+										    </ul>
+
+									      	<a href="<?php echo site_url('sleeptracker') ?>">
+												<button class = "btn btn-md btn-success" type = "button" style="float:right">
+												<span class="glyphicon glyphicon-bed"></span>
+												Start Daily Sleep Tracking
+					       				 		<span class = "glyphicon glyphicon-chevron-right"></span>
+					       						</button>
+					       					</a><br>
+
 									    </div>
 									    <div id="Smenu2" class="tab-pane fade">
 									      <h3>Hints and Suggestions</h3>
