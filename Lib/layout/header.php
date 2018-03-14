@@ -91,11 +91,15 @@
                                         }
                                      ?>">Questionnaire</a>
                         </li>
-                    <?php if ($this->session->userdata('username')!='Administrator'): ?>
+                    <?php if ( $this->session->userdata('isComplete')) : ?>
                         <li class="<?php if($this->uri->segment(2)=='result_view'|| $this->uri->segment(1)=='result'){echo 'active';}?>">
-                            <a href = "<?php echo site_url('result')?>">Result</a>
+                            <a href = "<?php echo site_url('result')?>">Results</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
+                        <li class="<?php if($this->uri->segment(2)=='recommendation_view'|| $this->uri->segment(1)=='recommendation'){echo 'active';}?>">
+                            <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
+                        </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
+                        
                         <li class="<?php if($this->uri->segment(2)=='watertracker_view'|| $this->uri->segment(1)=='watertracker'){echo 'active';}?>">
                             <a href = "<?php echo site_url('watertracker')?>">Water Tracker</a>
                         </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
@@ -108,12 +112,23 @@
                             <a href = "<?php echo site_url('foodrecommendation')?>">Calorie Recommendation</a>
                         </li> --><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
 
-                        <li class="<?php if($this->uri->segment(2)=='recommendation_view'|| $this->uri->segment(1)=='recommendation'){echo 'active';}?>">
-                            <a href = "<?php echo site_url('recommendation')?>">Recommendation</a>
-                        </li><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
-                    <?php else: ?>
+                        
+                    <?php elseif($this->session->userdata('username')=='Administrator'): ?>
                         <li class="<?php if($this->uri->segment(2)=='users'){echo 'active';}?>">
                             <a href = "<?php echo site_url('home/users')?>">Users</a>
+                        </li>
+                    <?php else: ?>
+                        <li>
+                            <a onclick="return false;" >Results</a>
+                        </li>
+                        <li>
+                            <a onclick="return false;" >Recommendation</a>
+                        </li>
+                        <li>
+                            <a onclick="return false;" >Water Tracker</a>
+                        </li>
+                        <li>
+                            <a onclick="return false;" >Sleep Tracker</a>
                         </li>
                     <?php endif ?> 
                     </ul>
@@ -126,7 +141,7 @@
             <?php if ($this->session->userdata('isLoggedIn')): ?>
                 <li class="<?php if($this->uri->segment(2)=='profile'){echo 'active';} ?>">
                     <a href="<?php echo base_url('index.php/home/profile') ?>">
-                        <span class="badge">3</span>   
+                       
                         <?php echo $this->session->userdata('username') ?>
                     </a> <!-- This is where the system uses calls the name of the user logged in -->
                 </li>

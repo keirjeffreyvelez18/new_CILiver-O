@@ -39,14 +39,27 @@
 						</div>
 						<!-- ================== InputForm ================== -->
 						
-
+						
 					  <!-- ================== Sleep Progress Go Here ===================== -->
 					  <br>
 					  <div class = "col-lg-12">
-					  	
 					  	<?php include_once('Lib/layout/sleepPattern.php');?> 
 					  	<br>
 					  </div>
+					  <div class="col-lg-12">
+							<p>Legend: <span class="glyphicon glyphicon-triangle-top"></span> Too Much Sleep, <span  class="glyphicon glyphicon-stop"></span>Normal Sleep, <span class="glyphicon glyphicon-remove"></span> Lack of Sleep</p>
+						</div>
+					  	<div class="col-md-12">
+							<h2>Sleep Tracker Interpretation:</h2>
+							<div class="col-md-10">
+								<ul>
+									<li> Your Sleeping Average:  <?php echo $waterAve; ?> Sleeping Hours Per Day</li>
+									<li>
+										You are required to sleep: <?php echo $cldq_recom[2]; ?>
+									</li>
+								</ul>
+							</div>
+						</div>
 					  <!-- ================== End of Sleep Progress ======================-->
 
 					  	<hr>

@@ -30,6 +30,17 @@ class Assessment extends CI_Controller {
 		$data['title']='Assessment | CLiver-O';
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
 		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
+		if ($data['qTaken']['result']==0) {
+			$d = array(
+				'isComplete' => FALSE
+			);
+			$this->session->set_userdata($d);
+		}else{
+			$d = array(
+				'isComplete' => TRUE
+			);
+			$this->session->set_userdata($d);
+		}
 		$this->load->view('Assessment/assessment_view', $data);
 	}
 
@@ -140,21 +151,24 @@ class Assessment extends CI_Controller {
 			$data['index']+=$a;
 			$this->get_score();
 			// $data['btn'] = "animated fadeInRight";
-		} elseif ($btn=="Back") {
+		}elseif ($btn=="Back") {
 			$data['index']=$a-1;
 			$this->get_score();
 			// $data['btn'] = "animated fadeInLeft";
+		}else{
+			$data['index']+=$a;
+			$this->get_score();
 		}
 
 		$this->session->set_userdata('cur_uAns',$this->checkContent($qcategory));
 		$ans=$this->session->userdata('cur_uAns');
 		$data['curAns'] = json_decode($ans['answers']);
 
-		if (json_decode($ans['answers'],TRUE)[$a]=="") {
-			$msg="Please select one.";
-			$this->session->set_flashdata('error',$msg);
-			$data['index']=$a;
-		}
+		// if (json_decode($ans['answers'],TRUE)[$a]=="") {
+		// 	$msg="Please select one.";
+		// 	$this->session->set_flashdata('error',$msg);
+		// 	$data['index']=$a;
+		// }
 		
 		$data['progress'] =1;
 		if ($a=="") {
@@ -168,7 +182,7 @@ class Assessment extends CI_Controller {
 		$data['sf36_eval'] = $this->evaluate();
 		$data['sf36_inter'] = $this->interprete($this->get_score()['ave']);
 
-		$this->load->view('Assessment/sf36_view', $data);
+		$this->load->view('Assessment/sf36_view2', $data);
 	}
 
 	public function sf36_result(){
@@ -210,9 +224,7 @@ class Assessment extends CI_Controller {
 		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		$btn = $this->input->post('prs_button');
 
-
 		if ($btn == "Yes") {
-			print_r("expression");
 			$data['qTaken']['prs']=1;
 			if ($data['qTaken']['cldq']==0) {
 				$data['qTaken']['cldq']=0.5;
@@ -220,7 +232,11 @@ class Assessment extends CI_Controller {
 			$this->assessments_tab->updateTaken($data);
 			$this->index();
 		} else if ($btn == "No"){
-			$this->load->view('Result/result_view',$data);
+			$data['qTaken']['prs']=1;
+			$data['qTaken']['cldq']=0;
+			$data['qTaken']['result']=1;
+			$this->assessments_tab->updateTaken($data);
+			redirect('result', 'refresh');
 		}else{
 			$this->load->view('Assessment/persistence_view',$data);	
 		}
@@ -340,13 +356,13 @@ class Assessment extends CI_Controller {
 			 
 		);
 
-		if ($score_mean['pf']<=75) {
+		if ($score_mean['pf']>=75) {
 			$eval['pf']=$this->results_tab->getDomainResults("sf36", "pf", "Unhealthy");
 		} else {
 			$eval['pf']=$this->results_tab->getDomainResults("sf36", "pf", "Healthy");
 		}
 
-		if ($score_mean['lph']<=75) {
+		if ($score_mean['lph']>=75) {
 			$eval['lph']=$this->results_tab->getDomainResults("sf36", "lph", "Unhealthy");
 			
 		} else {
@@ -354,7 +370,7 @@ class Assessment extends CI_Controller {
 			
 		}
 
-		if ($score_mean['leh']<=75) {
+		if ($score_mean['leh']>=75) {
 			$eval['leh']=$this->results_tab->getDomainResults("sf36", "leh", "Unhealthy");
 			
 		} else {
@@ -362,7 +378,7 @@ class Assessment extends CI_Controller {
 			
 		}
 		
-		if ($score_mean['ef']<=75) {
+		if ($score_mean['ef']>=75) {
 			$eval['ef']=$this->results_tab->getDomainResults("sf36", "ef", "Unhealthy");
 			
 		} else {
@@ -370,7 +386,7 @@ class Assessment extends CI_Controller {
 			
 		}
 
-		if ($score_mean['ewb']<=75) {
+		if ($score_mean['ewb']>=75) {
 			$eval['ewb']=$this->results_tab->getDomainResults("sf36", "ewb", "Unhealthy");
 			
 		} else {
@@ -378,7 +394,7 @@ class Assessment extends CI_Controller {
 			
 		}
 
-		if ($score_mean['sf']<=75) {
+		if ($score_mean['sf']>=75) {
 			$eval['sf']=$this->results_tab->getDomainResults("sf36", "sf", "Unhealthy");
 			
 		} else {
@@ -386,7 +402,7 @@ class Assessment extends CI_Controller {
 			
 		}
 
-		if ($score_mean['p']<=75) {
+		if ($score_mean['p']>=75) {
 			$eval['p']=$this->results_tab->getDomainResults("sf36", "p", "Unhealthy");
 			
 		} else {
@@ -394,7 +410,7 @@ class Assessment extends CI_Controller {
 			
 		}
 
-		if ($score_mean['gh']<=75) {
+		if ($score_mean['gh']>=75) {
 			$eval['gh']=$this->results_tab->getDomainResults("sf36", "gh", "Unhealthy");
 			
 		} else {
@@ -402,13 +418,13 @@ class Assessment extends CI_Controller {
 			
 		}
 
-		if ($score_mean['ave']<=75) {
+		if ($score_mean['ave']>=75) {
 			
-			$eval['ave']=("Average Health is <span style='font-weight: bold'>Unhealthy</span");
+			$eval['ave']=("Average Health is Unhealthy");
 			
 		} else {
 
-			$eval['ave']=("Average Health is <span style='font-weight: bold'>Healthy</span>");
+			$eval['ave']=("Average Health is Healthy");
 			
 		}
 

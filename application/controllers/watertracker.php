@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+	<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Watertracker extends CI_Controller {
 
@@ -28,9 +28,11 @@ class Watertracker extends CI_Controller {
 	public function index()
 	{	
 		$data['title'] = "Water Tracker | Liver-O";
+		$data['waterintakeData'] = $this->waterintaketab->getwaterintake('asc');
+		
 		$r = $this->results_tab->getResult();
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
-		$data['waterintakeData'] = $this->waterintaketab->getwaterintake('asc');
+		
 		if (!$data['waterintakeData']) {
 			$date['dateStartOfRecom'] = date('Y-m-d');
 			$this->session->set_userdata($date);			
@@ -49,7 +51,7 @@ class Watertracker extends CI_Controller {
 		}
 
 		$data['waterAve'] = $this->interpretWaterIntake();
-		print_r($data['waterAve']);
+		//print_r($data['waterAve']);
 		$this->load->view('Recommendations/watertracker_view', $data);
 	}
 

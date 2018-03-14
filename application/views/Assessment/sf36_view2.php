@@ -9,13 +9,19 @@
 	       	</div>
 	    </div>
 
+	   	<script type="text/javascript">
+	   		function alerts() {
+
+	   		}
+	   	</script>
+
 	    <div class="content">
 			
 			<div class = "container">
 			    <?php if ($index<37): ?>
-			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" class="container quiz-container">
+			    	<form id="myForm" name="form" method="post" action="<?php echo base_url('index.php/Assessment/sf36') ?>" class="container quiz-container">
 			    <?php else: ?>
-			    	<form method="post" action="<?php echo base_url('index.php/Assessment/sf36_save') ?>" class="container quiz-container">
+			    	<form id="myForm" name="form" method="post" action="<?php echo base_url('index.php/Assessment/sf36_save') ?>" class="container quiz-container">
 			    <?php endif ?>
 
 						<table class="table table-inverse" id = "white">
@@ -68,14 +74,16 @@
 														<input name="qIndex" type="hidden" value="<?php echo $row->qIndex; ?>">
 														<input type="hidden" name="i"  value="<?php echo $index; ?>">
 
-														<div class="btn-group" data-toggle="buttons" style="margin: 5%; margin-left: 7%;"> <!-- Look into this -->
+														<div class="btn-group" data-toggle="buttons" style="margin: 5%; margin-left: 7%;" > <!-- Look into this -->
 														
 															<?php for ($a=0; $a < count($MyQuestion->answer) ; $a++): ?>
 																<?php if ($MyQuestion->answer[$a]!=""): ?>
+
+
 																	
-																	<label class="Rcontainer radio-custom <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'active';}} ?>">
-																	
-																	    <input name="ans[<?php echo $row->qIndex ?>]" type="radio" value="<?php echo $MyQuestion->score[$a]; ?>" <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'checked="checked"';}} ?>>
+																	<label  class="Rcontainer radio-custom <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'active';}} ?>">
+																		
+																	    <input onclick="alerts();" name="ans[<?php echo $row->qIndex ?>]" type="radio" value="<?php echo $MyQuestion->score[$a]; ?>" <?php $i=$row->qIndex; if(isset($curAns->$i)){if(trim($curAns->$i)==$MyQuestion->score[$a]){echo 'checked="checked"';}} ?> >
 																	    	<span class="checkmark"></span>
 
 																	    <?php echo $MyQuestion->answer[$a] ?>
@@ -119,11 +127,7 @@
 						       						<?php endforeach ?>
 					       						</ul>
 					       					</div>
-					       					<div class="col-md-4">
-					       						<li>You have a <?php echo " ". $sf36_inter['interpretation']; ?></li>
-					       						<br>
-					       						<li><?php echo $sf36_inter['description']; ?></li>
-					       					</div>
+					       					
 				       					</div>
 										
 									</td>
@@ -139,9 +143,9 @@
 											<?php if ($index==37): ?>
 												<input onclick="alert('Saved');" type="submit" name="submit" class="btn btn-primary" value="Save">
 											<?php else: ?>
-												<input type="submit" name="submit" class="btn btn-primary" value="Next" autofocus="">
 												<input type="submit" name="submit" class="btn btn-primary" value="Back" 
 												<?php if($index==1){echo "disabled";} ?>>
+												<input type="submit" name="submit" class="btn btn-primary" value="Next" autofocus="">
 											<?php endif ?>
 										</div>
 									</td>
@@ -150,6 +154,7 @@
 
 						</table>
 				</form>
+				
 			</div>
 		</div>
 
