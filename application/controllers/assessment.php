@@ -223,7 +223,17 @@ class Assessment extends CI_Controller {
 		$data['title']='Assessment | CLiver-O';
 		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		$btn = $this->input->post('prs_button');
+		$blq_ans = json_decode($this->results_tab->getBlqResults(), TRUE);
 
+		$symptoms = array();
+
+		foreach ($blq_ans as $key => $value) {
+			if ($blq_ans[$key]==2) {
+				$symptoms[$key] = $this->results_tab->getSymptoms($key);
+			}
+		}
+		$data['symptoms'] = array_unique($symptoms);
+		print_r($data['symptoms']);
 		if ($btn == "Yes") {
 			$data['qTaken']['prs']=1;
 			if ($data['qTaken']['cldq']==0) {
