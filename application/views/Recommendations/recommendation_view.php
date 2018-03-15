@@ -144,8 +144,11 @@
 
 						<div class="row">
 							<h4 class = "speech-bubble2 animated jackInTheBox">
-								Hey, you should know that your emotional function score is: <strong><?php echo $sf36['ef']; ?></strong>, 
-								<br> <?php echo $sf36_eval['ef'] ?>
+								Hey, you should know that your emotional function score is: <strong><?php echo $sf36['ef']; ?></strong>,
+								<br>and your fatigue score: <strong><?php echo $cldq['f'] ?></strong> 
+								<br>- <?php echo $sf36_eval['ef'] ?> 
+								<br>- <?php echo $cldq_eval['f'] ?> 
+
 							</h4>
 
 							<div class="col-lg-7">

@@ -110,19 +110,24 @@
 										</h2>
 										
 										<div class="row">
-											<div class="col-md-8">
+											<div class="col-md-7">
 												<ul>
 						       						<?php foreach ($sf36_eval as $row):?> 
 						       							<li>
-						       								<?php echo $row; ?>
+						       								<?php echo $row; ?>					 
 						       							</li>
+						       							<br>
 						       						<?php endforeach ?>
 					       						</ul>
 					       					</div>
-					       					<div class="col-md-4">
-					       						<li>You have a <?php echo " ". $sf36_inter['interpretation']; ?></li>
-					       						<br>
-					       						<li><?php echo $sf36_inter['description']; ?></li>
+					       					<div class="col-md-5">
+					       						<h4 class="speech-bubble3">
+					       							Hey <strong><?php echo $this->session->userdata('username') ?>,</strong>  
+					       							You have the <strong><?php echo " ". $sf36_inter['interpretation']; ?></strong>
+					       							<strong><?php echo $sf36_inter['description']; ?></strong>
+					       						</h4>
+
+					       						<img class="pull-right animated swing" style=" max-height: 100%; max-width: 100%;" src="<?php echo base_url('Lib/imgs/Liver_D.png')?>" alt="liver Doctor"/>
 					       					</div>
 				       					</div>
 										

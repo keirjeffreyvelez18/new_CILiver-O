@@ -97,17 +97,27 @@
 										<h2>
 											Severity Percentage: <?php echo round($result['ave']) ?> %
 										</h2>
-										<div class="">
+
+										<div class="row">
+											<div class="col-md-7">
 												<ul>
-						       						<?php foreach ($cldq_eval as $row):?> 
+					       						<?php foreach ($cldq_eval as $row):?> 
 						       							<li>
 						       								<?php echo $row; ?>
 						       							</li>
+						       							<br>
 						       						<?php endforeach ?>
 					       						</ul>
 					       					</div>
+
+					       					<div class="col-md-5">
+					       						<img class="pull-right animated swing" style=" max-height: 100%; max-width: 100%;" src="<?php echo base_url('Lib/imgs/Liver_D.png')?>" alt="liver Doctor"/>
+					       					</div>
+					       				</div>
+					       					
 									</td>
 								</tr>
+								
 							</tbody>
 							<tfoot >
 								<tr>

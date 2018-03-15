@@ -239,9 +239,14 @@
 							      			<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
 							      			<li>You need to sleep <?php echo $cldq_recom[2]; ?></li>
 							      		<?php endif ?>
-							      		
-							      		
 							      	</ul>
+							      	<a href="<?php echo site_url('Recommendation') ?>">
+										<button class = "btn btn-block btn-success" type = "button" style="float:right">
+											<span class="glyphicon glyphicon-plus"></span>
+											View Recommendations
+					       					<!-- <span class = "glyphicon glyphicon-chevron-right"></span> -->
+					       				</button>
+					       			</a><br>
 							    </div>
 							</div>
 

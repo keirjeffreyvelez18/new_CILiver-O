@@ -231,11 +231,11 @@ class Cldq extends CI_Controller {
 
 		if ($score_mean['ave']<=50) {
 			
-			$eval['ave']=("Severity of Chronic Liver Disease is <span style='font-weight: bold'>Low</span>");
+			$eval['ave']=("Severity of Chronic Liver Disease is <span style='font-weight: bold'>Mild</span>");
 			
 		} else {
 
-			$eval['ave']=("Severity of Chronic Liver Disease is <span style='font-weight: bold'>High</span>");
+			$eval['ave']=("Severity of Chronic Liver Disease is <span style='font-weight: bold'>Severe</span>");
 			
 		}
 
