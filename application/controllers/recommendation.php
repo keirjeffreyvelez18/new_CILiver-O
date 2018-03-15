@@ -193,7 +193,7 @@ class Recommendation extends CI_Controller {
 			'w' => "",
 		);
 
-		if ($$score_mean['as'] >= 50) {
+		if ($score_mean['as'] >= 50) {
 			$eval['as']=$this->results_tab->getDomainResults("cldq", "as", "Severe");
 		}else{
 			$eval['as']=$this->results_tab->getDomainResults("cldq", "as", "Mild");

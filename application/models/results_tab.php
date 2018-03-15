@@ -13,6 +13,23 @@
             return $query->result_array();
         }
 
+        function getBlqResults(){
+            $this->db->select('answers');
+            $this->db->from('assessment');
+            $this->db->where('userid', $this->session->userdata('userid'));
+            $this->db->where('category', 'blq');
+            $query = $this->db->get();
+            return $query->result_array()[0]['answers'];
+        }
+
+        function getSymptoms($dno=0){
+            $this->db->select('diseases');
+            $this->db->from('symptoms');
+            $this->db->where('dno', $dno); 
+            $query = $this->db->get();
+            return $query->result_array()[0]['diseases'];
+        }
+
         function getRecommendation($category="", $scoreRange=""){
             $this->db->select('*');
             $this->db->from('recommendation');
