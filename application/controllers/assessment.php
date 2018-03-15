@@ -222,8 +222,11 @@ class Assessment extends CI_Controller {
 			}
 		}
 		$data['symptoms'] = array_unique($symptoms);
+<<<<<<< HEAD
 		print_r($data['symptoms']);
 >>>>>>> 8d8abaf0639ad7dea0b11459008dbd598e812320
+=======
+>>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 		if ($btn == "Yes") {
 			print_r("expression");
 			$data['qTaken']['prs']=1;

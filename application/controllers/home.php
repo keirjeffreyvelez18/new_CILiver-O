@@ -47,6 +47,8 @@ class Home extends CI_Controller {
 				$data['dateJoin'] = date('Y-m-d');
 				$data['firstLogin'] = TRUE;
 				$data['confirmCode'] = "letmelogin";
+				$data['height'] = 180;
+				$data['weight'] = 68;
 				$taken = array(
 					'bmi' => 0.5,
 					'sf36' => 0,

@@ -111,12 +111,6 @@
                         <!-- <li class="<?php if($this->uri->segment(2)=='foodrecommendation_view'|| $this->uri->segment(1)=='foodrecommendation'){echo 'active';}?>">
                             <a href = "<?php echo site_url('foodrecommendation')?>">Calorie Recommendation</a>
                         </li> --><!-- THIS IS FOR VIEWING PURPOSE ONLY, REMOVE IF NOT NEEDED -->
-
-     
-                    <?php else: ?>
-
-
-
                         
                     <?php elseif($this->session->userdata('username')=='Administrator'): ?>
 

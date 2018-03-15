@@ -33,9 +33,20 @@ class Sleeptracker extends CI_Controller {
 			$this->session->set_userdata($date);			
 		}
 
+<<<<<<< HEAD
 		
 		
 		//print_r($data['marker']);
+=======
+		if ($r) {
+			$data['sf36'] = json_decode($r[0]['qresults'], TRUE);
+			$data['cldq'] = json_decode($r[2]['qresults'], TRUE);
+			$data['sf36_recom'] = $this->sf36_recom($data['sf36']);
+			$data['cldq_recom']=$this->cldq_recom($data['cldq']);
+			
+		}
+		$data['sleep'] = round($this->sleepingAve(), 2);
+>>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 		$this->load->view('Recommendations/sleeptracker_view', $data);
 	}
 	public function saveSleepTracker(){

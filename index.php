@@ -41,8 +41,12 @@
 //             // Report all errors
 //             error_reporting(E_ALL);
 
+<<<<<<< HEAD
 //             // Display errors in output
 //             ini_set('display_errors', 1);
+=======
+//             // Display errors in output\
+>>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 //         break;
 
 //         case 'testing':
@@ -77,7 +81,11 @@ if (defined('ENVIRONMENT'))
 			exit('The application environment is not set correctly.');
 	}
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 /*
  *---------------------------------------------------------------
  * SYSTEM FOLDER NAME
