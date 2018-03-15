@@ -213,18 +213,18 @@
 							    <div id="Rmenu1" class="tab-pane fade in active">
 								    <h4>Interpretations</h4>
 								    <ul>
-								    	<?php if ($sf36['ave']>75): ?>
-								    		<?php foreach ($sf36_eval as $row):?> 
+								    	<?php if ($cldq['ave']): ?>
+								    		<?php foreach ($cldq_eval as $row):?> 
 				       							<li>
 				       								<?php echo $row; ?>
 				       							</li>
 			       							<?php endforeach ?>
-			       						<?php elseif($blq<=50): ?>
+			       						<?php elseif($blq): ?>
 			       							<li>
 			       								<?php echo $blq_eval['interprete']; ?>
 			       							</li>
-			       						<?php else: ?>
-			       							<?php foreach ($cldq_eval as $row):?> 
+			       						<?php elseif($sf36['ave']): ?>
+			       							<?php foreach ($sf36_eval as $row):?> 
 				       							<li>
 				       								<?php echo $row; ?>
 				       							</li>
@@ -236,15 +236,15 @@
 							    <div id="Rmenu2" class="tab-pane fade">
 							      <h4>Recommendations</h4>
 							      	<ul>
-							      		<?php if ($sf36['ave']>75): ?>
-							      			<li><?php echo $sf36_recom[1]; ?></li>
-							      			<li><?php echo $sf36_recom[2]; ?></li>
-							      		<?php elseif($blq<=50): ?>
-							      			<li><?php echo $blq_eval['recom'] ?></li>
-							      			<li>Please, See a Doctor for more test and more accurate results</li>
-							      		<?php else: ?>
+							      		<?php if ($cldq['ave']): ?>
 							      			<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
 							      			<li>You need to sleep <?php echo $cldq_recom[2]; ?></li>
+							      		<?php elseif($blq): ?>
+							      			<li><?php echo $blq_eval['recom'] ?></li>
+							      			<li>Please, See a Doctor for more test and more accurate results</li>
+							      		<?php elseif($sf36['ave']): ?>
+							      			<li><?php echo $sf36_recom[1]; ?></li>
+							      			<li><?php echo $sf36_recom[2]; ?></li>
 							      		<?php endif ?>
 							      		
 							      		

@@ -33,10 +33,10 @@
 					<div class="col-md-10">
 						<ul>
 							<li> Your Water Intake Average:  <?php echo $waterAve; ?> Glasses Per Day</li>
-								<?php if ($sf36['ave']>75): ?>
-							 		<li>You are required to drink: <?php echo $sf36_recom[1]; ?></li>
-								<?php else: ?>
+								<?php if ($cldq['ave']): ?>
 							 		<li>You are required to drink: <?php echo $cldq_recom[1]; ?></li>
+								<?php elseif($sf36['ave']): ?>
+							 		<li>You are required to drink: <?php echo $sf36_recom[1]; ?></li>
 								<?php endif ?>
 						</ul>
 					</div>

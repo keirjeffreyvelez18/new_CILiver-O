@@ -34,7 +34,17 @@ class Result extends CI_Controller {
 		if ($r) {
 			$sf36= json_decode($r[0]['qresults'], TRUE);
 			$blq = ($r[1]['qresults']/34)*100;
-			if ($sf36['ave']>=75) {
+			$cldq = json_decode($r[2]['qresults'], TRUE);
+			if($cldq['ave']<=50){
+				$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
+				$data_result['blq'] = ($r[1]['qresults']/34)*100;
+				$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
+				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
+				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
+				$data_result['blq_eval']=$this->evaluate_blq($r[1]['qresults']);
+				$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
+				$data_result['cldq_recom']=$this->cldq_recom($data_result['cldq']);
+			}elseif ($sf36['ave']>=75) {
 				$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
 				$data_result['blq'] = 53.125;
 				$data_result['cldq']['ave'] = 50;
@@ -50,14 +60,6 @@ class Result extends CI_Controller {
 				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
 				$data_result['blq_eval']=$this->evaluate_blq($r[1]['qresults']);
 				$data_result['cldq_eval']['ave']="You are Healthy";
-			}else{
-				$data_result['blq'] = ($r[1]['qresults']/34)*100;
-				$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
-				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
-				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
-				$data_result['blq_eval']=$this->evaluate_blq($r[1]['qresults']);
-				$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
-				$data_result['cldq_recom']=$this->cldq_recom($data_result['cldq']);
 			}
 			
 		}

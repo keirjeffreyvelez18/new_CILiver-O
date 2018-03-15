@@ -54,9 +54,9 @@
 							<div class="col-md-10">
 								<ul>
 									<li> Your Sleeping Average:  <?php echo $sleep; ?> Sleeping Hours Per Day</li>
-										<?php if ($sf36['ave']>75): ?>
-											<li>You are required to sleeping: <?php echo $sf36_recom[1]; ?></li>
-										<?php else: ?>
+										<?php if ($cldq['ave']): ?>
+											<li>You are required to sleeping: <?php echo $cldq_recom[1]; ?></li>
+										<?php elseif($sf36['ave']): ?>
 											<li>You are required to sleeping: <?php echo $sf36_recom[1]; ?></li>
 										<?php endif ?>
 								</ul>

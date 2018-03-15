@@ -44,13 +44,10 @@ class Sleeptracker extends CI_Controller {
 
 		if ($r) {
 			$data['sf36'] = json_decode($r[0]['qresults'], TRUE);
-			if ($data['sf36']['ave']>=75) {
-				$data['sf36_recom'] = $this->sf36_recom($data['sf36']);
-			}else{
-				$data['cldq'] = json_decode($r[2]['qresults'], TRUE);
-				$data['sf36_recom'] = $this->sf36_recom($data['sf36']);
-				$data['cldq_recom']=$this->cldq_recom($data['cldq']);
-			}
+			$data['cldq'] = json_decode($r[2]['qresults'], TRUE);
+			$data['sf36_recom'] = $this->sf36_recom($data['sf36']);
+			$data['cldq_recom']=$this->cldq_recom($data['cldq']);
+			
 		}
 		$data['sleep'] = round($this->sleepingAve(), 2);
 		$this->load->view('Recommendations/sleeptracker_view', $data);
