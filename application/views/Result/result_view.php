@@ -219,17 +219,12 @@
 				       								<?php echo $row; ?>
 				       							</li>
 			       							<?php endforeach ?>
-<<<<<<< HEAD
-			       						<?php else: ?>
-			       							<?php foreach ($cldq_eval as $row):?> 
-=======
 			       						<?php elseif($blq): ?>
 			       							<li>
 			       								<?php echo $blq_eval['interprete']; ?>
 			       							</li>
 			       						<?php elseif($sf36['ave']): ?>
 			       							<?php foreach ($sf36_eval as $row):?> 
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 				       							<li>
 				       								<?php echo $row; ?>
 				       							</li>
@@ -241,14 +236,7 @@
 							    <div id="Rmenu2" class="tab-pane fade">
 							      <h4>Recommendations</h4>
 							      	<ul>
-<<<<<<< HEAD
-							      		<?php if ($sf36['ave']>75): ?>
-							      			<li><?php echo $sf36_recom[1]; ?></li>
-							      			<li><?php echo $sf36_recom[2]; ?></li>
-							      		<?php else: ?>
-=======
 							      		<?php if ($cldq['ave']): ?>
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 							      			<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
 							      			<li>You need to sleep <?php echo $cldq_recom[2]; ?></li>
 							      		<?php elseif($blq): ?>

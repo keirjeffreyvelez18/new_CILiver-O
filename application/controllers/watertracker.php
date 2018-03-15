@@ -46,7 +46,7 @@ class Watertracker extends CI_Controller {
 		}
 
 		$data['waterAve'] = $this->interpretWaterIntake();
-		print_r($data['waterAve']);
+		//print_r($data['waterAve']);
 		$this->load->view('Recommendations/watertracker_view', $data);
 	}
 

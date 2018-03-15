@@ -20,7 +20,8 @@ class Sleeptracker extends CI_Controller {
 	function __construct(){
        	parent::__construct();
        	$this->load->model('sleeptrackertab');
-       	$this->load->model('waterintaketab');
+       	$this->load->model('assessments_tab');
+       	$this->load->model('results_tab');
        	$this->load->helper(array('form', 'url'));
    	}
 
@@ -32,12 +33,15 @@ class Sleeptracker extends CI_Controller {
 			$date['dateStartOfRecom'] = date('Y-m-d');
 			$this->session->set_userdata($date);			
 		}
+		$r = $this->results_tab->getResult();
+		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
+		
+		if (!$data['waterintakeData']) {
+			$date['dateStartOfRecom'] = date('Y-m-d');
+			$this->session->set_userdata($date);			
+		}
 
-<<<<<<< HEAD
-		
-		
-		//print_r($data['marker']);
-=======
+
 		if ($r) {
 			$data['sf36'] = json_decode($r[0]['qresults'], TRUE);
 			$data['cldq'] = json_decode($r[2]['qresults'], TRUE);
@@ -46,9 +50,37 @@ class Sleeptracker extends CI_Controller {
 			
 		}
 		$data['sleep'] = round($this->sleepingAve(), 2);
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 		$this->load->view('Recommendations/sleeptracker_view', $data);
 	}
+
+	function sleepingAve(){
+		$sleepingRec = $this->sleeptrackertab->getSleepingRecords();
+		foreach ($sleepingRec as $key => $value) {
+			$s+=($sleepingRec[$key]['hoursOfSleep']);
+		}
+		return $s/(count($sleepingRec));
+	}
+
+	function sf36_recom($score_mean=""){
+		if ($score_mean['ave']>75) {
+			if ($this->session->userdata('gender')=='Male') {
+				$recom[1]=("7-9 hours of sleep per day");
+			}else{
+				$recom[1]=("7-9 hours of sleep per day");
+			}
+		}
+		return $recom;
+	}
+
+	function cldq_recom($score_mean=""){
+		if ($score_mean['ave']<50) {
+			$recom[1]="7-9 hours of sleep per day";
+		} else {
+			$recom[1]="≥ 8 hours of sleep per day";
+		}
+		return $recom;
+	}
+
 	public function saveSleepTracker(){
 		$data['dateOfSleep'] = $this->input->post('dateOfSleep');
 		$data['dateStartOfRecom'] = $this->session->userdata('dateStartOfRecom');
@@ -60,8 +92,7 @@ class Sleeptracker extends CI_Controller {
 		if ($a>strtotime('12:00') && $b>strtotime('00:00')) {
 			$t = date("H:i",(23-$a)+$b);
 		}else {
-			print_r("expression");	
-			$t = date("H:i",$a-$b);
+			$t = date("H:i",$b-$a);
 		}
 		$data['hoursOfSleep'] = str_replace(':', '.', $t);
 		// $data['userid'] = $this->session->userdata('userid');

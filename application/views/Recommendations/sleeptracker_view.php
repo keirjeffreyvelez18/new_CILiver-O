@@ -39,16 +39,13 @@
 						</div>
 						<!-- ================== InputForm ================== -->
 						
-
+						
 					  <!-- ================== Sleep Progress Go Here ===================== -->
 					  <br>
 					  <div class = "col-lg-12">
-					  	
 					  	<?php include_once('Lib/layout/sleepPattern.php');?> 
 					  	<br>
 					  </div>
-<<<<<<< HEAD
-=======
 					  <div class="col-lg-12">
 							<p>Legend: <span class="glyphicon glyphicon-triangle-top"></span> Too Much Sleep, <span  class="glyphicon glyphicon-stop"></span>Normal Sleep, <span class="glyphicon glyphicon-remove"></span> Lack of Sleep</p>
 						</div>
@@ -65,7 +62,6 @@
 								</ul>
 							</div>
 						</div>
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 					  <!-- ================== End of Sleep Progress ======================-->
 
 					  	<hr>

@@ -32,10 +32,6 @@ class Result extends CI_Controller {
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
 		$data_result['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
 		if ($r) {
-<<<<<<< HEAD
-			$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
-			if ($data_result['sf36']['ave']>=75) {
-=======
 			$sf36= json_decode($r[0]['qresults'], TRUE);
 			$blq = ($r[1]['qresults']/34)*100;
 			$cldq = json_decode($r[2]['qresults'], TRUE);
@@ -50,27 +46,22 @@ class Result extends CI_Controller {
 				$data_result['cldq_recom']=$this->cldq_recom($data_result['cldq']);
 			}elseif ($sf36['ave']>=75) {
 				$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 				$data_result['blq'] = 53.125;
 				$data_result['cldq']['ave'] = 50;
 				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
 				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
-				$data_result['blq_eval']="You are Healthy";
+				$data_result['blq_eval']['interprete']="You are Healthy";
 				$data_result['cldq_eval']['ave']="You are Healthy";
-<<<<<<< HEAD
-			}else{
+			}elseif ($blq<=53.125) {
+				$data_result['sf36'] = json_decode($r[0]['qresults'], TRUE);
 				$data_result['blq'] = ($r[1]['qresults']/34)*100;
-				$data_result['cldq'] = json_decode($r[2]['qresults'], TRUE);
+				$data_result['cldq']['ave'] = 50;
 				$data_result['sf36_eval']=$this->evaluate_sf36($data_result['sf36']);
 				$data_result['sf36_recom'] = $this->sf36_recom($data_result['sf36']);
-				$data_result['blq_eval']=$this->evaluate_blq($data_result['blq']);
-				$data_result['cldq_eval']=$this->evaluate_cldq($data_result['cldq']);
-				$data_result['cldq_recom']=$this->cldq_recom($data_result['cldq']);
-=======
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
+				$data_result['blq_eval']=$this->evaluate_blq($r[1]['qresults']);
+				$data_result['cldq_eval']['ave']="You are Healthy";
 			}
 			
-
 		}
 		
 		$this->load->view('Result/result_view', $data_result);
@@ -104,25 +95,41 @@ class Result extends CI_Controller {
 	}
 
 	function evaluate_blq($score=0){
+
+		$eval = array(
+			'interprete' => "",
+			'recom' => "",
+		);
+
 		if ($score>=29.69) {
-			return "Highest chance to have a liver disease";
+			$eval['interprete'] = "Highest chance to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '29.69 – 34.00');
 		}elseif ($score>=25.46 && $score<=29.68){
-			return "Higher chance to have a liver disease";
+			$eval['interprete'] = "Higher chance to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '25.46 – 29.68');
 		}elseif ($score>=21.23 && $score<=25.45){
-			return "High chance to have a liver disease";
+			$eval['interprete'] = "High chance to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '21.23 – 25.45');
 		}elseif ($score>=17.00 && $score<=21.22){
-			return "Reasonable chance to have a liver disease";
+			$eval['interprete'] = "Reasonable chance to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '17.00 – 21.22');
 		}elseif ($score>=12.77 && $score<=16.99){
-			return "Marginal chance to have a liver disease";
+			$eval['interprete'] = "Marginal chance to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '12.77 – 16.99');
 		}elseif ($score>=9.57 && $score<=12.76){
-			return "Reasonable chance not to have a liver disease";
+			$eval['interprete'] = "Reasonable chance not to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '9.57 – 12.76');
 		}elseif ($score>=5.31 && $score<=9.56){
-			return "High chance not to have a liver disease";
+			$eval['interprete'] = "High chance not to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '5.31 – 9.56');
 		}elseif ($score>=1.18 && $score<=5.31){
-			return "Higher chance not to have a liver disease";
+			$eval['interprete'] = "Higher chance not to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '1.18 – 5.30');
 		}elseif ($score>=0 && $score<=1.17){
-			return "Highest chance not to have a liver disease";
+			$eval['interprete'] = "Highest chance not to have a liver disease";
+			$eval['recom'] = $this->results_tab->getRecommendation('blq', '0.00 – 1.17');
 		}
+		return $eval;
 	}
 		
 

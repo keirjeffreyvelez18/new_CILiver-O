@@ -30,6 +30,17 @@ class Assessment extends CI_Controller {
 		$data['title']='Assessment | CLiver-O';
 		$a = $this->assessments_tab->getTaken($this->session->userdata('userid'));
 		$data['qTaken'] = json_decode($a[0]['qTaken'], TRUE);
+		if ($data['qTaken']['result']==0) {
+			$d = array(
+				'isComplete' => FALSE
+			);
+			$this->session->set_userdata($d);
+		}else{
+			$d = array(
+				'isComplete' => TRUE
+			);
+			$this->session->set_userdata($d);
+		}
 		$this->load->view('Assessment/assessment_view', $data);
 	}
 
@@ -211,9 +222,6 @@ class Assessment extends CI_Controller {
 		$btn = $this->input->post('prs_button');
 		$blq_ans = json_decode($this->results_tab->getBlqResults(), TRUE);
 
-<<<<<<< HEAD
-
-=======
 		$symptoms = array();
 
 		foreach ($blq_ans as $key => $value) {
@@ -222,13 +230,7 @@ class Assessment extends CI_Controller {
 			}
 		}
 		$data['symptoms'] = array_unique($symptoms);
-<<<<<<< HEAD
-		print_r($data['symptoms']);
->>>>>>> 8d8abaf0639ad7dea0b11459008dbd598e812320
-=======
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 		if ($btn == "Yes") {
-			print_r("expression");
 			$data['qTaken']['prs']=1;
 			if ($data['qTaken']['cldq']==0) {
 				$data['qTaken']['cldq']=0.5;
@@ -236,7 +238,11 @@ class Assessment extends CI_Controller {
 			$this->assessments_tab->updateTaken($data);
 			$this->index();
 		} else if ($btn == "No"){
-			$this->load->view('Result/result_view',$data);
+			$data['qTaken']['prs']=1;
+			$data['qTaken']['cldq']=0;
+			$data['qTaken']['result']=1;
+			$this->assessments_tab->updateTaken($data);
+			redirect('result', 'refresh');
 		}else{
 			$this->load->view('Assessment/persistence_view',$data);	
 		}

@@ -32,25 +32,18 @@
 					<h2>Water Tracker Interpretation:</h2>
 					<div class="col-md-10">
 						<ul>
-<<<<<<< HEAD
-							<li><?php echo $waterAve; ?> Glasses</li>
-								<?php if ($sf36['ave']>75): ?>
-							 		<li><?php echo $sf36_recom[1]; ?></li>
-								<?php else: ?>
-							 		<li>You are required to drink <?php echo $cldq_recom[1]; ?></li>
-=======
 							<li> Your Water Intake Average:  <?php echo $waterAve; ?> Glasses Per Day</li>
 								<?php if ($cldq['ave']): ?>
 							 		<li>You are required to drink: <?php echo $cldq_recom[1]; ?></li>
 								<?php elseif($sf36['ave']): ?>
 							 		<li>You are required to drink: <?php echo $sf36_recom[1]; ?></li>
->>>>>>> 28286af0307fa6f7d25c00e81760d2e53f117c39
 								<?php endif ?>
 						</ul>
 					</div>
 				</div>
 			</div>		
 		</div>
+		<br><br>
 		<!-- ====================================FOOTER HERE=================================================== -->
 	<?php include_once('Lib/layout/footer.php');?>
 <!-- ====================================FOOTER HERE=================================================== -->
